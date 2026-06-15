@@ -1,0 +1,1735 @@
+﻿<?xml version="1.0"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:html="http://www.w3.org/TR/REC-html40">
+ <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+  <Version>16.00</Version>
+ </DocumentProperties>
+ <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
+  <AllowPNG/>
+ </OfficeDocumentSettings>
+ <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+  <WindowHeight>10755</WindowHeight>
+  <WindowWidth>25080</WindowWidth>
+  <WindowTopX>32767</WindowTopX>
+  <WindowTopY>32767</WindowTopY>
+  <ProtectStructure>False</ProtectStructure>
+  <ProtectWindows>False</ProtectWindows>
+ </ExcelWorkbook>
+ <Styles>
+  <Style ss:ID="Default" ss:Name="Normal">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font ss:FontName="Aptos Narrow" x:Family="Swiss" ss:Size="11"
+    ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s62">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font ss:FontName="Arial" ss:Bold="1"/>
+   <Interior ss:Color="#E8F4FF" ss:Pattern="Solid"/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s64">
+   <Interior ss:Color="#FBE2D5" ss:Pattern="Solid"/>
+  </Style>
+ </Styles>
+ <Worksheet ss:Name="URL-Vergleich">
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="183" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultColumnWidth="60" ss:DefaultRowHeight="15">
+   <Column ss:Width="116.25"/>
+   <Column ss:Width="429.75"/>
+   <Column ss:Width="348"/>
+   <Column ss:Width="394.5"/>
+   <Column ss:Width="433.5"/>
+   <Column ss:Width="348"/>
+   <Row>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">Status</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">Live-URL</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">Live-Pfad</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">Static-Dateipfad</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">Static-URL (abgeleitet)</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">Static-Pfad</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">Hinweis</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/</Data></Cell>
+    <Cell><Data ss:Type="String">/</Data></Cell>
+    <Cell><Data ss:Type="String">index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/</Data></Cell>
+    <Cell><Data ss:Type="String">/</Data></Cell>
+    <Cell><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/anlagen</Data></Cell>
+    <Cell><Data ss:Type="String">/anlagen/</Data></Cell>
+    <Cell><Data ss:Type="String">anlagen/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/anlagen/</Data></Cell>
+    <Cell><Data ss:Type="String">/anlagen/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/anlagen/kuechenabluftsysteme</Data></Cell>
+    <Cell><Data ss:Type="String">/anlagen/kuechenabluftsysteme/</Data></Cell>
+    <Cell><Data ss:Type="String">anlagen/kuechenabluftsysteme/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/anlagen/kuechenabluftsysteme/</Data></Cell>
+    <Cell><Data ss:Type="String">/anlagen/kuechenabluftsysteme/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/anlagen/kuehlregale</Data></Cell>
+    <Cell><Data ss:Type="String">/anlagen/kuehlregale/</Data></Cell>
+    <Cell><Data ss:Type="String">anlagen/kuehlregale/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/anlagen/kuehlregale/</Data></Cell>
+    <Cell><Data ss:Type="String">/anlagen/kuehlregale/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/anlagen/kuehlsysteme</Data></Cell>
+    <Cell><Data ss:Type="String">/anlagen/kuehlsysteme/</Data></Cell>
+    <Cell><Data ss:Type="String">anlagen/kuehlsysteme/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/anlagen/kuehlsysteme/</Data></Cell>
+    <Cell><Data ss:Type="String">/anlagen/kuehlsysteme/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/anlagen/kuehlturmreinigung</Data></Cell>
+    <Cell><Data ss:Type="String">/anlagen/kuehlturmreinigung/</Data></Cell>
+    <Cell><Data ss:Type="String">anlagen/kuehlturmreinigung/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/anlagen/kuehlturmreinigung/</Data></Cell>
+    <Cell><Data ss:Type="String">/anlagen/kuehlturmreinigung/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/anlagen/laborabzuege</Data></Cell>
+    <Cell><Data ss:Type="String">/anlagen/laborabzuege/</Data></Cell>
+    <Cell><Data ss:Type="String">anlagen/laborabzuege/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/anlagen/laborabzuege/</Data></Cell>
+    <Cell><Data ss:Type="String">/anlagen/laborabzuege/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/anlagen/lueftungsanlagenreinigung</Data></Cell>
+    <Cell><Data ss:Type="String">/anlagen/lueftungsanlagenreinigung/</Data></Cell>
+    <Cell><Data ss:Type="String">anlagen/lueftungsanlagenreinigung/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/anlagen/lueftungsanlagenreinigung/</Data></Cell>
+    <Cell><Data ss:Type="String">/anlagen/lueftungsanlagenreinigung/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/anlagen/lueftungsreinigung</Data></Cell>
+    <Cell><Data ss:Type="String">/anlagen/lueftungsreinigung/</Data></Cell>
+    <Cell><Data ss:Type="String">anlagen/lueftungsreinigung/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/anlagen/lueftungsreinigung/</Data></Cell>
+    <Cell><Data ss:Type="String">/anlagen/lueftungsreinigung/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/anlagen/luftkanalreinigung</Data></Cell>
+    <Cell><Data ss:Type="String">/anlagen/luftkanalreinigung/</Data></Cell>
+    <Cell><Data ss:Type="String">anlagen/luftkanalreinigung/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/anlagen/luftkanalreinigung/</Data></Cell>
+    <Cell><Data ss:Type="String">/anlagen/luftkanalreinigung/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/anlagen/op-raum-pruefung</Data></Cell>
+    <Cell><Data ss:Type="String">/anlagen/op-raum-pruefung/</Data></Cell>
+    <Cell><Data ss:Type="String">anlagen/op-raum-pruefung/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/anlagen/op-raum-pruefung/</Data></Cell>
+    <Cell><Data ss:Type="String">/anlagen/op-raum-pruefung/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/anlagen/prozessabluft-und-entrauchungsanlagen</Data></Cell>
+    <Cell><Data ss:Type="String">/anlagen/prozessabluft-und-entrauchungsanlagen/</Data></Cell>
+    <Cell><Data ss:Type="String">anlagen/prozessabluft-und-entrauchungsanlagen/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/anlagen/prozessabluft-und-entrauchungsanlagen/</Data></Cell>
+    <Cell><Data ss:Type="String">/anlagen/prozessabluft-und-entrauchungsanlagen/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/anlagen/raumluftdesinfektion</Data></Cell>
+    <Cell><Data ss:Type="String">/anlagen/raumluftdesinfektion/</Data></Cell>
+    <Cell><Data ss:Type="String">anlagen/raumluftdesinfektion/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/anlagen/raumluftdesinfektion/</Data></Cell>
+    <Cell><Data ss:Type="String">/anlagen/raumluftdesinfektion/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/anlagen/rechenzentrum</Data></Cell>
+    <Cell><Data ss:Type="String">/anlagen/rechenzentrum/</Data></Cell>
+    <Cell><Data ss:Type="String">anlagen/rechenzentrum/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/anlagen/rechenzentrum/</Data></Cell>
+    <Cell><Data ss:Type="String">/anlagen/rechenzentrum/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/anlagen/reinraumqualifizierung</Data></Cell>
+    <Cell><Data ss:Type="String">/anlagen/reinraumqualifizierung/</Data></Cell>
+    <Cell><Data ss:Type="String">anlagen/reinraumqualifizierung/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/anlagen/reinraumqualifizierung/</Data></Cell>
+    <Cell><Data ss:Type="String">/anlagen/reinraumqualifizierung/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/anlagen/splitklimageraete-und-umluftkuehlgeraete</Data></Cell>
+    <Cell><Data ss:Type="String">/anlagen/splitklimageraete-und-umluftkuehlgeraete/</Data></Cell>
+    <Cell><Data ss:Type="String">anlagen/splitklimageraete-und-umluftkuehlgeraete/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/anlagen/splitklimageraete-und-umluftkuehlgeraete/</Data></Cell>
+    <Cell><Data ss:Type="String">/anlagen/splitklimageraete-und-umluftkuehlgeraete/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/anlagen/textilschlaeuche</Data></Cell>
+    <Cell><Data ss:Type="String">/anlagen/textilschlaeuche/</Data></Cell>
+    <Cell><Data ss:Type="String">anlagen/textilschlaeuche/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/anlagen/textilschlaeuche/</Data></Cell>
+    <Cell><Data ss:Type="String">/anlagen/textilschlaeuche/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/anlagen/verdampfer-und-kondensatoren</Data></Cell>
+    <Cell><Data ss:Type="String">/anlagen/verdampfer-und-kondensatoren/</Data></Cell>
+    <Cell><Data ss:Type="String">anlagen/verdampfer-und-kondensatoren/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/anlagen/verdampfer-und-kondensatoren/</Data></Cell>
+    <Cell><Data ss:Type="String">/anlagen/verdampfer-und-kondensatoren/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/branchen</Data></Cell>
+    <Cell><Data ss:Type="String">/branchen/</Data></Cell>
+    <Cell><Data ss:Type="String">branchen/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/branchen/</Data></Cell>
+    <Cell><Data ss:Type="String">/branchen/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/cookie-richtlinie-eu</Data></Cell>
+    <Cell><Data ss:Type="String">/cookie-richtlinie-eu/</Data></Cell>
+    <Cell><Data ss:Type="String">cookie-richtlinie-eu/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/cookie-richtlinie-eu/</Data></Cell>
+    <Cell><Data ss:Type="String">/cookie-richtlinie-eu/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/datenschutz</Data></Cell>
+    <Cell><Data ss:Type="String">/datenschutz/</Data></Cell>
+    <Cell><Data ss:Type="String">datenschutz/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/datenschutz/</Data></Cell>
+    <Cell><Data ss:Type="String">/datenschutz/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/downloads</Data></Cell>
+    <Cell><Data ss:Type="String">/downloads/</Data></Cell>
+    <Cell><Data ss:Type="String">downloads/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/downloads/</Data></Cell>
+    <Cell><Data ss:Type="String">/downloads/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/energetische-inspektion-geg-2020</Data></Cell>
+    <Cell><Data ss:Type="String">/energetische-inspektion-geg-2020/</Data></Cell>
+    <Cell><Data ss:Type="String">energetische-inspektion-geg-2020/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/energetische-inspektion-geg-2020/</Data></Cell>
+    <Cell><Data ss:Type="String">/energetische-inspektion-geg-2020/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/filterintegritaetstest</Data></Cell>
+    <Cell><Data ss:Type="String">/filterintegritaetstest/</Data></Cell>
+    <Cell><Data ss:Type="String">filterintegritaetstest/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/filterintegritaetstest/</Data></Cell>
+    <Cell><Data ss:Type="String">/filterintegritaetstest/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Beide</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">https://igienair.de/gastronomie</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">/gastronomie/</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">kunden/gastronomie/index.html</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">https://igienair.de/kunden/gastronomie/</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">/kunden/gastronomie/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">0</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/gefaehrdungsbeurteilung-vdi-2047</Data></Cell>
+    <Cell><Data ss:Type="String">/gefaehrdungsbeurteilung-vdi-2047/</Data></Cell>
+    <Cell><Data ss:Type="String">gefaehrdungsbeurteilung-vdi-2047/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/gefaehrdungsbeurteilung-vdi-2047/</Data></Cell>
+    <Cell><Data ss:Type="String">/gefaehrdungsbeurteilung-vdi-2047/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Beide</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">https://igienair.de/gemeinden</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">/gemeinden/</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">kunden/gemeinden/index.html</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">https://igienair.de/kunden/gemeinden/</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">/kunden/gemeinden/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">0</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Beide</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">https://igienair.de/gesundheitswesen</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">/gesundheitswesen/</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">kunden/gesundheit/index.html</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">https://igienair.de/kunden/gesundheit/</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">/kunden/gesundheit/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">0</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/</Data></Cell>
+    <Cell><Data ss:Type="String">glossar/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/bedeutung-hygieneinspektionen-unternehmen</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/bedeutung-hygieneinspektionen-unternehmen/</Data></Cell>
+    <Cell><Data ss:Type="String">glossar/bedeutung-hygieneinspektionen-unternehmen/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/bedeutung-hygieneinspektionen-unternehmen/</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/bedeutung-hygieneinspektionen-unternehmen/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/brandschutzreinigung-entfettung-grosskuechenabluftsystemen</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/brandschutzreinigung-entfettung-grosskuechenabluftsystemen/</Data></Cell>
+    <Cell><Data ss:Type="String">glossar/brandschutzreinigung-entfettung-grosskuechenabluftsystemen/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/brandschutzreinigung-entfettung-grosskuechenabluftsystemen/</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/brandschutzreinigung-entfettung-grosskuechenabluftsystemen/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/digestorium</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/digestorium/</Data></Cell>
+    <Cell><Data ss:Type="String">glossar/digestorium/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/digestorium/</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/digestorium/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/din-en-14175-norm</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/din-en-14175-norm/</Data></Cell>
+    <Cell><Data ss:Type="String">glossar/din-en-14175-norm/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/din-en-14175-norm/</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/din-en-14175-norm/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/din-en-15780-norm</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/din-en-15780-norm/</Data></Cell>
+    <Cell><Data ss:Type="String">glossar/din-en-15780-norm/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/din-en-15780-norm/</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/din-en-15780-norm/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/energetische-inspektion</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/energetische-inspektion/</Data></Cell>
+    <Cell><Data ss:Type="String">glossar/energetische-inspektion/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/energetische-inspektion/</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/energetische-inspektion/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/entrauchungsanlage</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/entrauchungsanlage/</Data></Cell>
+    <Cell><Data ss:Type="String">glossar/entrauchungsanlage/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/entrauchungsanlage/</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/entrauchungsanlage/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/fachbetrieb-nach-whg</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/fachbetrieb-nach-whg/</Data></Cell>
+    <Cell><Data ss:Type="String">glossar/fachbetrieb-nach-whg/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/fachbetrieb-nach-whg/</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/fachbetrieb-nach-whg/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/fgk-qm-01-zertifizierung</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/fgk-qm-01-zertifizierung/</Data></Cell>
+    <Cell><Data ss:Type="String">glossar/fgk-qm-01-zertifizierung/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/fgk-qm-01-zertifizierung/</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/fgk-qm-01-zertifizierung/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/filterintegritaetstest</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/filterintegritaetstest/</Data></Cell>
+    <Cell><Data ss:Type="String">glossar/filterintegritaetstest/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/filterintegritaetstest/</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/filterintegritaetstest/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/gebaeudeenergiegesetz-geg-2020</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/gebaeudeenergiegesetz-geg-2020/</Data></Cell>
+    <Cell><Data ss:Type="String">glossar/gebaeudeenergiegesetz-geg-2020/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/gebaeudeenergiegesetz-geg-2020/</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/gebaeudeenergiegesetz-geg-2020/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/gefaehrdungsbeurteilung-vdi-2047-2</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/gefaehrdungsbeurteilung-vdi-2047-2/</Data></Cell>
+    <Cell><Data ss:Type="String">glossar/gefaehrdungsbeurteilung-vdi-2047-2/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/gefaehrdungsbeurteilung-vdi-2047-2/</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/gefaehrdungsbeurteilung-vdi-2047-2/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/gefaehrdungsbeurteilung-von-rlt-anlagen</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/gefaehrdungsbeurteilung-von-rlt-anlagen/</Data></Cell>
+    <Cell><Data ss:Type="String">glossar/gefaehrdungsbeurteilung-von-rlt-anlagen/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/gefaehrdungsbeurteilung-von-rlt-anlagen/</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/gefaehrdungsbeurteilung-von-rlt-anlagen/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/hygieneinspektion-nach-vdi-6022</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/hygieneinspektion-nach-vdi-6022/</Data></Cell>
+    <Cell><Data ss:Type="String">glossar/hygieneinspektion-nach-vdi-6022/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/hygieneinspektion-nach-vdi-6022/</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/hygieneinspektion-nach-vdi-6022/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/hygienetechnische-reinigung</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/hygienetechnische-reinigung/</Data></Cell>
+    <Cell><Data ss:Type="String">glossar/hygienetechnische-reinigung/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/hygienetechnische-reinigung/</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/hygienetechnische-reinigung/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/inspektionspflicht-geg-2020</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/inspektionspflicht-geg-2020/</Data></Cell>
+    <Cell><Data ss:Type="String">glossar/inspektionspflicht-geg-2020/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/inspektionspflicht-geg-2020/</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/inspektionspflicht-geg-2020/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/iso-140012015-zertifizierung</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/iso-140012015-zertifizierung/</Data></Cell>
+    <Cell><Data ss:Type="String">glossar/iso-140012015-zertifizierung/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/iso-140012015-zertifizierung/</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/iso-140012015-zertifizierung/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/iso-14644-norm</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/iso-14644-norm/</Data></Cell>
+    <Cell><Data ss:Type="String">glossar/iso-14644-norm/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/iso-14644-norm/</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/iso-14644-norm/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/iso-90012015-zertifizierung</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/iso-90012015-zertifizierung/</Data></Cell>
+    <Cell><Data ss:Type="String">glossar/iso-90012015-zertifizierung/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/iso-90012015-zertifizierung/</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/iso-90012015-zertifizierung/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/kuehlregale</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/kuehlregale/</Data></Cell>
+    <Cell><Data ss:Type="String">glossar/kuehlregale/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/kuehlregale/</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/kuehlregale/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/lecktest-schwebstofffilter</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/lecktest-schwebstofffilter/</Data></Cell>
+    <Cell><Data ss:Type="String">glossar/lecktest-schwebstofffilter/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/lecktest-schwebstofffilter/</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/lecktest-schwebstofffilter/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/luftkanalreinigung</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/luftkanalreinigung/</Data></Cell>
+    <Cell><Data ss:Type="String">glossar/luftkanalreinigung/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/luftkanalreinigung/</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/luftkanalreinigung/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/op-raum</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/op-raum/</Data></Cell>
+    <Cell><Data ss:Type="String">glossar/op-raum/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/op-raum/</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/op-raum/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/prozessabluftsystem</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/prozessabluftsystem/</Data></Cell>
+    <Cell><Data ss:Type="String">glossar/prozessabluftsystem/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/prozessabluftsystem/</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/prozessabluftsystem/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/rechenzentrum</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/rechenzentrum/</Data></Cell>
+    <Cell><Data ss:Type="String">glossar/rechenzentrum/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/rechenzentrum/</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/rechenzentrum/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/reinigung-rechenzentrum</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/reinigung-rechenzentrum/</Data></Cell>
+    <Cell><Data ss:Type="String">glossar/reinigung-rechenzentrum/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/reinigung-rechenzentrum/</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/reinigung-rechenzentrum/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/reinraum</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/reinraum/</Data></Cell>
+    <Cell><Data ss:Type="String">glossar/reinraum/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/reinraum/</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/reinraum/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/rlt-anlagen</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/rlt-anlagen/</Data></Cell>
+    <Cell><Data ss:Type="String">glossar/rlt-anlagen/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/rlt-anlagen/</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/rlt-anlagen/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/splitklimageraet</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/splitklimageraet/</Data></Cell>
+    <Cell><Data ss:Type="String">glossar/splitklimageraet/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/splitklimageraet/</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/splitklimageraet/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/textilschlaeuche</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/textilschlaeuche/</Data></Cell>
+    <Cell><Data ss:Type="String">glossar/textilschlaeuche/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/textilschlaeuche/</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/textilschlaeuche/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/umluftkuehlgeraet</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/umluftkuehlgeraet/</Data></Cell>
+    <Cell><Data ss:Type="String">glossar/umluftkuehlgeraet/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/umluftkuehlgeraet/</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/umluftkuehlgeraet/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/vdi-2047-2</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/vdi-2047-2/</Data></Cell>
+    <Cell><Data ss:Type="String">glossar/vdi-2047-2/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/vdi-2047-2/</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/vdi-2047-2/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/vdi-2052-bgr-111</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/vdi-2052-bgr-111/</Data></Cell>
+    <Cell><Data ss:Type="String">glossar/vdi-2052-bgr-111/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/vdi-2052-bgr-111/</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/vdi-2052-bgr-111/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/vdi-6022-richtlinienreihe</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/vdi-6022-richtlinienreihe/</Data></Cell>
+    <Cell><Data ss:Type="String">glossar/vdi-6022-richtlinienreihe/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/vdi-6022-richtlinienreihe/</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/vdi-6022-richtlinienreihe/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/verdampfer-und-kondensatoren</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/verdampfer-und-kondensatoren/</Data></Cell>
+    <Cell><Data ss:Type="String">glossar/verdampfer-und-kondensatoren/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/verdampfer-und-kondensatoren/</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/verdampfer-und-kondensatoren/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/verdunstungskuehlanlagen</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/verdunstungskuehlanlagen/</Data></Cell>
+    <Cell><Data ss:Type="String">glossar/verdunstungskuehlanlagen/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/verdunstungskuehlanlagen/</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/verdunstungskuehlanlagen/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/vorschriften-laborabzuege</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/vorschriften-laborabzuege/</Data></Cell>
+    <Cell><Data ss:Type="String">glossar/vorschriften-laborabzuege/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/vorschriften-laborabzuege/</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/vorschriften-laborabzuege/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/whg-zertifizierung</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/whg-zertifizierung/</Data></Cell>
+    <Cell><Data ss:Type="String">glossar/whg-zertifizierung/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/glossar/whg-zertifizierung/</Data></Cell>
+    <Cell><Data ss:Type="String">/glossar/whg-zertifizierung/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/hygieneinspektion-vdi-6022</Data></Cell>
+    <Cell><Data ss:Type="String">/hygieneinspektion-vdi-6022/</Data></Cell>
+    <Cell><Data ss:Type="String">hygieneinspektion-vdi-6022/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/hygieneinspektion-vdi-6022/</Data></Cell>
+    <Cell><Data ss:Type="String">/hygieneinspektion-vdi-6022/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/impressum</Data></Cell>
+    <Cell><Data ss:Type="String">/impressum/</Data></Cell>
+    <Cell><Data ss:Type="String">impressum/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/impressum/</Data></Cell>
+    <Cell><Data ss:Type="String">/impressum/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/industrie</Data></Cell>
+    <Cell><Data ss:Type="String">/industrie/</Data></Cell>
+    <Cell><Data ss:Type="String">industrie/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/industrie/</Data></Cell>
+    <Cell><Data ss:Type="String">/industrie/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Beide</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">https://igienair.de/inspektionundgutachten</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">/inspektionundgutachten/</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">leistungen/inspektionundgutachten/index.html</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">https://igienair.de/leistungen/inspektionundgutachten/</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">/leistungen/inspektionundgutachten/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">0</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Beide</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">https://igienair.de/instandsetzung-sanierung</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">/instandsetzung-sanierung/</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">leistungen/instandsetzung-sanierung/index.html</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">https://igienair.de/leistungen/instandsetzung-sanierung/</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">/leistungen/instandsetzung-sanierung/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">0</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/jobs</Data></Cell>
+    <Cell><Data ss:Type="String">/jobs/</Data></Cell>
+    <Cell><Data ss:Type="String">jobs/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/jobs/</Data></Cell>
+    <Cell><Data ss:Type="String">/jobs/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/jobs/mitarbeiter-technische-reinigung-gesucht</Data></Cell>
+    <Cell><Data ss:Type="String">/jobs/mitarbeiter-technische-reinigung-gesucht/</Data></Cell>
+    <Cell><Data ss:Type="String">jobs/mitarbeiter-technische-reinigung-gesucht/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/jobs/mitarbeiter-technische-reinigung-gesucht/</Data></Cell>
+    <Cell><Data ss:Type="String">/jobs/mitarbeiter-technische-reinigung-gesucht/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/jobs/teamleiter-hygienereinigung-gesucht</Data></Cell>
+    <Cell><Data ss:Type="String">/jobs/teamleiter-hygienereinigung-gesucht/</Data></Cell>
+    <Cell><Data ss:Type="String">jobs/teamleiter-hygienereinigung-gesucht/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/jobs/teamleiter-hygienereinigung-gesucht/</Data></Cell>
+    <Cell><Data ss:Type="String">/jobs/teamleiter-hygienereinigung-gesucht/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kanaluntersuchung</Data></Cell>
+    <Cell><Data ss:Type="String">/kanaluntersuchung/</Data></Cell>
+    <Cell><Data ss:Type="String">kanaluntersuchung/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kanaluntersuchung/</Data></Cell>
+    <Cell><Data ss:Type="String">/kanaluntersuchung/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kontakt</Data></Cell>
+    <Cell><Data ss:Type="String">/kontakt/</Data></Cell>
+    <Cell><Data ss:Type="String">kontakt/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kontakt/</Data></Cell>
+    <Cell><Data ss:Type="String">/kontakt/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kontakt/angebot-anfordern</Data></Cell>
+    <Cell><Data ss:Type="String">/kontakt/angebot-anfordern/</Data></Cell>
+    <Cell><Data ss:Type="String">kontakt/angebot-anfordern/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kontakt/angebot-anfordern/</Data></Cell>
+    <Cell><Data ss:Type="String">/kontakt/angebot-anfordern/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/gastronomie</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/gastronomie/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/gastronomie/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/gastronomie/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/gastronomie/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/gemeinden</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/gemeinden/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/gemeinden/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/gemeinden/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/gemeinden/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/gesundheit</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/gesundheit/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/gesundheit/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/gesundheit/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/gesundheit/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/lebensmittel</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/lebensmittel/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/lebensmittel/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/lebensmittel/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/lebensmittel/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/pharma</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/pharma/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/pharma/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/pharma/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/pharma/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/baden-wuerttemberg</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/baden-wuerttemberg/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/baden-wuerttemberg/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/baden-wuerttemberg/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/baden-wuerttemberg/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/baden-wuerttemberg/freiburg</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/baden-wuerttemberg/freiburg/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/baden-wuerttemberg/freiburg/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/baden-wuerttemberg/freiburg/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/baden-wuerttemberg/freiburg/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/baden-wuerttemberg/heidelberg</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/baden-wuerttemberg/heidelberg/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/baden-wuerttemberg/heidelberg/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/baden-wuerttemberg/heidelberg/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/baden-wuerttemberg/heidelberg/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/baden-wuerttemberg/karlsruhe</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/baden-wuerttemberg/karlsruhe/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/baden-wuerttemberg/karlsruhe/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/baden-wuerttemberg/karlsruhe/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/baden-wuerttemberg/karlsruhe/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/baden-wuerttemberg/konstanz</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/baden-wuerttemberg/konstanz/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/baden-wuerttemberg/konstanz/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/baden-wuerttemberg/konstanz/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/baden-wuerttemberg/konstanz/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/baden-wuerttemberg/mannheim</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/baden-wuerttemberg/mannheim/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/baden-wuerttemberg/mannheim/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/baden-wuerttemberg/mannheim/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/baden-wuerttemberg/mannheim/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/baden-wuerttemberg/stuttgart</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/baden-wuerttemberg/stuttgart/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/baden-wuerttemberg/stuttgart/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/baden-wuerttemberg/stuttgart/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/baden-wuerttemberg/stuttgart/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/baden-wuerttemberg/ulm</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/baden-wuerttemberg/ulm/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/baden-wuerttemberg/ulm/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/baden-wuerttemberg/ulm/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/baden-wuerttemberg/ulm/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/bayern</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/bayern/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/bayern/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/bayern/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/bayern/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/bayern/augsburg</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/bayern/augsburg/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/bayern/augsburg/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/bayern/augsburg/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/bayern/augsburg/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/bayern/ingolstadt</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/bayern/ingolstadt/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/bayern/ingolstadt/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/bayern/ingolstadt/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/bayern/ingolstadt/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/bayern/munchen</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/bayern/munchen/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/bayern/munchen/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/bayern/munchen/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/bayern/munchen/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/bayern/nurnberg</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/bayern/nurnberg/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/bayern/nurnberg/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/bayern/nurnberg/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/bayern/nurnberg/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/bayern/regensburg</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/bayern/regensburg/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/bayern/regensburg/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/bayern/regensburg/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/bayern/regensburg/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/berlin</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/berlin/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/berlin/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/berlin/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/berlin/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/berlin/bernau</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/berlin/bernau/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/berlin/bernau/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/berlin/bernau/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/berlin/bernau/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/berlin/brandenburg-havel</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/berlin/brandenburg-havel/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/berlin/brandenburg-havel/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/berlin/brandenburg-havel/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/berlin/brandenburg-havel/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/berlin/brandenburg</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/berlin/brandenburg/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/berlin/brandenburg/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/berlin/brandenburg/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/berlin/brandenburg/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/berlin/cottbus</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/berlin/cottbus/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/berlin/cottbus/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/berlin/cottbus/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/berlin/cottbus/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/berlin/eberswalde</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/berlin/eberswalde/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/berlin/eberswalde/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/berlin/eberswalde/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/berlin/eberswalde/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/berlin/falkensee</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/berlin/falkensee/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/berlin/falkensee/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/berlin/falkensee/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/berlin/falkensee/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/berlin/frankfurt-oder</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/berlin/frankfurt-oder/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/berlin/frankfurt-oder/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/berlin/frankfurt-oder/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/berlin/frankfurt-oder/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/berlin/oranienburg</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/berlin/oranienburg/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/berlin/oranienburg/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/berlin/oranienburg/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/berlin/oranienburg/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/berlin/potsdam</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/berlin/potsdam/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/berlin/potsdam/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/berlin/potsdam/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/berlin/potsdam/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/hamburg</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/hamburg/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/hamburg/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/hamburg/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/hamburg/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/hamburg/bremen</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/hamburg/bremen/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/hamburg/bremen/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/hamburg/bremen/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/hamburg/bremen/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/hamburg/buxtehude</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/hamburg/buxtehude/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/hamburg/buxtehude/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/hamburg/buxtehude/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/hamburg/buxtehude/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/hamburg/elmshorn</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/hamburg/elmshorn/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/hamburg/elmshorn/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/hamburg/elmshorn/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/hamburg/elmshorn/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/hamburg/flensburg</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/hamburg/flensburg/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/hamburg/flensburg/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/hamburg/flensburg/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/hamburg/flensburg/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/hamburg/kiel</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/hamburg/kiel/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/hamburg/kiel/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/hamburg/kiel/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/hamburg/kiel/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/hamburg/luebeck</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/hamburg/luebeck/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/hamburg/luebeck/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/hamburg/luebeck/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/hamburg/luebeck/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/hamburg/lueneburg</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/hamburg/lueneburg/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/hamburg/lueneburg/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/hamburg/lueneburg/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/hamburg/lueneburg/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/hamburg/munster</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/hamburg/munster/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/hamburg/munster/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/hamburg/munster/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/hamburg/munster/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/hamburg/neumuenster</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/hamburg/neumuenster/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/hamburg/neumuenster/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/hamburg/neumuenster/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/hamburg/neumuenster/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/hamburg/norderstedt</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/hamburg/norderstedt/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/hamburg/norderstedt/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/hamburg/norderstedt/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/hamburg/norderstedt/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/hamburg/stade</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/hamburg/stade/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/hamburg/stade/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/hamburg/stade/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/hamburg/stade/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/hessen</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/hessen/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/hessen/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/hessen/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/hessen/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/hessen/darmstadt</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/hessen/darmstadt/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/hessen/darmstadt/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/hessen/darmstadt/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/hessen/darmstadt/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/hessen/frankfurt</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/hessen/frankfurt/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/hessen/frankfurt/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/hessen/frankfurt/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/hessen/frankfurt/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/hessen/giessen</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/hessen/giessen/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/hessen/giessen/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/hessen/giessen/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/hessen/giessen/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/hessen/kassel</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/hessen/kassel/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/hessen/kassel/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/hessen/kassel/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/hessen/kassel/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/hessen/wiesbaden</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/hessen/wiesbaden/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/hessen/wiesbaden/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/hessen/wiesbaden/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/hessen/wiesbaden/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/nrw</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/nrw/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/nrw/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/nrw/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/nrw/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/nrw/bonn</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/nrw/bonn/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/nrw/bonn/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/nrw/bonn/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/nrw/bonn/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/nrw/duesseldorf</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/nrw/duesseldorf/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/nrw/duesseldorf/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/nrw/duesseldorf/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/nrw/duesseldorf/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/nrw/duisburg</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/nrw/duisburg/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/nrw/duisburg/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/nrw/duisburg/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/nrw/duisburg/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/nrw/koeln</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/nrw/koeln/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/nrw/koeln/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/nrw/koeln/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/nrw/koeln/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/nrw/wuppertal</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/nrw/wuppertal/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/nrw/wuppertal/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/nrw/wuppertal/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/nrw/wuppertal/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/region-bodensee</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/region-bodensee/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/region-bodensee/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/region-bodensee/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/region-bodensee/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/region-bodensee/biberach-an-der-riss</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/region-bodensee/biberach-an-der-riss/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/region-bodensee/biberach-an-der-riss/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/region-bodensee/biberach-an-der-riss/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/region-bodensee/biberach-an-der-riss/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/region-bodensee/friedrichshafen</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/region-bodensee/friedrichshafen/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/region-bodensee/friedrichshafen/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/region-bodensee/friedrichshafen/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/region-bodensee/friedrichshafen/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/region-bodensee/memmingen</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/region-bodensee/memmingen/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/region-bodensee/memmingen/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/region-bodensee/memmingen/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/region-bodensee/memmingen/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/region-bodensee/ravensburg</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/region-bodensee/ravensburg/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/region-bodensee/ravensburg/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/region-bodensee/ravensburg/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/region-bodensee/ravensburg/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/region-bodensee/sigmaringen</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/region-bodensee/sigmaringen/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/region-bodensee/sigmaringen/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/region-bodensee/sigmaringen/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/region-bodensee/sigmaringen/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/region-bodensee/singen</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/region-bodensee/singen/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/region-bodensee/singen/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/region-bodensee/singen/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/region-bodensee/singen/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/region-bodensee/tuttlingen</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/region-bodensee/tuttlingen/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/region-bodensee/tuttlingen/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/region-bodensee/tuttlingen/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/region-bodensee/tuttlingen/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/rheinland-pfalz</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/rheinland-pfalz/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/rheinland-pfalz/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/rheinland-pfalz/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/rheinland-pfalz/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/rheinland-pfalz/bitburg</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/rheinland-pfalz/bitburg/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/rheinland-pfalz/bitburg/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/rheinland-pfalz/bitburg/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/rheinland-pfalz/bitburg/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/rheinland-pfalz/kaiserslautern</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/rheinland-pfalz/kaiserslautern/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/rheinland-pfalz/kaiserslautern/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/rheinland-pfalz/kaiserslautern/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/rheinland-pfalz/kaiserslautern/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/rheinland-pfalz/koblenz</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/rheinland-pfalz/koblenz/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/rheinland-pfalz/koblenz/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/rheinland-pfalz/koblenz/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/rheinland-pfalz/koblenz/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/rheinland-pfalz/ludwigshafen</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/rheinland-pfalz/ludwigshafen/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/rheinland-pfalz/ludwigshafen/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/rheinland-pfalz/ludwigshafen/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/rheinland-pfalz/ludwigshafen/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/rheinland-pfalz/mainz</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/rheinland-pfalz/mainz/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/rheinland-pfalz/mainz/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/rheinland-pfalz/mainz/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/rheinland-pfalz/mainz/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/rheinland-pfalz/trier</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/rheinland-pfalz/trier/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/rheinland-pfalz/trier/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/rheinland-pfalz/trier/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/rheinland-pfalz/trier/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/rheinland-pfalz/wittlich</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/rheinland-pfalz/wittlich/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/rheinland-pfalz/wittlich/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/rheinland-pfalz/wittlich/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/rheinland-pfalz/wittlich/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/saarland</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/saarland/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/saarland/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/saarland/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/saarland/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/saarland/homburg</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/saarland/homburg/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/saarland/homburg/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/saarland/homburg/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/saarland/homburg/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/saarland/merzig</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/saarland/merzig/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/saarland/merzig/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/saarland/merzig/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/saarland/merzig/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/saarland/saarbrucken</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/saarland/saarbrucken/</Data></Cell>
+    <Cell><Data ss:Type="String">kunden/referenzen/saarland/saarbrucken/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/kunden/referenzen/saarland/saarbrucken/</Data></Cell>
+    <Cell><Data ss:Type="String">/kunden/referenzen/saarland/saarbrucken/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Beide</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">https://igienair.de/lebensmittel</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">/lebensmittel/</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">kunden/lebensmittel/index.html</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">https://igienair.de/kunden/lebensmittel/</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">/kunden/lebensmittel/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">0</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/lecktest-schwebstofffilter</Data></Cell>
+    <Cell><Data ss:Type="String">/lecktest-schwebstofffilter/</Data></Cell>
+    <Cell><Data ss:Type="String">lecktest-schwebstofffilter/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/lecktest-schwebstofffilter/</Data></Cell>
+    <Cell><Data ss:Type="String">/lecktest-schwebstofffilter/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/leistungen</Data></Cell>
+    <Cell><Data ss:Type="String">/leistungen/</Data></Cell>
+    <Cell><Data ss:Type="String">leistungen/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/leistungen/</Data></Cell>
+    <Cell><Data ss:Type="String">/leistungen/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/leistungen/inspektionundgutachten</Data></Cell>
+    <Cell><Data ss:Type="String">/leistungen/inspektionundgutachten/</Data></Cell>
+    <Cell><Data ss:Type="String">leistungen/inspektionundgutachten/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/leistungen/inspektionundgutachten/</Data></Cell>
+    <Cell><Data ss:Type="String">/leistungen/inspektionundgutachten/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/normen</Data></Cell>
+    <Cell><Data ss:Type="String">/normen/</Data></Cell>
+    <Cell><Data ss:Type="String">normen/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/normen/</Data></Cell>
+    <Cell><Data ss:Type="String">/normen/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/normen/din-en-14175</Data></Cell>
+    <Cell><Data ss:Type="String">/normen/din-en-14175/</Data></Cell>
+    <Cell><Data ss:Type="String">normen/din-en-14175/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/normen/din-en-14175/</Data></Cell>
+    <Cell><Data ss:Type="String">/normen/din-en-14175/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/normen/din-en-15780</Data></Cell>
+    <Cell><Data ss:Type="String">/normen/din-en-15780/</Data></Cell>
+    <Cell><Data ss:Type="String">normen/din-en-15780/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/normen/din-en-15780/</Data></Cell>
+    <Cell><Data ss:Type="String">/normen/din-en-15780/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/normen/vdi-2047</Data></Cell>
+    <Cell><Data ss:Type="String">/normen/vdi-2047/</Data></Cell>
+    <Cell><Data ss:Type="String">normen/vdi-2047/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/normen/vdi-2047/</Data></Cell>
+    <Cell><Data ss:Type="String">/normen/vdi-2047/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/normen/vdi-2052-bgr-111</Data></Cell>
+    <Cell><Data ss:Type="String">/normen/vdi-2052-bgr-111/</Data></Cell>
+    <Cell><Data ss:Type="String">normen/vdi-2052-bgr-111/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/normen/vdi-2052-bgr-111/</Data></Cell>
+    <Cell><Data ss:Type="String">/normen/vdi-2052-bgr-111/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/normen/vdi-6022</Data></Cell>
+    <Cell><Data ss:Type="String">/normen/vdi-6022/</Data></Cell>
+    <Cell><Data ss:Type="String">normen/vdi-6022/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/normen/vdi-6022/</Data></Cell>
+    <Cell><Data ss:Type="String">/normen/vdi-6022/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Beide</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">https://igienair.de/pharma</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">/pharma/</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">kunden/pharma/index.html</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">https://igienair.de/kunden/pharma/</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">/kunden/pharma/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">0</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Beide</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">https://igienair.de/reinigung-desinfektion</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">/reinigung-desinfektion/</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">leistungen/reinigung-desinfektion/index.html</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">https://igienair.de/leistungen/reinigung-desinfektion/</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">/leistungen/reinigung-desinfektion/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">0</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/rlt-hygiene</Data></Cell>
+    <Cell><Data ss:Type="String">/rlt-hygiene/</Data></Cell>
+    <Cell><Data ss:Type="String">rlt-hygiene/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/rlt-hygiene/</Data></Cell>
+    <Cell><Data ss:Type="String">/rlt-hygiene/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/unternehmen</Data></Cell>
+    <Cell><Data ss:Type="String">/unternehmen/</Data></Cell>
+    <Cell><Data ss:Type="String">unternehmen/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/unternehmen/</Data></Cell>
+    <Cell><Data ss:Type="String">/unternehmen/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/unternehmen/agb</Data></Cell>
+    <Cell><Data ss:Type="String">/unternehmen/agb/</Data></Cell>
+    <Cell><Data ss:Type="String">unternehmen/agb/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/unternehmen/agb/</Data></Cell>
+    <Cell><Data ss:Type="String">/unternehmen/agb/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/unternehmen/nachhaltigkeit</Data></Cell>
+    <Cell><Data ss:Type="String">/unternehmen/nachhaltigkeit/</Data></Cell>
+    <Cell><Data ss:Type="String">unternehmen/nachhaltigkeit/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/unternehmen/nachhaltigkeit/</Data></Cell>
+    <Cell><Data ss:Type="String">/unternehmen/nachhaltigkeit/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/unternehmen/qualitaet</Data></Cell>
+    <Cell><Data ss:Type="String">/unternehmen/qualitaet/</Data></Cell>
+    <Cell><Data ss:Type="String">unternehmen/qualitaet/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/unternehmen/qualitaet/</Data></Cell>
+    <Cell><Data ss:Type="String">/unternehmen/qualitaet/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/unternehmen/sicherheit</Data></Cell>
+    <Cell><Data ss:Type="String">/unternehmen/sicherheit/</Data></Cell>
+    <Cell><Data ss:Type="String">unternehmen/sicherheit/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/unternehmen/sicherheit/</Data></Cell>
+    <Cell><Data ss:Type="String">/unternehmen/sicherheit/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/unternehmen/umweltschutz</Data></Cell>
+    <Cell><Data ss:Type="String">/unternehmen/umweltschutz/</Data></Cell>
+    <Cell><Data ss:Type="String">unternehmen/umweltschutz/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/unternehmen/umweltschutz/</Data></Cell>
+    <Cell><Data ss:Type="String">/unternehmen/umweltschutz/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Beide</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/unternehmen/zertifizierungen</Data></Cell>
+    <Cell><Data ss:Type="String">/unternehmen/zertifizierungen/</Data></Cell>
+    <Cell><Data ss:Type="String">unternehmen/zertifizierungen/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/unternehmen/zertifizierungen/</Data></Cell>
+    <Cell><Data ss:Type="String">/unternehmen/zertifizierungen/</Data></Cell>
+    <Cell ss:Formula="=EXACT(RC[-4],RC[-1])"><Data ss:Type="Boolean">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Nur Static</Data></Cell>
+    <Cell><Data ss:Type="String"></Data></Cell>
+    <Cell><Data ss:Type="String"></Data></Cell>
+    <Cell><Data ss:Type="String">danke/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/danke/</Data></Cell>
+    <Cell><Data ss:Type="String">/danke/</Data></Cell>
+    <Cell><Data ss:Type="String">Danke-Seite nach Formular – ggf. nicht in Live-Sitemap</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Nur Static (Legacy-Stub)</Data></Cell>
+    <Cell><Data ss:Type="String"></Data></Cell>
+    <Cell><Data ss:Type="String"></Data></Cell>
+    <Cell><Data ss:Type="String">gastronomie/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/gastronomie/</Data></Cell>
+    <Cell><Data ss:Type="String">/gastronomie/</Data></Cell>
+    <Cell><Data ss:Type="String">Alte Root-URL; kanonische Seite unter /kunden/ oder /leistungen/</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Nur Static (Legacy-Stub)</Data></Cell>
+    <Cell><Data ss:Type="String"></Data></Cell>
+    <Cell><Data ss:Type="String"></Data></Cell>
+    <Cell><Data ss:Type="String">gemeinden/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/gemeinden/</Data></Cell>
+    <Cell><Data ss:Type="String">/gemeinden/</Data></Cell>
+    <Cell><Data ss:Type="String">Alte Root-URL; kanonische Seite unter /kunden/ oder /leistungen/</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Nur Static (Legacy-Stub)</Data></Cell>
+    <Cell><Data ss:Type="String"></Data></Cell>
+    <Cell><Data ss:Type="String"></Data></Cell>
+    <Cell><Data ss:Type="String">gesundheitswesen/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/gesundheitswesen/</Data></Cell>
+    <Cell><Data ss:Type="String">/gesundheitswesen/</Data></Cell>
+    <Cell><Data ss:Type="String">Alte Root-URL; kanonische Seite unter /kunden/ oder /leistungen/</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Nur Static (Legacy-Stub)</Data></Cell>
+    <Cell><Data ss:Type="String"></Data></Cell>
+    <Cell><Data ss:Type="String"></Data></Cell>
+    <Cell><Data ss:Type="String">inspektionundgutachten/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/inspektionundgutachten/</Data></Cell>
+    <Cell><Data ss:Type="String">/inspektionundgutachten/</Data></Cell>
+    <Cell><Data ss:Type="String">Alte Root-URL; kanonische Seite unter /kunden/ oder /leistungen/</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Nur Static (Legacy-Stub)</Data></Cell>
+    <Cell><Data ss:Type="String"></Data></Cell>
+    <Cell><Data ss:Type="String"></Data></Cell>
+    <Cell><Data ss:Type="String">instandsetzung-sanierung/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/instandsetzung-sanierung/</Data></Cell>
+    <Cell><Data ss:Type="String">/instandsetzung-sanierung/</Data></Cell>
+    <Cell><Data ss:Type="String">Alte Root-URL; kanonische Seite unter /kunden/ oder /leistungen/</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Nur Static (Legacy-Stub)</Data></Cell>
+    <Cell><Data ss:Type="String"></Data></Cell>
+    <Cell><Data ss:Type="String"></Data></Cell>
+    <Cell><Data ss:Type="String">lebensmittel/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/lebensmittel/</Data></Cell>
+    <Cell><Data ss:Type="String">/lebensmittel/</Data></Cell>
+    <Cell><Data ss:Type="String">Alte Root-URL; kanonische Seite unter /kunden/ oder /leistungen/</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Nur Static (Legacy-Stub)</Data></Cell>
+    <Cell><Data ss:Type="String"></Data></Cell>
+    <Cell><Data ss:Type="String"></Data></Cell>
+    <Cell><Data ss:Type="String">pharma/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/pharma/</Data></Cell>
+    <Cell><Data ss:Type="String">/pharma/</Data></Cell>
+    <Cell><Data ss:Type="String">Alte Root-URL; kanonische Seite unter /kunden/ oder /leistungen/</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Nur Static (Legacy-Stub)</Data></Cell>
+    <Cell><Data ss:Type="String"></Data></Cell>
+    <Cell><Data ss:Type="String"></Data></Cell>
+    <Cell><Data ss:Type="String">reinigung-desinfektion/index.html</Data></Cell>
+    <Cell><Data ss:Type="String">https://igienair.de/reinigung-desinfektion/</Data></Cell>
+    <Cell><Data ss:Type="String">/reinigung-desinfektion/</Data></Cell>
+    <Cell><Data ss:Type="String">Alte Root-URL; kanonische Seite unter /kunden/ oder /leistungen/</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.4921259845"/>
+    <Footer x:Margin="0.4921259845"/>
+    <PageMargins x:Bottom="0.984251969" x:Left="0.78740157499999996"
+     x:Right="0.78740157499999996" x:Top="0.984251969"/>
+   </PageSetup>
+   <Selected/>
+   <LeftColumnVisible>4</LeftColumnVisible>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>167</ActiveRow>
+     <ActiveCol>10</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R3C7:R174C7</Range>
+   <Condition>
+    <Value1>NOT(ISERROR(SEARCH(&quot;FALSCH&quot;,RC)))</Value1>
+    <Format Style='color:#9C0006;background:#FFC7CE'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R3C1:R3C7</Range>
+   <Condition>
+    <Value1> RC7 = FALSE</Value1>
+    <Format Style='background:#F7C7AC'/>
+   </Condition>
+  </ConditionalFormatting>
+ </Worksheet>
+</Workbook>
