@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 
 const ROOT = path.resolve(".");
-const SKIP_DIRS = new Set(["leadwerk_importer", "node_modules", ".git"]);
+const SKIP_DIRS = new Set(["leadwerk_importer", "node_modules", ".git", "asset-analysis"]);
 
 function walkHtmlFiles(dir, files = []) {
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -18,16 +18,35 @@ function walkHtmlFiles(dir, files = []) {
   return files;
 }
 
+// Fügt den News-Link direkt VOR dem Glossar-Link ein (Desktop + Mobile),
+// die Einrückung des bestehenden Glossar-Links wird übernommen.
 function addNewsNav(html) {
-  if (/news\/index\.html">News<\/a>/.test(html)) {
-    return html;
+  // Fall 1: Standardseiten, deren Glossar-Link "…glossar/index.html" enthält.
+  let next = html.replace(
+    /([ \t]*)<a class="(nav-link|mobile-link)" href="([^"]*?)glossar\/index\.html"([^>]*)>Glossar<\/a>/g,
+    (match, ws, cls, prefix, attrs) =>
+      `${ws}<a class="${cls}" href="${prefix}unternehmen/news/index.html">News</a>\n` +
+      `${ws}<a class="${cls}" href="${prefix}glossar/index.html"${attrs}>Glossar</a>`
+  );
+
+  if (next !== html) {
+    return next;
   }
 
-  return html.replace(
-    /(<a class="(nav-link|mobile-link)" href="([^"]*?)umweltschutz\/index\.html">Umweltschutz<\/a>)/g,
-    (match, full, cls, prefix) =>
-      `${full}\n            <a class="${cls}" href="${prefix}news/index.html">News</a>`
+  // Fall 2: Seiten innerhalb von /glossar/ (Übersicht "./index.html",
+  // Begriffsseiten "../index.html") – Glossar-Link ohne "glossar/" im Pfad.
+  next = html.replace(
+    /([ \t]*)<a class="(nav-link|mobile-link)" href="(\.\.?\/index\.html)"([^>]*)>Glossar<\/a>/g,
+    (match, ws, cls, href, attrs) => {
+      const newsPrefix = href === "./index.html" ? "../" : "../../";
+      return (
+        `${ws}<a class="${cls}" href="${newsPrefix}unternehmen/news/index.html">News</a>\n` +
+        `${ws}<a class="${cls}" href="${href}"${attrs}>Glossar</a>`
+      );
+    }
   );
+
+  return next;
 }
 
 const files = walkHtmlFiles(ROOT);
@@ -36,14 +55,22 @@ let skipped = 0;
 
 for (const file of files) {
   const html = fs.readFileSync(file, "utf8");
+
+  // Seiten, die den News-Link bereits enthalten, überspringen (idempotent).
+  if (/>News<\/a>/.test(html)) {
+    skipped += 1;
+    continue;
+  }
+
   const next = addNewsNav(html);
   if (next === html) {
     skipped += 1;
     continue;
   }
+
   fs.writeFileSync(file, next, "utf8");
   updated += 1;
 }
 
 console.log(`Navigation aktualisiert: ${updated} Dateien`);
-console.log(`Unverändert: ${skipped} Dateien`);
+console.log(`Unveraendert/uebersprungen: ${skipped} Dateien`);

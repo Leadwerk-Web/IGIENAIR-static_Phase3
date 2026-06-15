@@ -533,6 +533,77 @@ function initGlossaries() {
   });
 }
 
+function initNews() {
+  const boards = document.querySelectorAll("[data-news]");
+  if (!boards.length) {
+    return;
+  }
+
+  const normalize = (value) =>
+    (value || "")
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .trim();
+
+  boards.forEach((board) => {
+    const form = board.querySelector("[data-news-form]");
+    const searchInput = board.querySelector("[data-news-search]");
+    const filterButtons = Array.from(board.querySelectorAll("[data-news-filter]"));
+    const cards = Array.from(board.querySelectorAll("[data-news-card]"));
+    const emptyState = board.querySelector("[data-news-empty]");
+
+    if (!cards.length) {
+      return;
+    }
+
+    cards.forEach((card) => {
+      card.dataset.searchNormalized = normalize(card.dataset.search || card.textContent || "");
+    });
+
+    let activeCategory = "all";
+
+    const applyFilter = () => {
+      const term = normalize(searchInput ? searchInput.value : "");
+      let visibleCount = 0;
+
+      cards.forEach((card) => {
+        const matchesCategory = activeCategory === "all" || card.dataset.category === activeCategory;
+        const matchesTerm = !term || (card.dataset.searchNormalized || "").includes(term);
+        const visible = matchesCategory && matchesTerm;
+        card.hidden = !visible;
+        if (visible) {
+          visibleCount += 1;
+        }
+      });
+
+      if (emptyState) {
+        emptyState.hidden = visibleCount > 0;
+      }
+    };
+
+    form?.addEventListener("submit", (event) => {
+      event.preventDefault();
+    });
+
+    searchInput?.addEventListener("input", applyFilter);
+
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        activeCategory = button.dataset.category || "all";
+        filterButtons.forEach((btn) => {
+          const isActive = btn === button;
+          btn.classList.toggle("is-active", isActive);
+          btn.setAttribute("aria-pressed", String(isActive));
+        });
+        applyFilter();
+      });
+    });
+
+    applyFilter();
+  });
+}
+
 function initAccordions() {
   accordionGroups.forEach((group) => {
     const items = Array.from(group.querySelectorAll("[data-accordion-item]"));
@@ -1872,6 +1943,7 @@ initVideos();
 initCertificateGalleries();
 initLocationBrowsers();
 initGlossaries();
+initNews();
 initAccordions();
 observeMeters();
 initSectorAnimations();

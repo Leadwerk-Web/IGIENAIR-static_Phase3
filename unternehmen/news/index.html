@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Aktuelles aus der Igienair GmbH: News und Fachbeiträge zu technischer Hygiene, Raumlufthygiene, Normen und Branchenthemen.">
+  <meta name="description" content="Aktuelles aus der Igienair GmbH: News und Fachbeiträge zu technischer Hygiene, Raumlufthygiene, Normen und Branchenthemen – durchsuchbar und nach Kategorien filterbar.">
   <title>News &amp; Aktuelles | Igienair</title>
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta property="og:locale" content="de_DE">
@@ -17,7 +17,7 @@
   <link rel="icon" href="../../Bildmaterial_final/logos/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../../styles.css">
 </head>
-<body class="page-news page-branchen">
+<body class="page-news">
   <header class="site-header" data-section="header">
     <div class="container site-header__inner">
       <a class="brand" href="../../index.html" aria-label="Igienair Startseite">
@@ -34,8 +34,8 @@
             <a class="nav-link" href="../sicherheit/index.html">Sicherheit</a>
             <a class="nav-link" href="../qualitaet/index.html">Qualit&auml;t</a>
             <a class="nav-link" href="../umweltschutz/index.html">Umweltschutz</a>
-            <a class="nav-link" href="./index.html" aria-current="page">News</a>
             <a class="nav-link" href="../../kontakt/index.html">Standorte</a>
+            <a class="nav-link" href="./index.html" aria-current="page">News</a>
             <a class="nav-link" href="../../glossar/index.html">Glossar</a>
           </div>
         </div>
@@ -119,8 +119,8 @@
           <a class="mobile-link" href="../sicherheit/index.html">Sicherheit</a>
           <a class="mobile-link" href="../qualitaet/index.html">Qualit&auml;t</a>
           <a class="mobile-link" href="../umweltschutz/index.html">Umweltschutz</a>
-          <a class="mobile-link" href="./index.html" aria-current="page">News</a>
           <a class="mobile-link" href="../../kontakt/index.html">Standorte</a>
+          <a class="mobile-link" href="./index.html" aria-current="page">News</a>
           <a class="mobile-link" href="../../glossar/index.html">Glossar</a>
         </div>
         <div class="mobile-menu__group">
@@ -192,7 +192,7 @@
     <section class="company-hero" id="top" data-section="hero">
       <div class="container company-hero__content">
         <p class="eyebrow">Unternehmen</p>
-        <h1>News</h1>
+        <h1>News &amp; Aktuelles</h1>
         <nav class="hero-breadcrumb" aria-label="Brotkrumen">
           <a class="hero-breadcrumb__link" href="../../index.html">Startseite</a>
           <span class="hero-breadcrumb__sep" aria-hidden="true">&raquo;</span>
@@ -203,25 +203,119 @@
       </div>
     </section>
 
-    <section class="company-section company-section--soft branchen-overview news-overview" id="news-overview" data-section="overview">
-      <div class="container branchen-overview__layout">
-        <div class="branchen-overview__intro">
-          <p class="eyebrow branchen-overview__eyebrow">AKTUELLES</p>
+    <section class="sustainability-intro glossary-intro" id="news-intro" data-section="intro">
+      <div class="container">
+        <article class="section-copy">
+          <p class="eyebrow">NEWS</p>
+          <h2>Aktuelles und Fachbeitr&auml;ge aus der Raumlufthygiene</h2>
+          <div class="gradient-line"></div>
+          <p>Hier informieren wir Sie &uuml;ber Neuigkeiten aus der Igienair GmbH und teilen Fachwissen rund um technische Hygiene, Normen, Anlagen und Branchenthemen. Durchsuchen Sie unsere Beitr&auml;ge oder filtern Sie gezielt nach Kategorien.</p>
+        </article>
+      </div>
+    </section>
 
-          <header class="section-copy branchen-overview__heading">
-            <h2>News &amp; Fachbeitr&auml;ge aus der Raumlufthygiene</h2>
-            <div class="gradient-line"></div>
-          </header>
+    <section class="glossary-page news-page" id="news-overview" data-section="overview">
+      <div class="container glossary-page__wrap" data-news>
+        <div class="glossary-toolbar news-toolbar">
+          <div class="glossary-search-wrapper">
+            <form class="glossary-search-form" role="search" data-news-form>
+              <label class="screen-reader-text" for="news-search">News durchsuchen</label>
+              <input id="news-search" type="search" name="news_search" class="glossary-search-input" placeholder="Beitrag suchen..." aria-label="News durchsuchen" data-news-search>
+              <button type="submit" class="glossary-search-button" aria-label="Suchen">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M9 17A8 8 0 1 0 9 1a8 8 0 0 0 0 16zM19 19l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="screen-reader-text">Suchen</span>
+              </button>
+            </form>
+          </div>
 
-          <article class="section-copy branchen-overview__copy">
-            <p>Hier informieren wir Sie &uuml;ber aktuelle Entwicklungen bei Igienair, Fachwissen zu technischer Hygiene und relevante Themen aus unserem Arbeitsalltag &ndash; von Normen und Inspektionen bis zu Branchentrends.</p>
-            <p>Neue Beitr&auml;ge werden fortlaufend erg&auml;nzt. Schauen Sie regelm&auml;&szlig;ig vorbei oder kontaktieren Sie uns direkt bei Fragen zu Ihren Anlagen.</p>
-            <a class="button button--solid branchen-overview__cta" href="../../kontakt/index.html">Kontakt aufnehmen</a>
-          </article>
+          <div class="news-filter" role="group" aria-label="Nach Kategorie filtern">
+            <button type="button" class="news-filter__chip is-active" data-news-filter data-category="all" aria-pressed="true">Alle</button>
+            <button type="button" class="news-filter__chip" data-news-filter data-category="unternehmen" aria-pressed="false">Unternehmen</button>
+            <button type="button" class="news-filter__chip" data-news-filter data-category="technische-hygiene" aria-pressed="false">Technische Hygiene</button>
+            <button type="button" class="news-filter__chip" data-news-filter data-category="normen" aria-pressed="false">Normen &amp; Richtlinien</button>
+          </div>
         </div>
 
-        <div class="news-grid branchen-grid" aria-label="News-Beitr&auml;ge">
-          <p class="news-empty">Aktuell sind noch keine Beitr&auml;ge ver&ouml;ffentlicht. Neue Artikel zu technischer Hygiene, Normen und Branchenthemen folgen in K&uuml;rze.</p>
+        <p class="glossary-empty news-empty" data-news-empty hidden>Keine Beitr&auml;ge gefunden. Bitte passen Sie Ihre Suche oder den Kategoriefilter an.</p>
+
+        <div class="news-grid" data-news-list aria-label="News-Beitr&auml;ge">
+
+          <article class="news-card" data-news-card data-category="normen" data-search="vdi 2047-2 42 bimschv verdunstungskühlanlagen kühlturm betreiberpflichten legionellen gefährdungsbeurteilung">
+            <a class="news-card__link" href="./vdi-2047-2-bimschv-verdunstungskuehlanlagen/index.html">
+              <div class="news-card__media news-card__media--normen" aria-hidden="true">
+                <img class="news-card__image" src="../../Bildmaterial_final/shared/shared-normen-vdi-2047-2.webp" alt="" width="640" height="360" loading="lazy" decoding="async">
+                <span class="news-card__badge">Normen &amp; Richtlinien</span>
+              </div>
+              <div class="news-card__body">
+                <time class="news-card__date" datetime="2026-06-12">12. Juni 2026</time>
+                <h3 class="news-card__title">VDI 2047-2 und 42. BImSchV: Betreiberpflichten f&uuml;r Verdunstungsk&uuml;hlanlagen</h3>
+                <p class="news-card__excerpt">VDI 2047-2 und 42. BImSchV im &Uuml;berblick: Betreiberpflichten, Hygiene und Dokumentation f&uuml;r Verdunstungsk&uuml;hlanlagen und K&uuml;hlt&uuml;rme.</p>
+                <span class="news-card__more">Weiterlesen</span>
+              </div>
+            </a>
+          </article>
+
+          <article class="news-card" data-news-card data-category="technische-hygiene" data-search="rlt-anlagen reinigen kosten risiken hygienische reinigung wartung energieeffizienz technische hygiene">
+            <a class="news-card__link" href="./rlt-anlagen-reinigen-kosten-risiken/index.html">
+              <div class="news-card__media news-card__media--hygiene" aria-hidden="true">
+                <img class="news-card__image" src="../../Bildmaterial_final/shared/reinigung-desinfektion.webp" alt="" width="640" height="360" loading="lazy" decoding="async">
+                <span class="news-card__badge">Technische Hygiene</span>
+              </div>
+              <div class="news-card__body">
+                <time class="news-card__date" datetime="2026-05-12">12. Mai 2026</time>
+                <h3 class="news-card__title">RLT-Anlagen reinigen lassen: Warum regelm&auml;&szlig;ige Hygiene Kosten und Risiken senkt</h3>
+                <p class="news-card__excerpt">Regelm&auml;&szlig;ige Reinigung von RLT-Anlagen senkt Kosten, reduziert Risiken und sichert normkonformen Betrieb &ndash; so profitieren Betreiber.</p>
+                <span class="news-card__more">Weiterlesen</span>
+              </div>
+            </a>
+          </article>
+
+          <article class="news-card" data-news-card data-category="technische-hygiene" data-search="luftkanalreinigung wann notwendig vorteile zu abluftkanäle din en 15780 raumlufthygiene reinigung">
+            <a class="news-card__link" href="./luftkanalreinigung-wann-notwendig-vorteile/index.html">
+              <div class="news-card__media news-card__media--hygiene" aria-hidden="true">
+                <img class="news-card__image" src="../../Bildmaterial_final/anlagen/luftkanalreinigung/luftkanalreinigung-anlagen-anlagen-luftkanalreinigung-3.webp" alt="" width="640" height="360" loading="lazy" decoding="async">
+                <span class="news-card__badge">Technische Hygiene</span>
+              </div>
+              <div class="news-card__body">
+                <time class="news-card__date" datetime="2026-04-12">12. April 2026</time>
+                <h3 class="news-card__title">Luftkanalreinigung: Wann sie notwendig ist und welche Vorteile sie bringt</h3>
+                <p class="news-card__excerpt">Wann Luftkan&auml;le gereinigt werden sollten, welche Vorteile das bringt und welche Normen Betreiber kennen m&uuml;ssen &ndash; kompakt erkl&auml;rt.</p>
+                <span class="news-card__more">Weiterlesen</span>
+              </div>
+            </a>
+          </article>
+
+          <article class="news-card" data-news-card data-category="normen" data-search="hygieneinspektion vdi 6022 ablauf intervalle mängel typische befund rlt prüfung gutachten">
+            <a class="news-card__link" href="./hygieneinspektion-vdi-6022-ablauf-maengel/index.html">
+              <div class="news-card__media news-card__media--normen" aria-hidden="true">
+                <img class="news-card__image" src="../../Bildmaterial_final/shared/inspektionsgutachten.webp" alt="" width="640" height="360" loading="lazy" decoding="async">
+                <span class="news-card__badge">Normen &amp; Richtlinien</span>
+              </div>
+              <div class="news-card__body">
+                <time class="news-card__date" datetime="2026-03-12">12. M&auml;rz 2026</time>
+                <h3 class="news-card__title">Hygieneinspektion nach VDI 6022: Ablauf, Intervalle und typische M&auml;ngel</h3>
+                <p class="news-card__excerpt">Schritt f&uuml;r Schritt: So l&auml;uft die Hygieneinspektion nach VDI 6022 ab &ndash; inklusive Intervalle, Pr&uuml;fpunkte und typischen M&auml;ngeln.</p>
+                <span class="news-card__more">Weiterlesen</span>
+              </div>
+            </a>
+          </article>
+
+          <article class="news-card" data-news-card data-category="normen" data-search="vdi 6022 einfach erklärt betreiber rlt-anlagen hygieneinspektion betreiberpflichten raumlufthygiene dokumentation normen">
+            <a class="news-card__link" href="./vdi-6022-betreiber-rlt-anlagen/index.html">
+              <div class="news-card__media news-card__media--normen" aria-hidden="true">
+                <img class="news-card__image" src="../../Bildmaterial_final/anlagen/anlagen-lueftungsreinigung1.webp" alt="" width="640" height="360" loading="lazy" decoding="async">
+                <span class="news-card__badge">Normen &amp; Richtlinien</span>
+              </div>
+              <div class="news-card__body">
+                <time class="news-card__date" datetime="2026-02-12">12. Februar 2026</time>
+                <h3 class="news-card__title">VDI 6022 einfach erkl&auml;rt: Was Betreiber von RLT-Anlagen wissen m&uuml;ssen</h3>
+                <p class="news-card__excerpt">Die VDI 6022 regelt Hygiene in RLT-Anlagen. Was Betreiber zu Inspektion, Dokumentation und Betreiberpflichten wissen m&uuml;ssen &ndash; verst&auml;ndlich erkl&auml;rt.</p>
+                <span class="news-card__more">Weiterlesen</span>
+              </div>
+            </a>
+          </article>
         </div>
       </div>
     </section>
