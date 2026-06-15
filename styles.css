@@ -391,6 +391,11 @@ h2 {
   content: "\25BE";
 }
 
+/* Pfeil nur zeigen, wenn das Nav-Item ein Untermenü besitzt */
+.nav-item:not(:has(.nav-dropdown)) .nav-trigger::after {
+  content: none;
+}
+
 .nav-dropdown {
   position: absolute;
   top: calc(100% + 12px);
@@ -435,28 +440,22 @@ h2 {
   right: auto;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   grid-auto-rows: minmax(0, 1fr);
-  width: min(880px, calc(100vw - 32px));
+  width: min(960px, calc(100vw - 32px));
   max-width: calc(100vw - 32px);
   min-width: 0;
-  gap: 8px 14px;
-  padding: 26px 24px 22px;
-  border: 1px solid rgba(1, 97, 191, 0.12);
-  border-radius: 16px;
+  gap: 28px 40px;
+  padding: 32px 36px 28px;
+  border: 1px solid rgba(1, 97, 191, 0.1);
+  border-radius: 18px;
   background: rgba(255, 255, 255, 0.99);
-  box-shadow: 0 28px 60px rgba(6, 37, 77, 0.18);
+  box-shadow: 0 32px 70px rgba(6, 37, 77, 0.2);
   transform: translate(0, 12px);
-}
-
-/* Gradient-Akzentleiste oben (Hover-Bridge nutzt ::before, daher ::after) */
-.nav-dropdown--mega::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  border-radius: 16px 16px 0 0;
-  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  background-image:
+    linear-gradient(to bottom, rgba(1, 97, 191, 0.08), rgba(1, 97, 191, 0.08)),
+    linear-gradient(to bottom, rgba(1, 97, 191, 0.08), rgba(1, 97, 191, 0.08));
+  background-size: 1px calc(100% - 64px), 1px calc(100% - 64px);
+  background-position: calc(33.333% + 4px) 32px, calc(66.666% - 4px) 32px;
+  background-repeat: no-repeat;
 }
 
 .nav-item:hover .nav-dropdown--mega,
@@ -467,19 +466,19 @@ h2 {
 .nav-cluster {
   display: flex;
   flex-direction: column;
-  gap: 1px;
+  gap: 2px;
   min-width: 0;
 }
 
 .nav-cluster__title {
   position: relative;
-  margin: 2px 0 7px;
-  padding: 0 12px 8px;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.09em;
+  margin: 0 0 14px;
+  padding: 0 0 10px 12px;
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
-  color: var(--color-dark);
+  color: var(--color-primary);
 }
 
 .nav-cluster__title::after {
@@ -487,18 +486,34 @@ h2 {
   position: absolute;
   left: 12px;
   bottom: 0;
-  width: 26px;
+  width: 32px;
   height: 2px;
   border-radius: 2px;
   background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
 }
 
 .nav-dropdown--mega .nav-link {
-  padding: 7px 12px;
+  position: relative;
+  padding: 8px 12px 8px 16px;
   font-size: 13.5px;
-  line-height: 1.3;
+  line-height: 1.35;
   color: var(--color-text);
   border-radius: 8px;
+  transition: background-color var(--transition), color var(--transition), padding var(--transition);
+}
+
+.nav-dropdown--mega .nav-link::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 50%;
+  width: 3px;
+  height: 0;
+  border-radius: 2px;
+  background: linear-gradient(180deg, var(--color-primary), var(--color-secondary));
+  transform: translateY(-50%);
+  transition: height var(--transition), opacity var(--transition);
+  opacity: 0;
 }
 
 .nav-dropdown--mega .nav-link span {
@@ -512,6 +527,12 @@ h2 {
   color: var(--color-primary);
 }
 
+.nav-dropdown--mega .nav-link:hover::before,
+.nav-dropdown--mega .nav-link:focus-visible::before {
+  height: 18px;
+  opacity: 1;
+}
+
 .nav-dropdown--mega .nav-link:hover span,
 .nav-dropdown--mega .nav-link:focus-visible span {
   transform: translateX(3px);
@@ -521,34 +542,35 @@ h2 {
 .nav-mega__promo {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  padding: 16px 16px 18px;
-  border-radius: 12px;
-  background: linear-gradient(160deg, var(--color-soft) 0%, #ffffff 100%);
-  border: 1px solid rgba(1, 97, 191, 0.14);
+  gap: 8px;
+  padding: 20px 20px 22px;
+  border-radius: 14px;
+  background: linear-gradient(160deg, rgba(232, 243, 255, 0.85) 0%, #ffffff 100%);
+  border: 1px solid rgba(1, 97, 191, 0.18);
+  box-shadow: 0 8px 20px rgba(1, 97, 191, 0.06);
 }
 
 .nav-mega__promo-eyebrow {
   margin: 0;
   font-size: 10.5px;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--color-secondary);
 }
 
 .nav-mega__promo-title {
-  margin: 0;
-  font-size: 15px;
+  margin: 0 0 2px;
+  font-size: 15.5px;
   font-weight: 700;
   line-height: 1.25;
   color: var(--color-dark);
 }
 
 .nav-mega__promo-text {
-  margin: 0 0 4px;
+  margin: 0 0 8px;
   font-size: 12.5px;
-  line-height: 1.45;
+  line-height: 1.5;
   color: var(--color-text);
 }
 
@@ -556,7 +578,7 @@ h2 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 9px 16px;
+  padding: 10px 16px;
   border-radius: 8px;
   font-size: 13px;
   font-weight: 600;
@@ -573,6 +595,7 @@ h2 {
 }
 
 .nav-mega__all {
+  margin-top: 2px;
   font-size: 12.5px;
   font-weight: 600;
   color: var(--color-primary);
@@ -626,18 +649,31 @@ h2 {
 /* Mega-Menü auf schmaleren Desktops kompakter halten (kein Rand-Überlauf) */
 @media (max-width: 1200px) {
   .nav-dropdown--mega {
-    width: min(680px, calc(100vw - 32px));
-    gap: 6px 10px;
-    padding: 22px 18px 18px;
+    width: min(740px, calc(100vw - 32px));
+    gap: 22px 26px;
+    padding: 26px 24px 22px;
+    background-size: 1px calc(100% - 52px), 1px calc(100% - 52px);
+    background-position: calc(33.333% + 2px) 26px, calc(66.666% - 2px) 26px;
+  }
+
+  .nav-cluster__title {
+    margin: 0 0 10px;
+    padding: 0 0 8px 10px;
+    font-size: 11px;
+  }
+
+  .nav-cluster__title::after {
+    left: 10px;
+    width: 28px;
   }
 
   .nav-dropdown--mega .nav-link {
-    padding: 6px 10px;
+    padding: 6px 10px 6px 14px;
     font-size: 12.5px;
   }
 
   .nav-mega__promo {
-    padding: 14px 14px 16px;
+    padding: 16px 16px 18px;
   }
 }
 
@@ -1062,6 +1098,13 @@ body.menu-open .scroll-to-top {
 .footer-brand p {
   font-size: 16px;
   line-height: 2;
+}
+
+.section-copy > .button,
+.sectors__copy > .button,
+.feature__copy > .button,
+.cta-band > .button {
+  margin-top: 32px;
 }
 
 .quote-card {
@@ -19376,6 +19419,8 @@ body[class*="page-"] .job-detail-hero h1 {
 }
 
 .svc-decision__card {
+  display: flex;
+  flex-direction: column;
   padding: 24px;
   border-radius: var(--radius-lg);
   border: 1px solid var(--color-border);
@@ -19389,8 +19434,20 @@ body[class*="page-"] .job-detail-hero h1 {
 }
 
 .svc-decision__card p {
-  margin: 0 0 14px;
+  margin: 0 0 20px;
   color: var(--color-text);
+}
+
+/* CTA-Buttons in Entscheidungskarten: immer gleich groß (volle Breite,
+   am Karten-Boden ausgerichtet, einheitliche Höhe auch bei Zeilenumbruch) */
+.svc-decision__card .button {
+  width: 100%;
+  margin-top: auto;
+  min-height: 64px;
+  padding: 12px 18px;
+  text-align: center;
+  text-wrap: balance;
+  line-height: 1.25;
 }
 
 /* Betreiberpflicht-/Norm-Infobox auf Detailseiten */
@@ -19456,8 +19513,15 @@ body[class*="page-"] .job-detail-hero h1 {
   list-style: none;
 }
 
+.svc-related li {
+  display: flex;
+}
+
 .svc-related a {
-  display: block;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 100%;
   padding: 16px 18px;
   border: 1px solid var(--color-border);
   border-radius: 12px;

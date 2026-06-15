@@ -102,7 +102,7 @@ function buildShareSidebar(post, canonical) {
                 </a>
               </li>
               <li>
-                <a class="news-share__link news-share__link--teams" href="https://teams.microsoft.com/share?href=${url}" target="_blank" rel="noopener noreferrer">
+                <a class="news-share__link news-share__link--teams" href="https://teams.microsoft.com/share?href=${url}&msgText=${title}" target="_blank" rel="noopener noreferrer">
                   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.625 8.25h-2.437a2.812 2.812 0 10-5.625 0H9.75V6.375A2.625 2.625 0 007.125 3.75h-3A2.625 2.625 0 001.5 6.375v11.25A2.625 2.625 0 004.125 20.25h9.75A2.625 2.625 0 0016.5 17.625v-1.875h4.125A2.625 2.625 0 0023.25 13.125V10.875A2.625 2.625 0 0020.625 8.25zM7.125 6.375a.375.375 0 01.375-.375h3a.375.375 0 01.375.375v.375h-3.75V6.375zm9 11.25a.375.375 0 01-.375.375h-9a.375.375 0 01-.375-.375V9.75h9.75v7.875zM21 13.125a.375.375 0 01-.375.375H16.5V9.75h4.125a.375.375 0 01.375.375v3z"/></svg>
                   <span>Microsoft Teams</span>
                 </a>
