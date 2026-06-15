@@ -163,16 +163,19 @@ verlinkt (404-frei).** Branchenlösungen verbleiben unter Top-Level „Kunden/Br
 
 ## 7. Bewusst NICHT in Phase 1 erstellt (Backlog mit Begründung)
 
-**Phase 2 – weitere `/leistungen/*` (einzigartiger Longtail-Intent, nach Validierung):**
-- `/leistungen/lueftungsreinigung-krankenhaus-klinik/` – Branchen-Longtail Klinik (hohe Leadqualität)
-- `/leistungen/luftkeimmessung-rlt-anlagen/` – technischer Longtail VDI 6022
-- `/leistungen/kuehlturm-entkalkung-biofilm/` – technisches Problem Biofilm/Kalk
-- `/leistungen/kuehlturm-sanierung-fuellkoerper-duesen/` – Ersatzteile/Sanierung
-- `/leistungen/partikelmessung-reinraum-iso-14644/` – Partikelmessung Reinraum
-- `/leistungen/dehs-leckpruefung-op-raum/` – DEHS/OP-Filterlecktest
-- `/leistungen/rlt-sanierung-korrosion-2k-epoxy/` – Korrosion/2K-Epoxy
-> Grund für Verschiebung: Sicherstellung einzigartiger, nicht-dünner Inhalte; zunächst Bestands-LP
-> stärken (Ads laufen dort). Diese Seiten ergänzen das Silo, sobald die P1-Cluster stehen.
+**Phase 2 – weitere `/leistungen/*` (UMGESETZT, einzigartiger Longtail-Intent):**
+Erzeugt per `asset-analysis/build-leistungsseiten-p2.mjs` (gleiches Chrome/Template wie P1, Tiefe 2,
+JSON-LD BreadcrumbList + Service + FAQPage, eigene FAQ/CTA/Bild, Silo-Links). In Mega-Menü + Mobile-Menü verlinkt.
+- `/leistungen/lueftungsreinigung-krankenhaus-klinik/` – Branchen-Longtail Klinik (hohe Leadqualität) · Bild `anlagen-lueftungsreinigung7.webp`
+- `/leistungen/luftkeimmessung-rlt-anlagen/` – technischer Longtail VDI 6022 · Bild `inspektion-hygieneinspektion-vdi-6022.webp`
+- `/leistungen/kuehlturm-entkalkung-biofilm/` – technisches Problem Biofilm/Kalk · Bild `anlage-kuehlturmreinigung4.webp`
+- `/leistungen/kuehlturm-sanierung-fuellkoerper-duesen/` – Ersatzteile/Sanierung · Bild `instandsetzung.webp`
+- `/leistungen/partikelmessung-reinraum-iso-14644/` – Partikelmessung Reinraum · Bild `anlagen-reinraumqualifizierung1.webp`
+- `/leistungen/dehs-leckpruefung-op-raum/` – DEHS/OP-Filterlecktest · Bild `inspektion-lecktest-schwebstofffilter.webp`
+- `/leistungen/rlt-sanierung-korrosion-2k-epoxy/` – Korrosion/2K-Epoxy · Bild `instandsetzung.webp`
+> Mega-Menü modernisiert: 3×2-Raster mit Gradient-Akzent, Cluster-Unterstrich, Promo-Kachel
+> („Welche Leistung brauchen Sie?" + Angebot-CTA + „Alle Leistungen"). Mobil: Cluster-Subtitles mit
+> Gradient-Akzent + Angebot-CTA, responsiv (Desktop-Mega kompakter ab ≤1200px, Mobile-Panel ≤980px).
 
 **Phase 3 – Branchenseiten** (`/branchen/krankenhaus-klinik-rlt-hygiene/`, `/branchen/pharma-reinraum-rlt-hygiene/`,
 `/branchen/industrie-lueftungshygiene/`, `/branchen/facility-management-betreiberpflicht/`,
