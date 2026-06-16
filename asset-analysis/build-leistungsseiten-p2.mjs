@@ -13,6 +13,8 @@
 import { promises as fs } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { relatedCardsSection } from "./svc-related-cards.mjs";
+import { ausloeserSection } from "./svc-trigger-cards.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
@@ -167,9 +169,10 @@ ${li}
     </section>`;
 }
 
-function mediaSection(eyebrow, h2, paragraphsHtml, image, imageAlt, ctaLabel) {
+function mediaSection(eyebrow, h2, paragraphsHtml, image, imageAlt, ctaLabel, sectionId = "") {
   const paras = paragraphsHtml.map((p) => `            <p>${p}</p>`).join("\n");
-  return `    <section class="svc-section" data-section="ablauf">
+  const idAttr = sectionId ? ` id="${sectionId}"` : "";
+  return `    <section class="svc-section"${idAttr} data-section="ablauf">
       <div class="container reference-overview__layout">
         <div class="cleanroom-overview__grid">
           <article class="section-copy">
@@ -183,22 +186,6 @@ ${paras}
             <img src="${image}" alt="${imageAlt}">
           </figure>
         </div>
-      </div>
-    </section>`;
-}
-
-function relatedSection(links) {
-  const li = links.map(([href, label]) => `          <li><a href="${href}">${label}</a></li>`).join("\n");
-  return `    <section class="svc-section svc-section--soft" data-section="weiter">
-      <div class="container">
-        <header class="section-copy svc-section__head">
-          <p class="eyebrow">WEITERFÜHREND</p>
-          <h2>Passende Leistungen</h2>
-          <div class="gradient-line"></div>
-        </header>
-        <ul class="svc-related">
-${li}
-        </ul>
       </div>
     </section>`;
 }
@@ -233,11 +220,11 @@ const PAGES = [
         `In Krankenhäusern und Kliniken transportieren raumlufttechnische Anlagen Zuluft in Patientenzimmer, Funktionsbereiche und OP-nahe Zonen. Ablagerungen in Kanälen, an Wärmeübertragern und in Filterkammern können die Luftqualität mindern und hygienische Risiken erhöhen. Als technischer Hygienedienstleister reinigen wir Ihre Anlagen normbezogen nach <a class="text-link" href="../../normen/vdi-6022/index.html">VDI 6022</a> und <a class="text-link" href="../../normen/din-en-15780/index.html">DIN EN 15780</a> – mit eigenem, festangestelltem Fachpersonal.`,
         "Lüftungsreinigung anfragen"
       ),
-      decisionSection("TYPISCHE AUSLÖSER", "Wann eine Lüftungsreinigung im Krankenhaus notwendig wird", [
-        { t: "Hygienebefund", p: "Eine Hygieneinspektion nach VDI 6022 zeigt Verschmutzungen oder mikrobiologische Auffälligkeiten." },
-        { t: "Auditpflicht", p: "Hygienekommission, Begehungen oder Zertifizierungen verlangen einen dokumentierten Zustand." },
-        { t: "Umbau & Sanierung", p: "Nach baulichen Maßnahmen gelangen Stäube und Partikel in die RLT-Anlage." },
-        { t: "Risikominimierung", p: "Schutz von Patienten, Personal und Betrieb steht im Vordergrund." },
+      ausloeserSection("TYPISCHE AUSL&Ouml;SER", "Wann eine L&uuml;ftungsreinigung im Krankenhaus notwendig wird", [
+        { icon: "inspection", eyebrow: "Inspektion", title: "Hygienebefund", text: "Eine Hygieneinspektion nach VDI 6022 zeigt Verschmutzungen oder mikrobiologische Auff&auml;lligkeiten." },
+        { icon: "report", eyebrow: "Compliance", title: "Auditpflicht", text: "Hygienekommission, Begehungen oder Zertifizierungen verlangen einen dokumentierten Zustand." },
+        { icon: "cleaning", eyebrow: "Bauma&szlig;nahme", title: "Umbau &amp; Sanierung", text: "Nach baulichen Ma&szlig;nahmen gelangen St&auml;ube und Partikel in die RLT-Anlage." },
+        { icon: "shield", eyebrow: "Patientenschutz", title: "Risikominimierung", text: "Schutz von Patienten, Personal und Betrieb steht im Vordergrund." },
       ]),
       mediaSection(
         "ABLAUF & DOKUMENTATION",
@@ -248,13 +235,14 @@ const PAGES = [
         ],
         p.image,
         p.imageAlt,
-        "Angebot anfordern"
+        "Angebot anfordern",
+        "klinik-ablauf"
       ),
-      relatedSection([
-        ["../../anlagen/op-raum-pruefung/index.html", "OP-Raum-Qualifizierung DIN 1946-4"],
-        ["../../anlagen/reinraumqualifizierung/index.html", "Reinraumqualifizierung ISO 14644"],
-        ["../../hygieneinspektion-vdi-6022/index.html", "Hygieneinspektion VDI 6022"],
-        ["../../anlagen/lueftungsreinigung/index.html", "Lüftungsreinigung"],
+      relatedCardsSection("klinik-weiter", "Qualifizierung, Reinigung und Inspektion f&uuml;r klinische RLT-Anlagen &ndash; passende Leistungen im &Uuml;berblick.", [
+        { href: "../../anlagen/op-raum-pruefung/index.html", icon: "shield", eyebrow: "Qualifizierung", title: "OP-Raum-Qualifizierung DIN 1946-4", text: "Messtechnische Pr&uuml;fung und Nachweis f&uuml;r OP-Bereiche.", cta: "Zur OP-Raum-Pr&uuml;fung" },
+        { href: "../../anlagen/reinraumqualifizierung/index.html", icon: "inspection", eyebrow: "Reinraum", title: "Reinraumqualifizierung ISO 14644", text: "Partikelmessung und Klassifizierung f&uuml;r sensible Bereiche.", cta: "Zur Reinraumqualifizierung" },
+        { href: "../../hygieneinspektion-vdi-6022/index.html", icon: "inspection", eyebrow: "Inspektion", title: "Hygieneinspektion VDI 6022", text: "Turnus, Befund und Betreiberpflicht f&uuml;r RLT-Anlagen.", cta: "Zur Hygieneinspektion", accent: true },
+        { href: "../../anlagen/lueftungsreinigung/index.html", icon: "cleaning", eyebrow: "Reinigung", title: "L&uuml;ftungsreinigung", text: "Normgerechte Reinigung als Folgema&szlig;nahme oder Pr&auml;vention.", cta: "Zur L&uuml;ftungsreinigung" },
       ]),
     ],
     ctaTitle: "Lüftungsreinigung für Ihre Klinik anfragen",
@@ -302,13 +290,43 @@ const PAGES = [
         ],
         p.image,
         p.imageAlt,
-        "Angebot anfordern"
+        "Angebot anfordern",
+        "luftkeim-ablauf"
       ),
-      relatedSection([
-        ["../../hygieneinspektion-vdi-6022/index.html", "Hygieneinspektion VDI 6022"],
-        ["../inspektionundgutachten/index.html", "Inspektion & Gutachten"],
-        ["../rlt-reinigung-industrie/index.html", "RLT-Reinigung Industrie"],
-        ["../vdi-6022-pruefbericht-musterbericht/index.html", "VDI 6022 Prüfbericht & Musterbericht"],
+      relatedCardsSection("luftkeim-weiter", "Von der Hygieneinspektion bis zur Reinigung &ndash; die n&auml;chsten Schritte rund um Ihre Luftkeimmessung auf einen Blick.", [
+        {
+          href: "../../hygieneinspektion-vdi-6022/index.html",
+          icon: "inspection",
+          eyebrow: "Inspektion",
+          title: "Hygieneinspektion VDI 6022",
+          text: "Turnus, Ablauf und Betreiberpflicht f&uuml;r Ihre RLT-Anlage im &Uuml;berblick.",
+          cta: "Zur Hygieneinspektion",
+        },
+        {
+          href: "../inspektionundgutachten/index.html",
+          icon: "shield",
+          eyebrow: "Leistungen",
+          title: "Inspektion & Gutachten",
+          text: "Hygieneinspektionen, Gutachten und belastbare Befunde aus einer Hand.",
+          cta: "Zum Leistungsbereich",
+        },
+        {
+          href: "../rlt-reinigung-industrie/index.html",
+          icon: "cleaning",
+          eyebrow: "Reinigung",
+          title: "RLT-Reinigung Industrie",
+          text: "Normgerechte Reinigung bei Verschmutzung, Auff&auml;lligkeiten oder als Folgema&szlig;nahme.",
+          cta: "Zur RLT-Reinigung",
+        },
+        {
+          href: "../vdi-6022-pruefbericht-musterbericht/index.html",
+          icon: "report",
+          eyebrow: "Dokumentation",
+          title: "VDI 6022 Pr&uuml;fbericht & Musterbericht",
+          text: "Pr&uuml;fbericht, Ampelsystem und Musterbericht f&uuml;r auditf&auml;hige Nachweise.",
+          cta: "Zum Pr&uuml;fbericht",
+          accent: true,
+        },
       ]),
     ],
     ctaTitle: "Luftkeimmessung anfragen",
@@ -340,11 +358,11 @@ const PAGES = [
         `Wasser, Wärme und organische Stoffe machen Kühltürme und <a class="text-link" href="../verdunstungskuehlanlage-vdi-2047-42-bimschv/index.html">Verdunstungskühlanlagen</a> zu einem idealen Lebensraum für Biofilme. In Verbindung mit Kalkablagerungen entstehen hygienische Risiken und Leistungsverluste. IGIENAIR entfernt Biofilm und Kalk technisch fachgerecht – im Rahmen der Betreiberpflicht nach <a class="text-link" href="../../normen/vdi-2047/index.html">VDI 2047-2</a> und 42. BImSchV.`,
         "Reinigung anfragen"
       ),
-      decisionSection("WARNZEICHEN", "Wann Entkalkung und Biofilmentfernung nötig sind", [
-        { t: "Biofilm & Schleim", p: "Sicht- oder messbarer Bewuchs an wasserführenden Bauteilen." },
-        { t: "Kalkablagerungen", p: "Sinkende Kühlleistung und Beläge an Füllkörpern und Wärmetauschern." },
-        { t: "Mikrobiologie", p: "Erhöhte Keim- oder Legionellenwerte in der Beprobung." },
-        { t: "Betreiberpflicht", p: "Anstehende Prüfungen nach VDI 2047-2 / 42. BImSchV." },
+      ausloeserSection("WARNZEICHEN", "Wann Entkalkung und Biofilmentfernung n&ouml;tig sind", [
+        { icon: "cleaning", eyebrow: "Biofilm", title: "Biofilm &amp; Schleim", text: "Sicht- oder messbarer Bewuchs an wasserf&uuml;hrenden Bauteilen." },
+        { icon: "chart", eyebrow: "Leistung", title: "Kalkablagerungen", text: "Sinkende K&uuml;hlleistung und Bel&auml;ge an F&uuml;llk&ouml;rpern und W&auml;rmetauschern." },
+        { icon: "inspection", eyebrow: "Labor", title: "Mikrobiologie", text: "Erh&ouml;hte Keim- oder Legionellenwerte in der Beprobung." },
+        { icon: "norm", eyebrow: "Compliance", title: "Betreiberpflicht", text: "Anstehende Pr&uuml;fungen nach VDI 2047-2 / 42. BImSchV." },
       ]),
       mediaSection(
         "TECHNISCHE REINIGUNG",
@@ -355,13 +373,14 @@ const PAGES = [
         ],
         p.image,
         p.imageAlt,
-        "Angebot anfordern"
+        "Angebot anfordern",
+        "biofilm-ablauf"
       ),
-      relatedSection([
-        ["../../anlagen/kuehlturmreinigung/index.html", "Kühlturmreinigung"],
-        ["../verdunstungskuehlanlage-vdi-2047-42-bimschv/index.html", "Verdunstungskühlanlage VDI 2047-2"],
-        ["../kuehlturm-sanierung-fuellkoerper-duesen/index.html", "Kühlturm-Sanierung"],
-        ["../instandsetzung-sanierung/index.html", "Instandsetzung & Sanierung"],
+      relatedCardsSection("biofilm-weiter", "K&uuml;hlturmhygiene von der Reinigung bis zur Sanierung &ndash; alle Schritte im Zusammenhang.", [
+        { href: "../../anlagen/kuehlturmreinigung/index.html", icon: "cleaning", eyebrow: "Reinigung", title: "K&uuml;hlturmreinigung", text: "Hygienische Reinigung und Desinfektion von Verdunstungsk&uuml;hlanlagen.", cta: "Zur K&uuml;hlturmreinigung" },
+        { href: "../verdunstungskuehlanlage-vdi-2047-42-bimschv/index.html", icon: "shield", eyebrow: "Betreiberpflicht", title: "Verdunstungsk&uuml;hlanlage VDI 2047-2", text: "Pflichten nach VDI 2047-2 und 42. BImSchV im &Uuml;berblick.", cta: "Zur Betreiberpflicht", accent: true },
+        { href: "../kuehlturm-sanierung-fuellkoerper-duesen/index.html", icon: "report", eyebrow: "Sanierung", title: "K&uuml;hlturm-Sanierung", text: "Austausch von F&uuml;llk&ouml;rpern, D&uuml;sen und Tropfenabscheidern.", cta: "Zur Sanierung" },
+        { href: "../instandsetzung-sanierung/index.html", icon: "shield", eyebrow: "Leistungen", title: "Instandsetzung &amp; Sanierung", text: "Technische Instandsetzung und hygienische Sanierung aus einer Hand.", cta: "Zum Leistungsbereich" },
       ]),
     ],
     ctaTitle: "Kühlturm-Reinigung anfragen",
@@ -409,13 +428,14 @@ const PAGES = [
         ],
         p.image,
         p.imageAlt,
-        "Angebot anfordern"
+        "Angebot anfordern",
+        "kt-sanierung-ablauf"
       ),
-      relatedSection([
-        ["../../anlagen/kuehlturmreinigung/index.html", "Kühlturmreinigung"],
-        ["../kuehlturm-entkalkung-biofilm/index.html", "Kühlturm Entkalkung & Biofilm"],
-        ["../verdunstungskuehlanlage-vdi-2047-42-bimschv/index.html", "Verdunstungskühlanlage VDI 2047-2"],
-        ["../instandsetzung-sanierung/index.html", "Instandsetzung & Sanierung"],
+      relatedCardsSection("kt-sanierung-weiter", "Reinigung, Entkalkung und Sanierung f&uuml;r Verdunstungsk&uuml;hlanlagen &ndash; n&auml;chste Schritte auf einen Blick.", [
+        { href: "../../anlagen/kuehlturmreinigung/index.html", icon: "cleaning", eyebrow: "Reinigung", title: "K&uuml;hlturmreinigung", text: "Regelm&auml;&szlig;ige Hygienereinigung als Basis f&uuml;r sicheren Betrieb.", cta: "Zur K&uuml;hlturmreinigung" },
+        { href: "../kuehlturm-entkalkung-biofilm/index.html", icon: "cleaning", eyebrow: "Entkalkung", title: "K&uuml;hlturm Entkalkung &amp; Biofilm", text: "Biofilm und Kalk fachgerecht entfernen und dokumentieren.", cta: "Zur Entkalkung" },
+        { href: "../verdunstungskuehlanlage-vdi-2047-42-bimschv/index.html", icon: "shield", eyebrow: "Betreiberpflicht", title: "Verdunstungsk&uuml;hlanlage VDI 2047-2", text: "Gef&auml;hrdungsbeurteilung, Reinigung und Nachweis f&uuml;r Betreiber.", cta: "Zur Betreiberpflicht", accent: true },
+        { href: "../instandsetzung-sanierung/index.html", icon: "report", eyebrow: "Leistungen", title: "Instandsetzung &amp; Sanierung", text: "Technische Sanierung und Instandsetzung im Leistungs&uuml;berblick.", cta: "Zum Leistungsbereich" },
       ]),
     ],
     ctaTitle: "Kühlturm-Sanierung anfragen",
@@ -463,13 +483,14 @@ const PAGES = [
         ],
         p.image,
         p.imageAlt,
-        "Angebot anfordern"
+        "Angebot anfordern",
+        "partikel-ablauf"
       ),
-      relatedSection([
-        ["../../anlagen/reinraumqualifizierung/index.html", "Reinraumqualifizierung ISO 14644"],
-        ["../../filterintegritaetstest/index.html", "Filterintegritätstest"],
-        ["../../lecktest-schwebstofffilter/index.html", "Schwebstofffilter-Lecktest"],
-        ["../dehs-leckpruefung-op-raum/index.html", "DEHS-Leckprüfung OP-Raum"],
+      relatedCardsSection("partikel-weiter", "Reinraumqualifizierung, Filterpr&uuml;fung und OP-Messtechnik &ndash; erg&auml;nzende Leistungen auf einen Blick.", [
+        { href: "../../anlagen/reinraumqualifizierung/index.html", icon: "shield", eyebrow: "Qualifizierung", title: "Reinraumqualifizierung ISO 14644", text: "Vollst&auml;ndige Reinraumpr&uuml;fung und Klassifizierung nach ISO 14644.", cta: "Zur Reinraumqualifizierung", accent: true },
+        { href: "../../filterintegritaetstest/index.html", icon: "inspection", eyebrow: "Filterpr&uuml;fung", title: "Filterintegrit&auml;tstest", text: "Integrit&auml;tspr&uuml;fung von Filtersystemen im Reinraum.", cta: "Zum Filtertest" },
+        { href: "../../lecktest-schwebstofffilter/index.html", icon: "inspection", eyebrow: "Lecktest", title: "Schwebstofffilter-Lecktest", text: "Leckagen am Filtersystem nachweisbar lokalisieren.", cta: "Zum Lecktest" },
+        { href: "../dehs-leckpruefung-op-raum/index.html", icon: "shield", eyebrow: "OP-Raum", title: "DEHS-Leckpr&uuml;fung OP-Raum", text: "Filterintegrit&auml;t im OP-Raum nach DIN 1946-4 pr&uuml;fen.", cta: "Zur DEHS-Leckpr&uuml;fung" },
       ]),
     ],
     ctaTitle: "Partikelmessung anfragen",
@@ -517,13 +538,14 @@ const PAGES = [
         ],
         p.image,
         p.imageAlt,
-        "Angebot anfordern"
+        "Angebot anfordern",
+        "dehs-ablauf"
       ),
-      relatedSection([
-        ["../../anlagen/op-raum-pruefung/index.html", "OP-Raum-Qualifizierung DIN 1946-4"],
-        ["../../lecktest-schwebstofffilter/index.html", "Schwebstofffilter-Lecktest"],
-        ["../../filterintegritaetstest/index.html", "Filterintegritätstest"],
-        ["../partikelmessung-reinraum-iso-14644/index.html", "Partikelmessung Reinraum"],
+      relatedCardsSection("dehs-weiter", "OP-Qualifizierung, Filterpr&uuml;fung und Reinraumtechnik &ndash; passende Leistungen im Zusammenhang.", [
+        { href: "../../anlagen/op-raum-pruefung/index.html", icon: "shield", eyebrow: "Qualifizierung", title: "OP-Raum-Qualifizierung DIN 1946-4", text: "Vollst&auml;ndige Qualifizierung raumlufttechnischer Anlagen im OP.", cta: "Zur OP-Raum-Pr&uuml;fung", accent: true },
+        { href: "../../lecktest-schwebstofffilter/index.html", icon: "inspection", eyebrow: "Lecktest", title: "Schwebstofffilter-Lecktest", text: "Verwandtes Verfahren f&uuml;r Schwebstofffilter in RLT-Anlagen.", cta: "Zum Lecktest" },
+        { href: "../../filterintegritaetstest/index.html", icon: "inspection", eyebrow: "Reinraum", title: "Filterintegrit&auml;tstest", text: "Integrit&auml;tspr&uuml;fung nach ISO 14644 im Reinraum.", cta: "Zum Filtertest" },
+        { href: "../partikelmessung-reinraum-iso-14644/index.html", icon: "report", eyebrow: "Messung", title: "Partikelmessung Reinraum", text: "Partikelmessung und Klassifizierung nach ISO 14644.", cta: "Zur Partikelmessung" },
       ]),
     ],
     ctaTitle: "DEHS-Leckprüfung anfragen",
@@ -555,11 +577,11 @@ const PAGES = [
         `Korrosion, geschädigte Oberflächen und freiliegende künstliche Mineralfasern beeinträchtigen den hygienischen und technischen Zustand raumlufttechnischer Anlagen. IGIENAIR saniert betroffene Bereiche mit Korrosionsschutz und 2K-Epoxy-Beschichtung – für glatte, reinigbare Oberflächen und einen normgerechten Zustand. Grundlage ist häufig eine <a class="text-link" href="../../hygieneinspektion-vdi-6022/index.html">Hygieneinspektion nach VDI 6022</a>.`,
         "Sanierung anfragen"
       ),
-      decisionSection("AUSLÖSER", "Wann eine RLT-Sanierung sinnvoll ist", [
-        { t: "Korrosion", p: "Rost an Gehäusen, Wannen und Kanälen schwächt die Substanz." },
-        { t: "Oberflächenschäden", p: "Raue oder beschädigte Flächen lassen sich nicht dauerhaft reinigen." },
-        { t: "KMF freiliegend", p: "Beschädigte Isolierungen geben Fasern an die Luft ab." },
-        { t: "Hygienebefund", p: "Eine Inspektion zeigt, dass Reinigung allein nicht ausreicht." },
+      ausloeserSection("AUSL&Ouml;SER", "Wann eine RLT-Sanierung sinnvoll ist", [
+        { icon: "shield", eyebrow: "Substanz", title: "Korrosion", text: "Rost an Geh&auml;usen, Wannen und Kan&auml;len schw&auml;cht die Substanz." },
+        { icon: "cleaning", eyebrow: "Oberfl&auml;che", title: "Oberfl&auml;chensch&auml;den", text: "Raue oder besch&auml;digte Fl&auml;chen lassen sich nicht dauerhaft reinigen." },
+        { icon: "norm", eyebrow: "Isolierung", title: "KMF freiliegend", text: "Besch&auml;digte Isolierungen geben Fasern an die Luft ab." },
+        { icon: "inspection", eyebrow: "Inspektion", title: "Hygienebefund", text: "Eine Inspektion zeigt, dass Reinigung allein nicht ausreicht." },
       ]),
       mediaSection(
         "ABLAUF & 2K-EPOXY",
@@ -570,13 +592,14 @@ const PAGES = [
         ],
         p.image,
         p.imageAlt,
-        "Angebot anfordern"
+        "Angebot anfordern",
+        "rlt-sanierung-ablauf"
       ),
-      relatedSection([
-        ["../instandsetzung-sanierung/index.html", "Instandsetzung & Sanierung"],
-        ["../../anlagen/lueftungsreinigung/index.html", "Lüftungsreinigung"],
-        ["../../hygieneinspektion-vdi-6022/index.html", "Hygieneinspektion VDI 6022"],
-        ["../rlt-reinigung-industrie/index.html", "RLT-Reinigung Industrie"],
+      relatedCardsSection("rlt-sanierung-weiter", "Instandsetzung, Reinigung und Hygieneinspektion f&uuml;r normgerechte RLT-Anlagen.", [
+        { href: "../instandsetzung-sanierung/index.html", icon: "shield", eyebrow: "Leistungen", title: "Instandsetzung &amp; Sanierung", text: "Sanierung, Reparatur und Instandhaltung im Leistungs&uuml;berblick.", cta: "Zum Leistungsbereich", accent: true },
+        { href: "../../anlagen/lueftungsreinigung/index.html", icon: "cleaning", eyebrow: "Reinigung", title: "L&uuml;ftungsreinigung", text: "Normgerechte Reinigung vor oder nach Sanierungsma&szlig;nahmen.", cta: "Zur L&uuml;ftungsreinigung" },
+        { href: "../../hygieneinspektion-vdi-6022/index.html", icon: "inspection", eyebrow: "Inspektion", title: "Hygieneinspektion VDI 6022", text: "Befund, Priorisierung und Ma&szlig;nahmenplan f&uuml;r Ihre Anlage.", cta: "Zur Hygieneinspektion" },
+        { href: "../rlt-reinigung-industrie/index.html", icon: "cleaning", eyebrow: "Industrie", title: "RLT-Reinigung Industrie", text: "Reinigung f&uuml;r Industrie, FM und gro&szlig;e Anlagen.", cta: "Zur RLT-Reinigung" },
       ]),
     ],
     ctaTitle: "RLT-Sanierung anfragen",

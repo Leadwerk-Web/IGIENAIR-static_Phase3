@@ -9,6 +9,9 @@
 import { promises as fs } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { relatedCardsSection } from "./svc-related-cards.mjs";
+import { ausloeserSection } from "./svc-trigger-cards.mjs";
+import { vorteileSection } from "./svc-benefit-cards.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
@@ -134,23 +137,14 @@ const PAGES = [
       </div>
     </section>
 
-    <section class="svc-section svc-section--soft" data-section="ausloeser">
-      <div class="container">
-        <header class="section-copy svc-section__head">
-          <p class="eyebrow">TYPISCHE AUSL&Ouml;SER</p>
-          <h2>Wann eine RLT-Reinigung in der Industrie notwendig wird</h2>
-          <div class="gradient-line"></div>
-        </header>
-        <div class="svc-decision">
-          <div class="svc-decision__card"><h3>Hygienebefund</h3><p>Eine Hygieneinspektion zeigt Verschmutzung oder mikrobiologische Auff&auml;lligkeiten.</p></div>
-          <div class="svc-decision__card"><h3>Audit &amp; Nachweis</h3><p>Kunden, Beh&ouml;rden oder Zertifizierungen verlangen einen sauberen, dokumentierten Zustand.</p></div>
-          <div class="svc-decision__card"><h3>Produktionssicherheit</h3><p>Ablagerungen gef&auml;hrden Produktqualit&auml;t, Brandlast oder Anlagenverf&uuml;gbarkeit.</p></div>
-          <div class="svc-decision__card"><h3>Effizienzverlust</h3><p>Verschmutzte Bauteile erh&ouml;hen Druckverlust und Energieverbrauch.</p></div>
-        </div>
-      </div>
-    </section>
+${ausloeserSection("TYPISCHE AUSL&Ouml;SER", "Wann eine RLT-Reinigung in der Industrie notwendig wird", [
+      { icon: "inspection", eyebrow: "Inspektion", title: "Hygienebefund", text: "Eine Hygieneinspektion zeigt Verschmutzung oder mikrobiologische Auff&auml;lligkeiten." },
+      { icon: "report", eyebrow: "Compliance", title: "Audit &amp; Nachweis", text: "Kunden, Beh&ouml;rden oder Zertifizierungen verlangen einen sauberen, dokumentierten Zustand." },
+      { icon: "shield", eyebrow: "Betrieb", title: "Produktionssicherheit", text: "Ablagerungen gef&auml;hrden Produktqualit&auml;t, Brandlast oder Anlagenverf&uuml;gbarkeit." },
+      { icon: "chart", eyebrow: "Energie", title: "Effizienzverlust", text: "Verschmutzte Bauteile erh&ouml;hen Druckverlust und Energieverbrauch." },
+    ])}
 
-    <section class="svc-section" data-section="ablauf">
+    <section class="svc-section" id="rlt-industrie-ablauf" data-section="ablauf">
       <div class="container reference-overview__layout">
         <div class="cleanroom-overview__grid">
           <article class="section-copy">
@@ -173,28 +167,27 @@ const PAGES = [
       </div>
     </section>
 
-    <section class="svc-section svc-section--soft" data-section="vorteile">
-      <div class="container">
-        <header class="section-copy svc-section__head">
-          <p class="eyebrow">VORTEILE &amp; NORMEN</p>
-          <h2>Ihr Nutzen als Betreiber</h2>
-          <div class="gradient-line"></div>
-        </header>
-        <ul class="svc-checklist">
-          <li>Erf&uuml;llung der Betreiberpflicht und Auditf&auml;higkeit nach VDI 6022 / DIN EN 15780</li>
-          <li>Schnelle hygienische Wiederverf&uuml;gbarkeit der Anlage</li>
-          <li>Geringerer Druckverlust und Energieverbrauch</li>
-          <li>Reduziertes Hygiene- und Haftungsrisiko</li>
-        </ul>
-        <h3 class="svc-cluster-card__title" style="margin-top:18px;">Weiterf&uuml;hrende Leistungen</h3>
-        <ul class="svc-related">
-          <li><a href="../../anlagen/lueftungsreinigung/index.html">L&uuml;ftungsreinigung</a></li>
-          <li><a href="../../anlagen/luftkanalreinigung/index.html">Luftkanalreinigung</a></li>
-          <li><a href="../../hygieneinspektion-vdi-6022/index.html">Hygieneinspektion VDI 6022</a></li>
-          <li><a href="../reinigung-desinfektion/index.html">Reinigung &amp; Desinfektion</a></li>
-        </ul>
-      </div>
-    </section>`,
+${vorteileSection(
+      "VORTEILE &amp; NORMEN",
+      "Ihr Nutzen als Betreiber",
+      "Normgerechte RLT-Reinigung sichert Compliance, Effizienz und Betriebsstabilit&auml;t &ndash; mit nachvollziehbarem Nachweis f&uuml;r Audits und Beh&ouml;rden.",
+      [
+        { icon: "norm", eyebrow: "Compliance", title: "Betreiberpflicht &amp; Audit", text: "Auditf&auml;hige Dokumentation und Erf&uuml;llung Ihrer Betreiberpflicht nach VDI 6022 und DIN EN 15780." },
+        { icon: "clock", eyebrow: "Betrieb", title: "Schnelle Wiederverf&uuml;gbarkeit", text: "Planung in Wartungsfenstern f&uuml;r minimale Unterbrechung und hygienische Wiederverf&uuml;gbarkeit der Anlage." },
+        { icon: "chart", eyebrow: "Effizienz", title: "Geringerer Energieverbrauch", text: "Saubere Kan&auml;le und Bauteile senken Druckverlust und reduzieren den Energiebedarf Ihrer RLT-Anlage." },
+        { icon: "shield", eyebrow: "Sicherheit", title: "Weniger Haftungsrisiko", text: "Normgerechte Reinigung mit Nachweis verringert Hygiene- und Haftungsrisiken f&uuml;r Ihren Betrieb." },
+      ],
+      [
+        { href: "../../normen/vdi-6022/index.html", label: "VDI 6022" },
+        { href: "../../normen/din-en-15780/index.html", label: "DIN EN 15780" },
+      ]
+    )}`,
+    weiterSection: relatedCardsSection("rlt-industrie-weiter", "L&uuml;ftungsreinigung, Inspektion und Desinfektion &ndash; passende Leistungen f&uuml;r Ihre Anlage.", [
+      { href: "../../anlagen/lueftungsreinigung/index.html", icon: "cleaning", eyebrow: "Reinigung", title: "L&uuml;ftungsreinigung", text: "Normgerechte Reinigung von RLT-Anlagen und Luftkan&auml;len.", cta: "Zur L&uuml;ftungsreinigung" },
+      { href: "../../anlagen/luftkanalreinigung/index.html", icon: "cleaning", eyebrow: "Kanalnetz", title: "Luftkanalreinigung", text: "Gezielte Reinigung des Luftkanalnetzes nach DIN EN 15780.", cta: "Zur Luftkanalreinigung" },
+      { href: "../../hygieneinspektion-vdi-6022/index.html", icon: "inspection", eyebrow: "Inspektion", title: "Hygieneinspektion VDI 6022", text: "Befund, Turnus und Betreiberpflicht f&uuml;r Ihre Anlage.", cta: "Zur Hygieneinspektion", accent: true },
+      { href: "../reinigung-desinfektion/index.html", icon: "shield", eyebrow: "Leistungen", title: "Reinigung &amp; Desinfektion", text: "Reinigung und Desinfektion im Leistungs&uuml;berblick.", cta: "Zum Leistungsbereich" },
+    ]),
     ctaTitle: "RLT-Reinigung f&uuml;r Ihren Standort anfragen",
     ctaText: "Beschreiben Sie kurz Ihre Anlage und Branche &ndash; wir nennen Ihnen Umfang, Ablauf und Ihren lokalen Ansprechpartner.",
   },
@@ -250,7 +243,7 @@ const PAGES = [
       </div>
     </section>
 
-    <section class="svc-section" data-section="musterbericht">
+    <section class="svc-section" id="bericht-musterbericht" data-section="musterbericht">
       <div class="container reference-overview__layout">
         <div class="cleanroom-overview__grid">
           <article class="section-copy">
@@ -268,19 +261,56 @@ const PAGES = [
       </div>
     </section>
 
-    <section class="svc-section svc-section--soft" data-section="weiter">
+    <section class="svc-section" id="bericht-weiter" data-section="weiter">
       <div class="container">
-        <header class="section-copy svc-section__head">
+        <header class="section-copy svc-section__head svc-section__head--center">
           <p class="eyebrow">WEITERF&Uuml;HREND</p>
-          <h2>Passende Leistungen</h2>
-          <div class="gradient-line"></div>
+          <h2>Passende Leistungen &amp; Unterlagen</h2>
+          <div class="gradient-line gradient-line--center"></div>
+          <p class="svc-section__lead">Vom turnusm&auml;&szlig;igen Pr&uuml;fbericht bis zur direkten Anfrage &ndash; die n&auml;chsten Schritte auf einen Blick.</p>
         </header>
-        <ul class="svc-related">
-          <li><a href="../../hygieneinspektion-vdi-6022/index.html">Hygieneinspektion VDI 6022</a></li>
-          <li><a href="../inspektionundgutachten/index.html">Inspektion &amp; Gutachten</a></li>
-          <li><a href="../../downloads/index.html">Downloads</a></li>
-          <li><a href="../../kontakt/angebot-anfordern/index.html">Angebot anfordern</a></li>
-        </ul>
+
+        <div class="svc-related-cards">
+          <a class="svc-related-card" href="../../hygieneinspektion-vdi-6022/index.html">
+            <span class="svc-related-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"></path><rect x="9" y="3" width="6" height="4" rx="1"></rect><path d="M9 12h6"></path><path d="M9 16h6"></path></svg>
+            </span>
+            <span class="svc-related-card__eyebrow">Inspektion</span>
+            <h3 class="svc-related-card__title">Hygieneinspektion VDI 6022</h3>
+            <p class="svc-related-card__text">Turnus, Ablauf und Betreiberpflicht f&uuml;r Ihre RLT-Anlage im &Uuml;berblick.</p>
+            <span class="svc-related-card__cta">Zur Hygieneinspektion</span>
+          </a>
+
+          <a class="svc-related-card" href="../inspektionundgutachten/index.html">
+            <span class="svc-related-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v5c0 4.2 3.2 7.8 7.5 9 4.3-1.2 7.5-4.8 7.5-9V7l-8-4z"></path><path d="m9.5 12.2 1.7 1.8 3.3-3.4"></path></svg>
+            </span>
+            <span class="svc-related-card__eyebrow">Leistungen</span>
+            <h3 class="svc-related-card__title">Inspektion &amp; Gutachten</h3>
+            <p class="svc-related-card__text">Hygieneinspektionen, Gutachten und belastbare Befunde aus einer Hand.</p>
+            <span class="svc-related-card__cta">Zum Leistungsbereich</span>
+          </a>
+
+          <a class="svc-related-card" href="../../downloads/index.html">
+            <span class="svc-related-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v10"></path><path d="m8 9 4 4 4-4"></path><path d="M5 17v2a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-2"></path></svg>
+            </span>
+            <span class="svc-related-card__eyebrow">Unterlagen</span>
+            <h3 class="svc-related-card__title">Downloads</h3>
+            <p class="svc-related-card__text">Vorlagen, Checklisten und Referenzdokumente f&uuml;r Betreiber und Facility Manager.</p>
+            <span class="svc-related-card__cta">Zum Download-Bereich</span>
+          </a>
+
+          <a class="svc-related-card svc-related-card--accent" href="../../kontakt/angebot-anfordern/index.html">
+            <span class="svc-related-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16v12H4z"></path><path d="m4 7 8 6 8-6"></path></svg>
+            </span>
+            <span class="svc-related-card__eyebrow">Kontakt</span>
+            <h3 class="svc-related-card__title">Angebot anfordern</h3>
+            <p class="svc-related-card__text">Musterbericht, Termin oder Projektanfrage &ndash; wir melden uns zeitnah bei Ihnen.</p>
+            <span class="svc-related-card__cta">Jetzt anfragen</span>
+          </a>
+        </div>
       </div>
     </section>`,
     ctaTitle: "Musterbericht anfordern",
@@ -336,7 +366,7 @@ const PAGES = [
       </div>
     </section>
 
-    <section class="svc-section" data-section="risiken">
+    <section class="svc-section" id="vka-risiken" data-section="risiken">
       <div class="container reference-overview__layout">
         <div class="cleanroom-overview__grid">
           <article class="section-copy">
@@ -351,23 +381,13 @@ const PAGES = [
           </figure>
         </div>
       </div>
-    </section>
-
-    <section class="svc-section svc-section--soft" data-section="weiter">
-      <div class="container">
-        <header class="section-copy svc-section__head">
-          <p class="eyebrow">WEITERF&Uuml;HREND</p>
-          <h2>Passende Leistungen</h2>
-          <div class="gradient-line"></div>
-        </header>
-        <ul class="svc-related">
-          <li><a href="../../anlagen/kuehlturmreinigung/index.html">K&uuml;hlturmreinigung</a></li>
-          <li><a href="../../gefaehrdungsbeurteilung-vdi-2047/index.html">Gef&auml;hrdungsbeurteilung VDI 2047-2</a></li>
-          <li><a href="../instandsetzung-sanierung/index.html">Instandsetzung &amp; Sanierung</a></li>
-          <li><a href="../../normen/vdi-2047/index.html">Norm VDI 2047-2</a></li>
-        </ul>
-      </div>
     </section>`,
+    weiterSection: relatedCardsSection("vka-weiter", "K&uuml;hlturmreinigung, Gef&auml;hrdungsbeurteilung und Normen &ndash; n&auml;chste Schritte f&uuml;r Betreiber.", [
+      { href: "../../anlagen/kuehlturmreinigung/index.html", icon: "cleaning", eyebrow: "Reinigung", title: "K&uuml;hlturmreinigung", text: "Hygienische Reinigung und Desinfektion von Verdunstungsk&uuml;hlanlagen.", cta: "Zur K&uuml;hlturmreinigung" },
+      { href: "../../gefaehrdungsbeurteilung-vdi-2047/index.html", icon: "shield", eyebrow: "Betreiberpflicht", title: "Gef&auml;hrdungsbeurteilung VDI 2047-2", text: "Fachkundige Bewertung und Dokumentation f&uuml;r Betreiber.", cta: "Zur Gef&auml;hrdungsbeurteilung", accent: true },
+      { href: "../instandsetzung-sanierung/index.html", icon: "report", eyebrow: "Sanierung", title: "Instandsetzung &amp; Sanierung", text: "Technische Sanierung wenn Reinigung nicht mehr ausreicht.", cta: "Zum Leistungsbereich" },
+      { href: "../../normen/vdi-2047/index.html", icon: "norm", eyebrow: "Norm", title: "Norm VDI 2047-2", text: "Hintergrund, Pflichten und Anforderungen im Normen&uuml;berblick.", cta: "Zur Norm VDI 2047-2" },
+    ]),
     ctaTitle: "Verdunstungsk&uuml;hlanlage pr&uuml;fen lassen",
     ctaText: "Wir bewerten Ihre Anlage nach VDI 2047-2 / 42. BImSchV und planen Reinigung, Desinfektion oder Sanierung inklusive Dokumentation.",
   },
@@ -403,7 +423,8 @@ function buildMain(p) {
       </div>
     </section>`;
 
-  return `  <main>\n${hero}\n\n${p.body}\n\n${faq}\n\n${cta}\n  </main>`;
+  const weiter = p.weiterSection ? `${p.weiterSection}\n\n` : "";
+  return `  <main>\n${hero}\n\n${p.body}\n\n${weiter}${faq}\n\n${cta}\n  </main>`;
 }
 
 async function main() {

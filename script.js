@@ -67,6 +67,65 @@ function resolveSitePath(urlPath) {
   return `${prefix}${target}${hash}${query}`;
 }
 
+function normalizePagePath(input) {
+  if (!input) {
+    return null;
+  }
+
+  try {
+    let path = new URL(input, window.location.href).pathname;
+    path = decodeURIComponent(path);
+
+    if (path.length > 1 && path.endsWith("/")) {
+      path = path.slice(0, -1);
+    }
+
+    const lastSegment = path.split("/").pop() || "";
+    if (!lastSegment.includes(".")) {
+      path = `${path}/index.html`;
+    }
+
+    return path.toLowerCase();
+  } catch {
+    return null;
+  }
+}
+
+function initMegaMenuActiveState() {
+  const currentPath = normalizePagePath(window.location.href);
+  if (!currentPath) {
+    return;
+  }
+
+  const megaLinks = document.querySelectorAll(
+    '.nav-dropdown--mega .nav-link[href], .nav-dropdown--mega .nav-mega__all[href], .mobile-menu__group--mega .mobile-link[href]'
+  );
+
+  megaLinks.forEach((link) => {
+    const href = link.getAttribute("href");
+    if (!href || href.startsWith("#")) {
+      return;
+    }
+
+    const linkPath = normalizePagePath(href);
+    if (linkPath === currentPath) {
+      link.setAttribute("aria-current", "page");
+      return;
+    }
+
+    if (link.closest(".nav-dropdown--mega, .mobile-menu__group--mega")) {
+      link.removeAttribute("aria-current");
+    }
+  });
+
+  document.querySelectorAll(".nav-item--mega .nav-trigger[href]").forEach((trigger) => {
+    const triggerPath = normalizePagePath(trigger.getAttribute("href"));
+    if (triggerPath === currentPath) {
+      trigger.setAttribute("aria-current", "page");
+    }
+  });
+}
+
 const body = document.body;
 const menuToggle = document.querySelector(".mobile-menu-toggle");
 const mobileMenu = document.querySelector(".mobile-menu");
@@ -1935,6 +1994,7 @@ addressSelect?.addEventListener("change", syncAddressFields);
 initQuoteForms();
 
 initMenu();
+initMegaMenuActiveState();
 initAnchors();
 initInertControls();
 initKeyboard();
