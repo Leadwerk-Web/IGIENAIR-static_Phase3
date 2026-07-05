@@ -57,22 +57,44 @@ function buildInlineSvg() {
     /<svg[^>]*>/i,
     (match) => `${match}\n  ${MAP_DEFS}\n`
   );
-  svg = svg.replace(/<rect[^>]*\/?>/i, "");
-  svg = svg.replace(/<path class="cls-3"/g, '<path class="de-map__bg"');
-  svg = svg.replace(
-    /((?:<path class="de-map__bg"[\s\S]*?\/>)+)/i,
-    '<g class="de-map__land-shape">\n    $1\n  </g>'
-  );
+  svg = svg.replace(/<rect[^>]*\/?>\s*/gi, "");
+
+  if (/class="cls-3"/.test(svg)) {
+    svg = svg.replace(/<path class="cls-3"/g, '<path class="de-map__bg"');
+    svg = svg.replace(
+      /((?:<path class="de-map__bg"[\s\S]*?\/>)+)/i,
+      '<g class="de-map__land-shape">\n    $1\n  </g>'
+    );
+  } else {
+    svg = svg.replace(
+      /<g>\s*((?:<path[\s\S]*?\/>[\s]*)+)<\/g>/i,
+      (_, paths) => {
+        const styled = paths.replace(/<path(?=\s)/g, '<path class="de-map__bg"');
+        return `<g class="de-map__land-shape">\n    ${styled.trim()}\n  </g>`;
+      }
+    );
+  }
 
   for (const [id, meta] of Object.entries(CITY_META)) {
-    const re = new RegExp(
-      `<circle\\s+id="${id}"\\s+class="cls-\\d+"\\s+cx="([^"]+)"\\s+cy="([^"]+)"\\s+r="([^"]+)"\\s*/>`,
-      "i"
-    );
-    svg = svg.replace(
-      re,
-      `<circle class="de-map__land de-map__city" id="${id}" data-label="${meta.label}" cx="$1" cy="$2" r="$3" aria-label="${meta.label}"><title>${meta.label}</title></circle>`
-    );
+    const patterns = [
+      new RegExp(
+        `<circle\\s+id="${id}"\\s+class="cls-\\d+"\\s+cx="([^"]+)"\\s+cy="([^"]+)"\\s+r="([^"]+)"\\s*/>`,
+        "i"
+      ),
+      new RegExp(
+        `<circle\\s+id="${id}"[^>]*\\bcx="([^"]+)"[^>]*\\bcy="([^"]+)"[^>]*\\br="([^"]+)"[^>]*/>`,
+        "i"
+      ),
+    ];
+    for (const re of patterns) {
+      if (re.test(svg)) {
+        svg = svg.replace(
+          re,
+          `<circle class="de-map__land de-map__city" id="${id}" data-label="${meta.label}" cx="$1" cy="$2" r="$3" aria-label="${meta.label}"><title>${meta.label}</title></circle>`
+        );
+        break;
+      }
+    }
   }
 
   return svg.trim();
