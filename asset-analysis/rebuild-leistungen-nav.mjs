@@ -1,9 +1,5 @@
-// Rollt die neue 2-stufige Leistungs-Navigation (5-Cluster-Mega-Menue) in alle
-// produktiven Root-HTML-Seiten aus. Ersetzt den bestehenden Leistungen-Eintrag
-// (Desktop nav-item + Mobile mobile-menu__group) durch die Cluster-Struktur.
-// Tiefenabhaengige relative Pfade, idempotent (matcht alte UND neue Struktur),
-// ohne leadwerk_* / asset-analysis / Bildmaterial usw.
-//
+// Rollt die neue 2-stufige Leistungs-Navigation (6-Cluster-Mega-Menue) in alle
+// produktiven Root-HTML-Seiten aus.
 // Aufruf:  node asset-analysis/rebuild-leistungen-nav.mjs
 
 import { promises as fs } from "node:fs";
@@ -27,7 +23,6 @@ const EXCLUDE_DIRS = new Set([
   "assets",
 ]);
 
-// Cluster-Definition (root-relative Slugs, Labels mit HTML-Entities)
 const CLUSTERS = [
   {
     title: "Betreiberpflicht &amp; Hygieneinspektion",
@@ -36,16 +31,15 @@ const CLUSTERS = [
       ["rlt-hygiene/index.html", "RLT-Hygiene"],
       ["leistungen/vdi-6022-pruefbericht-musterbericht/index.html", "VDI 6022 Pr&uuml;fbericht &amp; Musterbericht"],
       ["leistungen/luftkeimmessung-rlt-anlagen/index.html", "Luftkeimmessung RLT-Anlagen"],
-      ["gefaehrdungsbeurteilung-vdi-2047/index.html", "Gef&auml;hrdungsbeurteilung VDI 2047-2"],
       ["leistungen/inspektionundgutachten/index.html", "Inspektion &amp; Gutachten"],
     ],
   },
   {
     title: "Reinigung &amp; Instandhaltung",
     links: [
-      ["anlagen/lueftungsreinigung/index.html", "L&uuml;ftungsreinigung"],
-      ["anlagen/luftkanalreinigung/index.html", "Luftkanalreinigung"],
-      ["anlagen/lueftungsanlagenreinigung/index.html", "RLT-Anlagenreinigung"],
+      ["anlagen/lueftungsreinigung/index.html", "L&uuml;ftungsreinigung VDI 6022"],
+      ["anlagen/luftkanalreinigung/index.html", "Luftkanalreinigung VDI 6022"],
+      ["anlagen/lueftungsanlagenreinigung/index.html", "RLT-Anlagenreinigung VDI 6022"],
       ["leistungen/rlt-reinigung-industrie/index.html", "RLT-Reinigung Industrie"],
       ["leistungen/lueftungsreinigung-krankenhaus-klinik/index.html", "L&uuml;ftungsreinigung Krankenhaus / Klinik"],
       ["leistungen/reinigung-desinfektion/index.html", "Reinigung &amp; Desinfektion"],
@@ -54,10 +48,10 @@ const CLUSTERS = [
   {
     title: "K&uuml;hlturm &amp; Verdunstungsk&uuml;hlanlagen",
     links: [
-      ["anlagen/kuehlturmreinigung/index.html", "K&uuml;hlturmreinigung"],
+      ["gefaehrdungsbeurteilung-vdi-2047/index.html", "Risikoanalyse VDI 2047-2"],
+      ["anlagen/kuehlturmreinigung/index.html", "K&uuml;hlturmreinigung 42. BImSchV"],
       ["leistungen/verdunstungskuehlanlage-vdi-2047-42-bimschv/index.html", "Verdunstungsk&uuml;hlanlage VDI 2047-2"],
       ["leistungen/kuehlturm-entkalkung-biofilm/index.html", "K&uuml;hlturm Entkalkung &amp; Biofilm"],
-      ["leistungen/kuehlturm-sanierung-fuellkoerper-duesen/index.html", "K&uuml;hlturm-Sanierung"],
     ],
   },
   {
@@ -72,11 +66,17 @@ const CLUSTERS = [
     ],
   },
   {
-    title: "Energie &amp; Sanierung",
+    title: "Energie",
     links: [
       ["energetische-inspektion-geg-2020/index.html", "Energetische Inspektion GEG"],
+    ],
+  },
+  {
+    title: "Sanierung",
+    links: [
       ["leistungen/rlt-sanierung-korrosion-2k-epoxy/index.html", "RLT-Sanierung Korrosion &amp; 2K-Epoxy"],
       ["leistungen/instandsetzung-sanierung/index.html", "Instandsetzung &amp; Sanierung"],
+      ["leistungen/kuehlturm-sanierung-fuellkoerper-duesen/index.html", "K&uuml;hlturmsanierung"],
     ],
   },
 ];
@@ -89,14 +89,10 @@ function buildDesktop(prefix, current) {
   const cur = current ? ' aria-current="page"' : "";
   const clusters = CLUSTERS.map((c) => {
     const links = c.links
-      .map(
-        ([href, label]) =>
-          `              <a class="nav-link" href="${prefix}${href}"><span>${label}</span></a>`
-      )
+      .map(([href, label]) => `              <a class="nav-link" href="${prefix}${href}"><span>${label}</span></a>`)
       .join("\n");
     return `            <div class="nav-cluster">\n              <p class="nav-cluster__title">${c.title}</p>\n${links}\n            </div>`;
   }).join("\n");
-  // Promo-Kachel als 6. Rasterzelle (3x2-Raster), modern im CD
   const promo =
     `            <div class="nav-mega__promo">\n` +
     `              <p class="nav-mega__promo-eyebrow">Technische Hygiene</p>\n` +
@@ -108,44 +104,31 @@ function buildDesktop(prefix, current) {
   return (
     `<div class="nav-item nav-item--wide nav-item--mega">\n` +
     `          <a class="nav-trigger" href="${prefix}leistungen/index.html"${cur}>Leistungen</a>\n` +
-    `          <div class="nav-dropdown nav-dropdown--mega">\n` +
-    `${clusters}\n` +
-    `${promo}\n` +
-    `          </div>\n` +
-    `        </div>\n        `
+    `          <div class="nav-dropdown nav-dropdown--mega">\n${clusters}\n${promo}\n          </div>\n        </div>\n        `
   );
 }
 
 function buildMobile(prefix, current) {
   const cur = current ? ' aria-current="page"' : "";
   const items = CLUSTERS.map((c) => {
-    const links = c.links
-      .map(([href, label]) => `          <a class="mobile-link" href="${prefix}${href}">${label}</a>`)
-      .join("\n");
+    const links = c.links.map(([href, label]) => `          <a class="mobile-link" href="${prefix}${href}">${label}</a>`).join("\n");
     return `          <p class="mobile-menu__subtitle">${c.title}</p>\n${links}`;
   }).join("\n");
   return (
     `<div class="mobile-menu__group mobile-menu__group--mega">\n` +
-    `          <a class="mobile-menu__group-title" href="${prefix}leistungen/index.html"${cur}>Leistungen</a>\n` +
-    `${items}\n` +
-    `          <a class="mobile-link mobile-link--cta" href="${prefix}kontakt/angebot-anfordern/index.html">Angebot anfordern</a>\n` +
-    `        </div>\n        `
+    `          <a class="mobile-menu__group-title" href="${prefix}leistungen/index.html"${cur}>Leistungen</a>\n${items}\n` +
+    `          <a class="mobile-link mobile-link--cta" href="${prefix}kontakt/angebot-anfordern/index.html">Angebot anfordern</a>\n        </div>\n        `
   );
 }
 
-// Desktop: vom Leistungen-nav-item bis zum naechsten nav-item / </nav>
 const DESKTOP_RE = /<div class="nav-item[^"]*">\s*<a class="nav-trigger"[^>]*>Leistungen<\/a>[\s\S]*?(?=<div class="nav-item|<\/nav>)/;
-// Mobile: von der Leistungen-Gruppe bis zur naechsten mobile-menu__group
-// (klassen-tolerant, damit Re-Runs mit mobile-menu__group--mega greifen)
 const MOBILE_RE = /<div class="mobile-menu__group[^"]*">\s*<a class="mobile-menu__group-title"[^>]*>Leistungen<\/a>[\s\S]*?(?=<div class="mobile-menu__group)/;
 
 async function walk(dir, acc) {
-  const entries = await fs.readdir(dir, { withFileTypes: true });
-  for (const entry of entries) {
+  for (const entry of await fs.readdir(dir, { withFileTypes: true })) {
     if (entry.isDirectory()) {
-      if (EXCLUDE_DIRS.has(entry.name)) continue;
-      await walk(path.join(dir, entry.name), acc);
-    } else if (entry.isFile() && entry.name.endsWith(".html")) {
+      if (!EXCLUDE_DIRS.has(entry.name)) await walk(path.join(dir, entry.name), acc);
+    } else if (entry.name.endsWith(".html")) {
       acc.push(path.join(dir, entry.name));
     }
   }
@@ -155,8 +138,6 @@ async function walk(dir, acc) {
 async function main() {
   const files = await walk(ROOT, []);
   let changed = 0;
-  let skipped = 0;
-  let nomatch = 0;
   for (const file of files) {
     const rel = path.relative(ROOT, file).split(path.sep).join("/");
     const depth = rel.split("/").length - 1;
@@ -164,27 +145,14 @@ async function main() {
     const isCurrent = rel.startsWith("leistungen/");
     let html = await fs.readFile(file, "utf8");
     const original = html;
-
-    if (DESKTOP_RE.test(html)) {
-      html = html.replace(DESKTOP_RE, buildDesktop(prefix, isCurrent));
-    }
-    if (MOBILE_RE.test(html)) {
-      html = html.replace(MOBILE_RE, buildMobile(prefix, isCurrent));
-    }
-
+    if (DESKTOP_RE.test(html)) html = html.replace(DESKTOP_RE, buildDesktop(prefix, isCurrent));
+    if (MOBILE_RE.test(html)) html = html.replace(MOBILE_RE, buildMobile(prefix, isCurrent));
     if (html !== original) {
       await fs.writeFile(file, html, "utf8");
       changed++;
-    } else if (/>Leistungen<\/a>/.test(original)) {
-      skipped++;
-    } else {
-      nomatch++;
     }
   }
-  console.log(`Dateien gesamt: ${files.length}`);
-  console.log(`aktualisiert:   ${changed}`);
-  console.log(`unveraendert:   ${skipped}`);
-  console.log(`kein Leistungen-Eintrag: ${nomatch}`);
+  console.log(`aktualisiert: ${changed}`);
 }
 
 main().catch((err) => {

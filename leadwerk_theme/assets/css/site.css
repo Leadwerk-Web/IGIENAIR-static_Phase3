@@ -296,6 +296,8 @@ h2 {
 }
 
 .site-header {
+  --site-header-height: 92px;
+  --nav-dropdown-top: calc(var(--site-header-height) / 2 + 1.125rem + 12px);
   position: fixed;
   inset: 0 0 auto;
   z-index: 30;
@@ -429,39 +431,65 @@ h2 {
   transform: translate(-50%, 0);
 }
 
-/* Leistungen Mega-Menü (2-stufig, modernes 3x2-Raster im CD) */
+/* Leistungen Mega-Menü (2-stufig, 3-Spalten-Raster + Promo-Leiste) */
 .nav-dropdown--mega {
-  left: 0;
+  position: fixed;
+  top: var(--nav-dropdown-top);
+  left: 50%;
   right: auto;
+  z-index: 35;
+  visibility: hidden;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   grid-auto-rows: minmax(0, 1fr);
-  width: min(880px, calc(100vw - 32px));
+  width: min(960px, calc(100vw - 32px));
   max-width: calc(100vw - 32px);
   min-width: 0;
-  gap: 8px 14px;
-  padding: 26px 24px 22px;
-  border: 1px solid rgba(1, 97, 191, 0.12);
-  border-radius: 16px;
+  gap: 28px 40px;
+  padding: 32px 36px 28px;
+  border: 1px solid rgba(1, 97, 191, 0.1);
+  border-radius: 18px;
   background: rgba(255, 255, 255, 0.99);
-  box-shadow: 0 28px 60px rgba(6, 37, 77, 0.18);
-  transform: translate(0, 12px);
+  box-shadow: 0 32px 70px rgba(6, 37, 77, 0.2);
+  transform: translate(-50%, 12px);
+  background-image:
+    linear-gradient(to bottom, rgba(1, 97, 191, 0.08), rgba(1, 97, 191, 0.08)),
+    linear-gradient(to bottom, rgba(1, 97, 191, 0.08), rgba(1, 97, 191, 0.08));
+  background-size: 1px calc(100% - 64px), 1px calc(100% - 64px);
+  background-position: calc(33.333% + 4px) 32px, calc(66.666% - 4px) 32px;
+  background-repeat: no-repeat;
 }
 
-/* Gradient-Akzentleiste oben (Hover-Bridge nutzt ::before, daher ::after) */
-.nav-dropdown--mega::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  border-radius: 16px 16px 0 0;
-  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+.nav-dropdown--mega::before {
+  display: none;
 }
 
-.nav-item:hover .nav-dropdown--mega,
-.nav-item:focus-within .nav-dropdown--mega {
-  transform: translate(0, 0);
+.nav-item--mega .nav-trigger,
+.nav-item--mega-kunden .nav-trigger {
+  position: relative;
+  z-index: 36;
+}
+
+.nav-item--mega:hover .nav-dropdown--mega,
+.nav-item--mega:focus-within .nav-dropdown--mega,
+.nav-item--mega-kunden:hover .nav-dropdown--mega-kunden,
+.nav-item--mega-kunden:focus-within .nav-dropdown--mega-kunden {
+  visibility: visible;
+  transform: translate(-50%, 0);
+}
+
+body:not(.is-scrolled) .nav-item--mega-kunden:has(.nav-dropdown--mega-kunden .nav-link[aria-current="page"]) .nav-trigger,
+body:not(.is-scrolled) .nav-item--mega-kunden:has(.nav-dropdown--mega-kunden .nav-mega__all[aria-current="page"]) .nav-trigger {
+  color: #d4efff;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.18);
+}
+
+body.is-scrolled .nav-item--mega-kunden:has(.nav-dropdown--mega-kunden .nav-link[aria-current="page"]) .nav-trigger,
+body.is-scrolled .nav-item--mega-kunden:has(.nav-dropdown--mega-kunden .nav-mega__all[aria-current="page"]) .nav-trigger {
+  color: var(--color-primary);
+}
+
+.mobile-menu__group--mega-kunden:has(.mobile-link[aria-current="page"]) .mobile-menu__group-title {
+  color: var(--color-primary);
 }
 
 .nav-cluster {
@@ -517,8 +545,9 @@ h2 {
   transform: translateX(3px);
 }
 
-/* Promo-Kachel als 6. Rasterzelle */
+/* Promo-Kachel als volle Breite unter den Cluster-Spalten */
 .nav-mega__promo {
+  grid-column: 1 / -1;
   display: flex;
   flex-direction: column;
   gap: 6px;
