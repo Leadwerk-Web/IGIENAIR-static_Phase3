@@ -93,18 +93,10 @@ function buildDesktop(prefix, current) {
       .join("\n");
     return `            <div class="nav-cluster">\n              <p class="nav-cluster__title">${c.title}</p>\n${links}\n            </div>`;
   }).join("\n");
-  const promo =
-    `            <div class="nav-mega__promo">\n` +
-    `              <p class="nav-mega__promo-eyebrow">Technische Hygiene</p>\n` +
-    `              <p class="nav-mega__promo-title">Welche Leistung brauchen Sie?</p>\n` +
-    `              <p class="nav-mega__promo-text">Wir beraten Sie zu Betreiberpflicht, Normen und auditf&auml;higer Dokumentation.</p>\n` +
-    `              <a class="nav-mega__cta" href="${prefix}kontakt/angebot-anfordern/index.html">Angebot anfordern</a>\n` +
-    `              <a class="nav-mega__all" href="${prefix}leistungen/index.html">Alle Leistungen ansehen</a>\n` +
-    `            </div>`;
   return (
     `<div class="nav-item nav-item--wide nav-item--mega">\n` +
     `          <a class="nav-trigger" href="${prefix}leistungen/index.html"${cur}>Leistungen</a>\n` +
-    `          <div class="nav-dropdown nav-dropdown--mega">\n${clusters}\n${promo}\n          </div>\n        </div>\n        `
+    `          <div class="nav-dropdown nav-dropdown--mega">\n${clusters}\n          </div>\n        </div>\n        `
   );
 }
 

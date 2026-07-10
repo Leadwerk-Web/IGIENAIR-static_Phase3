@@ -82,10 +82,38 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--site-header-height, 92px) + 16px);
   overflow-x: clip;
   max-width: 100%;
   scrollbar-width: thin;
   scrollbar-color: var(--color-primary) var(--scrollbar-track);
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+html.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+html.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+html.lenis.lenis-stopped body {
+  overflow: hidden;
+}
+
+html.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 body {
@@ -463,13 +491,45 @@ h2 {
   background-size: 1px calc(100% - 64px), 1px calc(100% - 64px);
   background-position: calc(33.333% + 4px) 32px, calc(66.666% - 4px) 32px;
   background-repeat: no-repeat;
+  transition:
+    opacity 0.18s ease,
+    transform 0.18s ease,
+    visibility 0s linear 0.22s;
 }
 
+/* Unsichtbare Brücke zwischen Trigger und Panel (nur oberhalb des Panels, nicht über dem Link) */
 .nav-dropdown--mega::before {
-  display: none;
+  content: "";
+  position: absolute;
+  top: -28px;
+  left: -40px;
+  right: -40px;
+  height: 28px;
 }
 
-/* Trigger klickbar halten – liegt über dem geschlossenen Mega-Panel */
+/* Fixierte Hover-Zone im Spalt – hält :hover, ohne Klicks auf den Trigger zu blockieren */
+.nav-item--mega::after,
+.nav-item--mega-kunden::after {
+  content: "";
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(960px, calc(100vw - 32px));
+  max-width: calc(100vw - 32px);
+  top: calc(var(--site-header-height, 92px) / 2 + 0.25rem);
+  height: calc(var(--nav-dropdown-top, 76px) - var(--site-header-height, 92px) / 2 + 8px);
+  min-height: 24px;
+  pointer-events: none;
+  z-index: 34;
+}
+
+.nav-item--mega:hover::after,
+.nav-item--mega:focus-within::after,
+.nav-item--mega-kunden:hover::after,
+.nav-item--mega-kunden:focus-within::after {
+  pointer-events: auto;
+}
+
 .nav-item--mega .nav-trigger,
 .nav-item--mega-kunden .nav-trigger {
   position: relative;
@@ -481,7 +541,10 @@ h2 {
 .nav-item--mega-kunden:hover .nav-dropdown--mega-kunden,
 .nav-item--mega-kunden:focus-within .nav-dropdown--mega-kunden {
   visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
   transform: translate(-50%, 0);
+  transition-delay: 0s;
 }
 
 body:not(.is-scrolled) .nav-item--mega-kunden:has(.nav-dropdown--mega-kunden .nav-link[aria-current="page"]) .nav-trigger,
@@ -611,74 +674,113 @@ body.is-scrolled .nav-item--mega:has(.nav-dropdown--mega .nav-mega__all[aria-cur
   color: var(--color-primary);
 }
 
-/* Promo-Kachel als volle Breite unter den Cluster-Spalten */
+/* Promo-Leiste unter den Cluster-Spalten */
 .nav-mega__promo {
   grid-column: 1 / -1;
   display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding: 20px 20px 22px;
-  border-radius: 14px;
-  background: linear-gradient(160deg, rgba(232, 243, 255, 0.85) 0%, #ffffff 100%);
-  border: 1px solid rgba(1, 97, 191, 0.18);
-  box-shadow: 0 8px 20px rgba(1, 97, 191, 0.06);
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 16px;
+  margin-top: 0;
+  padding: 8px 12px 8px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(1, 97, 191, 0.1);
+  background: rgba(232, 243, 255, 0.45);
+  position: relative;
+  overflow: hidden;
 }
 
-.nav-mega__promo-eyebrow {
-  margin: 0;
-  font-size: 10.5px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--color-secondary);
+.nav-mega__promo::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--color-primary), var(--color-secondary));
+  border-radius: 8px 0 0 8px;
+}
+
+.nav-mega__promo-body {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  min-width: 0;
+  padding-left: 4px;
+}
+
+.nav-mega__promo-actions {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: nowrap;
 }
 
 .nav-mega__promo-title {
-  margin: 0 0 2px;
-  font-size: 15.5px;
+  margin: 0;
+  font-size: 13px;
   font-weight: 700;
   line-height: 1.25;
   color: var(--color-dark);
+  white-space: nowrap;
 }
 
 .nav-mega__promo-text {
-  margin: 0 0 8px;
-  font-size: 12.5px;
-  line-height: 1.5;
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.3;
   color: var(--color-text);
+}
+
+.nav-mega__promo-text::before {
+  content: "\00b7";
+  margin-right: 10px;
+  color: rgba(1, 97, 191, 0.35);
+  font-weight: 700;
 }
 
 .nav-mega__cta {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 16px;
-  border-radius: 8px;
-  font-size: 13px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
   font-weight: 600;
+  white-space: nowrap;
   color: var(--color-white);
   background: linear-gradient(56deg, var(--color-primary) 0%, var(--color-secondary) 75%);
-  box-shadow: 0 10px 22px rgba(0, 126, 201, 0.22);
-  transition: transform var(--transition), box-shadow var(--transition);
+  box-shadow: none;
+  transition: transform var(--transition), opacity var(--transition);
 }
 
 .nav-mega__cta:hover,
 .nav-mega__cta:focus-visible {
   transform: translateY(-1px);
-  box-shadow: 0 14px 28px rgba(0, 126, 201, 0.3);
+  opacity: 0.94;
 }
 
 .nav-mega__all {
-  margin-top: 2px;
-  font-size: 12.5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 12px;
   font-weight: 600;
+  white-space: nowrap;
   color: var(--color-primary);
-  text-align: center;
+  border: 1px solid rgba(1, 97, 191, 0.22);
+  background: transparent;
+  transition: background-color var(--transition), border-color var(--transition);
 }
 
 .nav-mega__all:hover,
 .nav-mega__all:focus-visible {
-  text-decoration: underline;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(1, 97, 191, 0.35);
 }
 
 /* Mobile-Spiegelung der Cluster */
@@ -747,7 +849,19 @@ body.is-scrolled .nav-item--mega:has(.nav-dropdown--mega .nav-mega__all[aria-cur
   }
 
   .nav-mega__promo {
-    padding: 16px 16px 18px;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+    padding: 8px 10px 8px 10px;
+  }
+
+  .nav-mega__promo-body {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+
+  .nav-mega__promo-text::before {
+    display: none;
   }
 }
 
@@ -1001,6 +1115,7 @@ body.is-scrolled .button--header {
 
 .hero-stat {
   max-width: 128px;
+  text-align: center;
 }
 
 a.hero-stat {
@@ -2000,6 +2115,7 @@ body.menu-open .scroll-to-top {
 
 .presence-stats article {
   min-width: 140px;
+  text-align: center;
 }
 
 .presence-stats strong {
@@ -2047,6 +2163,189 @@ body.menu-open .scroll-to-top {
 
 .map-card [data-presence-map-mode="staedte"] .de-map__stage--staedte {
   width: 100%;
+}
+
+.presence-map-wrap {
+  position: relative;
+  width: 100%;
+  max-width: min(100%, 480px);
+  margin: 0 auto;
+}
+
+.presence-map-austria-control {
+  position: absolute;
+  right: 7%;
+  bottom: 8%;
+  z-index: 4;
+}
+
+.presence-map-austria-trigger {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 8px 14px 8px 16px;
+  border: 2px solid var(--color-secondary);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--color-secondary);
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 8px 24px rgba(1, 97, 191, 0.22);
+  cursor: pointer;
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition),
+    background-color var(--transition),
+    border-color var(--transition);
+}
+
+.presence-map-austria-trigger:hover,
+.presence-map-austria-trigger:focus-visible {
+  transform: translateY(-2px);
+  background: #ffffff;
+  box-shadow: 0 12px 28px rgba(1, 97, 191, 0.28);
+  outline: none;
+}
+
+.presence-map-austria-trigger__icon {
+  flex-shrink: 0;
+}
+
+.austria-map-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  overflow: hidden;
+}
+
+.austria-map-lightbox[hidden] {
+  display: none;
+}
+
+.austria-map-lightbox__backdrop {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  padding: 0;
+  background: rgba(7, 57, 117, 0.58);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  cursor: pointer;
+}
+
+.austria-map-lightbox__dialog {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  width: min(100%, 760px);
+  max-height: calc(100dvh - 48px);
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 28px 80px rgba(7, 57, 117, 0.28);
+  overflow: hidden;
+}
+
+.austria-map-lightbox__header {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 22px;
+  border-bottom: 1px solid rgba(1, 97, 191, 0.12);
+}
+
+.austria-map-lightbox__title {
+  margin: 0;
+  font-size: clamp(18px, 2.2vw, 22px);
+  line-height: 1.2;
+  color: var(--color-primary);
+}
+
+.austria-map-lightbox__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 999px;
+  font-size: 28px;
+  line-height: 1;
+  color: var(--color-primary);
+  background: rgba(1, 97, 191, 0.08);
+  cursor: pointer;
+  transition: background-color var(--transition), transform var(--transition);
+}
+
+.austria-map-lightbox__close:hover,
+.austria-map-lightbox__close:focus-visible {
+  background: rgba(1, 97, 191, 0.14);
+  transform: scale(1.04);
+  outline: none;
+}
+
+.austria-map-lightbox__body {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 22px 20px;
+  overflow: hidden;
+}
+
+.austria-map-lightbox__body .de-map {
+  width: 100%;
+}
+
+.austria-map-lightbox__body .de-map__stage--austria,
+.austria-map-lightbox__body .de-map--austria .de-map__stage {
+  width: min(100%, calc((100dvh - 8.5rem) * 830 / 450));
+  max-width: 100%;
+  max-height: calc(100dvh - 8.5rem);
+  margin: 0 auto;
+  aspect-ratio: 830 / 450;
+  height: auto;
+}
+
+body.is-austria-map-open {
+  overflow: hidden;
+}
+
+.de-map__stage--austria,
+.de-map--austria [data-presence-map-mode="staedte"] .de-map__stage {
+  width: 100%;
+  margin: 0;
+  aspect-ratio: 830 / 450;
+}
+
+.de-map--austria .de-map__land-shape {
+  filter: url(#at-map-land-shadow);
+}
+
+.de-map--austria .de-map__svg-host .de-map__bg {
+  fill: url(#at-map-land-gradient);
+}
+
+.de-map--austria .de-map__svg-host .de-map__city.de-map__land {
+  fill: url(#at-map-city-gradient);
+  filter: url(#at-map-city-glow);
+}
+
+.de-map--austria .de-map__svg-host .de-map__city.de-map__land.is-location:hover,
+.de-map--austria .de-map__svg-host .de-map__city.de-map__land.is-location:focus-visible,
+.de-map--austria .de-map__svg-host .de-map__city.de-map__land.is-location.is-highlighted,
+.de-map--austria .de-map__svg-host .de-map__city.de-map__land.is-location.is-selected {
+  filter: drop-shadow(0 10px 20px rgba(1, 97, 191, 0.42));
 }
 
 .de-map__svg-host .de-map__bg {
@@ -5756,6 +6055,19 @@ main > .job-detail-hero + section {
   transition: opacity 0.25s ease, transform 0.4s ease;
 }
 
+.cert-gallery__pdf-preview {
+  display: block;
+  width: 100%;
+  min-height: 520px;
+  height: min(72vh, 820px);
+  border: 0;
+  background: #fff;
+}
+
+.cert-gallery__link--pdf {
+  cursor: default;
+}
+
 .cert-gallery__controls {
   display: grid;
   gap: 20px;
@@ -7001,12 +7313,46 @@ main > .job-detail-hero + section {
     grid-template-columns: 1fr;
   }
 
-  .de-map__stage {
+  .de-map__stage:not(.de-map__stage--austria) {
     width: min(100%, 360px);
   }
 
   .map-card [data-presence-map-mode="staedte"] .de-map__stage--staedte {
     width: 100%;
+  }
+
+  .presence-map-wrap {
+    max-width: min(100%, 360px);
+  }
+
+  .presence-map-austria-control {
+    right: 5%;
+    bottom: 5%;
+  }
+
+  .presence-map-austria-trigger {
+    min-height: 38px;
+    padding: 7px 12px 7px 14px;
+    font-size: 13px;
+  }
+
+  .austria-map-lightbox {
+    padding: 16px;
+  }
+
+  .austria-map-lightbox__dialog {
+    max-height: calc(100dvh - 32px);
+  }
+
+  .austria-map-lightbox__header,
+  .austria-map-lightbox__body {
+    padding-inline: 16px;
+  }
+
+  .austria-map-lightbox__body .de-map__stage--austria,
+  .austria-map-lightbox__body .de-map--austria .de-map__stage {
+    width: 100%;
+    max-height: calc(100dvh - 7.5rem);
   }
 
   .feature,
@@ -7456,12 +7802,16 @@ main > .job-detail-hero + section {
   overflow: visible;
 }
 
-.locations-intro__media.company-locations__map .de-map__stage,
-.locations-intro__media.company-locations__map .de-map__stage--staedte {
+.locations-intro__media.company-locations__map .presence-map-wrap {
+  max-width: 100%;
+  width: 100%;
+}
+
+.locations-intro__media.company-locations__map .de-map--germany .de-map__stage {
   width: 100%;
   max-width: none;
   margin: 0;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 472.95 / 639.41;
 }
 
 .locations-intro__media.company-locations__map .de-map__tooltip {
@@ -7948,8 +8298,11 @@ main > .job-detail-hero + section {
     border-radius: 0;
   }
 
-  .locations-intro__media.company-locations__map .de-map__stage,
-  .locations-intro__media.company-locations__map .de-map__stage--staedte {
+  .locations-intro__media.company-locations__map .presence-map-wrap {
+    max-width: 100%;
+  }
+
+  .locations-intro__media.company-locations__map .de-map--germany .de-map__stage {
     width: 100%;
     max-width: none;
     margin-inline: 0;
@@ -19624,6 +19977,11 @@ body[class*="page-"] .job-detail-hero h1 {
 .svc-section[id$="-risiken"],
 #bericht-musterbericht.svc-section {
   background: var(--color-soft);
+}
+
+#kt-sanierung-ablauf .cleanroom-overview__grid,
+#vka-risiken .cleanroom-overview__grid {
+  align-items: center;
 }
 
 .svc-section[id$="-weiter"],

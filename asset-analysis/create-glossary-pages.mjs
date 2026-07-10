@@ -92,9 +92,13 @@ function adjustPathsForSubpage(html) {
     .replace(/href="#glossary-index"/g, 'href="../index.html#glossary-index"');
 }
 
+function encodeTitleHtml(text) {
+  return escapeHtml(decodeHtml(text));
+}
+
 function buildMain(term) {
   const content = sanitizeContentHtml(term.contentHtml);
-  const titleHtml = term.title.replace(/&/g, "&amp;");
+  const titleHtml = encodeTitleHtml(term.title);
 
   return `
     <section class="company-hero" id="top" data-section="hero">
@@ -128,8 +132,8 @@ function buildMain(term) {
 function buildPage(shellBefore, shellAfter, term) {
   const main = buildMain(term);
   const description = escapeHtml(plainText(term.contentHtml).slice(0, 155));
-  const pageTitle = escapeHtml(
-    (term.metaTitle || `${term.title} - Glossar - Igienair GmbH`).replace(/&/g, "&amp;")
+  const pageTitle = encodeTitleHtml(
+    term.metaTitle || `${term.title} - Glossar - Igienair GmbH`,
   );
 
   const head = shellBefore

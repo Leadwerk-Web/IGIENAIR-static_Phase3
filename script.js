@@ -140,6 +140,150 @@ const accordionGroups = document.querySelectorAll("[data-accordion]");
 const locationBrowsers = document.querySelectorAll("[data-location-browser]");
 const glossaries = document.querySelectorAll("[data-glossary]");
 
+let siteLenis = null;
+
+function prefersReducedMotion() {
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
+
+function getLenisScriptSrc() {
+  const script = document.querySelector('script[src*="script.js"], script[src*="site.js"]');
+
+  if (script?.src.includes("/assets/js/site.js") || script?.src.includes("leadwerk_theme")) {
+    try {
+      return new URL("lenis.min.js", script.src).href;
+    } catch {
+      return resolveAssetPath("assets/js/lenis.min.js");
+    }
+  }
+
+  return resolveAssetPath("assets/js/lenis.min.js");
+}
+
+function loadLenisScript() {
+  return new Promise((resolve, reject) => {
+    if (window.Lenis) {
+      resolve();
+      return;
+    }
+
+    const src = getLenisScriptSrc();
+    let script = document.querySelector("script[data-lenis-loader]");
+
+    if (!script) {
+      script = document.createElement("script");
+      script.src = src;
+      script.dataset.lenisLoader = "true";
+      script.onload = () => resolve();
+      script.onerror = () => reject(new Error("Lenis konnte nicht geladen werden."));
+      document.head.appendChild(script);
+      return;
+    }
+
+    if (window.Lenis) {
+      resolve();
+      return;
+    }
+
+    script.addEventListener("load", () => resolve(), { once: true });
+    script.addEventListener("error", () => reject(new Error("Lenis konnte nicht geladen werden.")), {
+      once: true,
+    });
+  });
+}
+
+function markLenisPreventTargets() {
+  document.querySelectorAll(
+    ".mobile-menu, .mobile-menu__panel, .austria-map-lightbox, .austria-map-lightbox__body, .accordion-item__panel, textarea, select",
+  ).forEach((element) => {
+    element.setAttribute("data-lenis-prevent", "");
+  });
+}
+
+function pauseSmoothScroll() {
+  siteLenis?.stop();
+}
+
+function resumeSmoothScroll() {
+  if (!body.classList.contains("menu-open") && !body.classList.contains("is-austria-map-open")) {
+    siteLenis?.start();
+  }
+}
+
+function scrollPageTo(top, { behavior = "smooth", immediate = false } = {}) {
+  const maxTop = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+  const targetTop = Math.min(Math.max(0, top), maxTop);
+  const useImmediate = immediate || behavior === "auto" || prefersReducedMotion();
+
+  if (siteLenis && !useImmediate) {
+    siteLenis.scrollTo(targetTop, { duration: 1.05 });
+    return;
+  }
+
+  window.scrollTo({ top: targetTop, behavior: useImmediate ? "auto" : behavior });
+}
+
+function scrollPageToElement(target, { offset = 0, behavior = "smooth", immediate = false } = {}) {
+  if (!target) {
+    return;
+  }
+
+  const useImmediate = immediate || behavior === "auto" || prefersReducedMotion();
+
+  if (siteLenis && !useImmediate) {
+    siteLenis.scrollTo(target, { offset: -offset, duration: 1.05 });
+    return;
+  }
+
+  const top = window.scrollY + target.getBoundingClientRect().top - offset;
+  window.scrollTo({ top: Math.max(0, top), behavior: useImmediate ? "auto" : behavior });
+}
+
+async function initSmoothScrollExperience() {
+  markLenisPreventTargets();
+
+  if (prefersReducedMotion()) {
+    window.addEventListener("scroll", syncHeaderState, { passive: true });
+    syncHeaderState();
+    return;
+  }
+
+  try {
+    await loadLenisScript();
+  } catch {
+    window.addEventListener("scroll", syncHeaderState, { passive: true });
+    syncHeaderState();
+    return;
+  }
+
+  if (!window.Lenis) {
+    window.addEventListener("scroll", syncHeaderState, { passive: true });
+    syncHeaderState();
+    return;
+  }
+
+  siteLenis = new window.Lenis({
+    lerp: 0.09,
+    smoothWheel: true,
+    syncTouch: true,
+    touchMultiplier: 1.1,
+    wheelMultiplier: 0.92,
+  });
+
+  siteLenis.on("scroll", () => {
+    syncHeaderState();
+    window.dispatchEvent(new Event("scroll"));
+  });
+
+  const raf = (time) => {
+    siteLenis.raf(time);
+    requestAnimationFrame(raf);
+  };
+
+  requestAnimationFrame(raf);
+  syncHeaderState();
+}
+
 function syncHeaderState() {
   body.classList.toggle("is-scrolled", window.scrollY > 24);
 }
@@ -148,6 +292,12 @@ function setMenuState(isOpen) {
   body.classList.toggle("menu-open", isOpen);
   menuToggle?.setAttribute("aria-expanded", String(isOpen));
   mobileMenu?.setAttribute("aria-hidden", String(!isOpen));
+
+  if (isOpen) {
+    pauseSmoothScroll();
+  } else {
+    resumeSmoothScroll();
+  }
 }
 
 function syncAddressFields() {
@@ -190,7 +340,11 @@ function initQuoteForms() {
       if (!hasServiceSelection()) {
         event.preventDefault();
         syncServicesValidation();
-        servicesFieldset?.scrollIntoView({ behavior: "smooth", block: "center" });
+        if (servicesFieldset) {
+          const rect = servicesFieldset.getBoundingClientRect();
+          const offset = (window.innerHeight - rect.height) / 2;
+          scrollPageToElement(servicesFieldset, { offset });
+        }
         return;
       }
 
@@ -253,6 +407,7 @@ function observeMeters() {
 function initCertificateGalleries() {
   certificateGalleries.forEach((gallery) => {
     const preview = gallery.querySelector("[data-cert-preview]");
+    const pdfPreview = gallery.querySelector("[data-cert-pdf-preview]");
     const link = gallery.querySelector("[data-cert-link]");
     const items = Array.from(gallery.querySelectorAll("[data-cert-item]"));
 
@@ -275,13 +430,31 @@ function initCertificateGalleries() {
         candidate.setAttribute("aria-pressed", String(isActive));
       });
 
+      const usePdfPreview = item.dataset.certPdfPreview === "true";
       const nextSrc = resolveAssetPath(item.dataset.certImg || preview.getAttribute("src") || "");
       const nextHref = resolveAssetPath(item.dataset.certPdf || link.getAttribute("href") || "");
       const nextAlt = item.dataset.certAlt || item.textContent?.trim() || "";
 
+      link.href = nextHref;
+
+      if (usePdfPreview && pdfPreview) {
+        preview.hidden = true;
+        preview.removeAttribute("src");
+        pdfPreview.hidden = false;
+        pdfPreview.title = nextAlt;
+        pdfPreview.src = nextHref;
+        link.classList.add("cert-gallery__link--pdf");
+        return;
+      }
+
+      if (pdfPreview) {
+        pdfPreview.hidden = true;
+        pdfPreview.removeAttribute("src");
+      }
+      link.classList.remove("cert-gallery__link--pdf");
+      preview.hidden = false;
       preview.style.opacity = "0";
       preview.alt = nextAlt;
-      link.href = nextHref;
       preview.src = nextSrc;
       if (preview.complete) {
         preview.style.opacity = "1";
@@ -459,8 +632,7 @@ function initGlossaries() {
       }
 
       const offset = updateGlossaryScrollOffset();
-      const top = window.scrollY + target.getBoundingClientRect().top - offset;
-      window.scrollTo({ top: Math.max(0, top), behavior });
+      scrollPageToElement(target, { offset, behavior, immediate: behavior === "auto" });
     };
 
     updateGlossaryScrollOffset();
@@ -761,7 +933,7 @@ function initAnchors() {
         return;
       }
 
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
+      scrollPageToElement(target, { offset: getStandortScrollOffset() });
     });
   });
 }
@@ -809,11 +981,11 @@ function initScrollToTop() {
   button.addEventListener("click", () => {
     const topTarget = document.getElementById("top");
     if (topTarget) {
-      topTarget.scrollIntoView({ behavior: scrollBehavior, block: "start" });
+      scrollPageToElement(topTarget, { offset: 0, behavior: scrollBehavior, immediate: scrollBehavior === "auto" });
       return;
     }
 
-    window.scrollTo({ top: 0, behavior: scrollBehavior });
+    scrollPageTo(0, { behavior: scrollBehavior, immediate: scrollBehavior === "auto" });
   });
 
   window.addEventListener("scroll", syncVisibility, { passive: true });
@@ -1039,6 +1211,18 @@ const presenceMapCityLocations = {
       cardId: "standort-berlin",
     },
   },
+  AtEching: {
+    stateLabel: "Österreich",
+    href: "/kontakt/#standort-oesterreich",
+    location: {
+      name: "Niederlassung Österreich",
+      street: "Fromillerstraße 29",
+      city: "9020 Klagenfurt am Wörthersee",
+      phone: "+43 664 218 44 66",
+      email: "anfrage@igienair.com",
+      cardId: "standort-oesterreich",
+    },
+  },
 };
 
 const presenceMapEscape = (value) =>
@@ -1088,8 +1272,7 @@ function scrollToStandortTarget(target, behavior = "smooth") {
 
   const offset = getStandortScrollOffset();
   document.documentElement.style.setProperty("--standort-scroll-offset", `${offset}px`);
-  const top = window.scrollY + target.getBoundingClientRect().top - offset;
-  window.scrollTo({ top: Math.max(0, top), behavior });
+  scrollPageToElement(target, { offset, behavior, immediate: behavior === "auto" });
 }
 
 function presenceMapGetStandorteTitles() {
@@ -1202,7 +1385,7 @@ function initStandortDeepLinks() {
 }
 
 function initPresenceMap() {
-  const mapRoot = document.querySelector("[data-presence-map]");
+  document.querySelectorAll("[data-presence-map]").forEach((mapRoot) => {
   const stage = mapRoot?.querySelector(".de-map__stage");
   const tooltip = mapRoot?.querySelector("[data-presence-map-tooltip]");
 
@@ -1455,6 +1638,51 @@ function initPresenceMap() {
   }
 
   mapRoot.classList.add("is-loaded");
+  });
+}
+
+function initAustriaMapLightbox() {
+  document.querySelectorAll("[data-austria-map-open]").forEach((trigger) => {
+    const wrap = trigger.closest(".presence-map-wrap");
+    const lightbox = wrap?.querySelector("[data-austria-map-lightbox]");
+
+    if (!wrap || !lightbox) {
+      return;
+    }
+
+    let lastFocus = null;
+
+    const close = () => {
+      lightbox.hidden = true;
+      document.body.classList.remove("is-austria-map-open");
+      resumeSmoothScroll();
+
+      if (lastFocus && typeof lastFocus.focus === "function") {
+        lastFocus.focus();
+      }
+    };
+
+    const open = () => {
+      lastFocus = document.activeElement;
+      lightbox.hidden = false;
+      document.body.classList.add("is-austria-map-open");
+      pauseSmoothScroll();
+      lightbox.querySelector(".austria-map-lightbox__close")?.focus();
+    };
+
+    trigger.addEventListener("click", open);
+
+    lightbox.querySelectorAll("[data-austria-map-close]").forEach((control) => {
+      control.addEventListener("click", close);
+    });
+
+    lightbox.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        close();
+      }
+    });
+  });
 }
 
 function initSectorsColumnBalance() {
@@ -1989,12 +2217,12 @@ function initServicesAccordion() {
   });
 }
 
-window.addEventListener("scroll", syncHeaderState, { passive: true });
 addressSelect?.addEventListener("change", syncAddressFields);
 initQuoteForms();
 
 initMenu();
 initMegaMenuActiveState();
+initSmoothScrollExperience();
 initAnchors();
 initInertControls();
 initKeyboard();
@@ -2015,6 +2243,7 @@ initCleaningMediaHeights();
 initHygieneAirNavHeight();
 initServicesAccordion();
 initPresenceMap();
+initAustriaMapLightbox();
 initStandortDeepLinks();
 syncAddressFields();
 syncHeaderState();

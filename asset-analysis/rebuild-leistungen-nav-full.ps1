@@ -64,13 +64,6 @@ function Build-Desktop([string]$prefix, [bool]$current) {
           <a class="nav-trigger" href="${prefix}leistungen/index.html"$cur>Leistungen</a>
           <div class="nav-dropdown nav-dropdown--mega">
 $($clusterBlocks -join "`n")
-            <div class="nav-mega__promo">
-              <p class="nav-mega__promo-eyebrow">Technische Hygiene</p>
-              <p class="nav-mega__promo-title">Welche Leistung brauchen Sie?</p>
-              <p class="nav-mega__promo-text">Wir beraten Sie zu Betreiberpflicht, Normen und auditf&auml;higer Dokumentation.</p>
-              <a class="nav-mega__cta" href="${prefix}kontakt/angebot-anfordern/index.html">Angebot anfordern</a>
-              <a class="nav-mega__all" href="${prefix}leistungen/index.html">Alle Leistungen ansehen</a>
-            </div>
           </div>
         </div>
         

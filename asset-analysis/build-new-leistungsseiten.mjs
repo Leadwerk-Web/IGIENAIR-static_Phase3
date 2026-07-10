@@ -326,8 +326,8 @@ ${vorteileSection(
     crumbCurrent: "Verdunstungskühlanlage VDI 2047-2 / 42. BImSchV",
     serviceName: "Hygiene von Verdunstungskühlanlagen nach VDI 2047-2",
     serviceType: "Hygiene, Reinigung und Betreiberpflicht für Verdunstungskühlanlagen",
-    image: "../../Bildmaterial_final/shared/anlage-kuehlturmreinigung4.webp",
-    imageAlt: "Verdunstungsk&uuml;hlanlage im Au&szlig;enbereich",
+    image: "../../Bildmaterial_final/leistungen/kuehlturm-allgemein.jpg",
+    imageAlt: "Industrielle Verdunstungsk&uuml;hlanlage auf dem Dach eines Geb&auml;udes",
     faqs: [
       { q: "Welche Pflichten gelten f&uuml;r Verdunstungsk&uuml;hlanlagen?", a: "Betreiber m&uuml;ssen den hygienischen Betrieb sicherstellen und das Risiko wasserassoziierter Keime wie Legionellen minimieren. Grundlage sind die 42. BImSchV und die VDI 2047-2, inklusive Gef&auml;hrdungsbeurteilung und Dokumentation." },
       { q: "Was schreibt die 42. BImSchV vor?", a: "Die 42. BImSchV regelt Errichtung und Betrieb von Verdunstungsk&uuml;hlanlagen, K&uuml;hlt&uuml;rmen und Nassabscheidern &ndash; unter anderem regelm&auml;&szlig;ige Untersuchungen, Pr&uuml;fpflichten und die Anzeige der Anlage bei der Beh&ouml;rde." },
@@ -377,7 +377,7 @@ ${vorteileSection(
             <a class="button button--solid" href="../../kontakt/angebot-anfordern/index.html">Angebot anfordern</a>
           </article>
           <figure class="company-media-card">
-            <img src="../../Bildmaterial_final/shared/anlage-kuehlturmreinigung4.webp" alt="Verdunstungsk&uuml;hlanlage im Au&szlig;enbereich">
+            <img src="../../Bildmaterial_final/leistungen/kuehlturm-allgemein.jpg" alt="Industrielle Verdunstungsk&uuml;hlanlage auf dem Dach eines Geb&auml;udes">
           </figure>
         </div>
       </div>

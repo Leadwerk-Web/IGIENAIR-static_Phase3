@@ -395,8 +395,8 @@ const PAGES = [
     crumbCurrent: "Kühlturm-Sanierung",
     serviceName: "Sanierung von Kühltürmen und Verdunstungskühlanlagen",
     serviceType: "Technische Sanierung und Bauteilaustausch an Verdunstungskühlanlagen",
-    image: "../../Bildmaterial_final/shared/instandsetzung.webp",
-    imageAlt: "Technische Sanierung von Anlagenkomponenten",
+    image: "../../Bildmaterial_final/leistungen/kuehlturm-tausch-fuellkoerper-tropfenabscheider.jpg",
+    imageAlt: "Austausch von F&uuml;llk&ouml;rpern und Tropfenabscheidern an einer Verdunstungsk&uuml;hlanlage",
     faqs: [
       { q: "Wann ist eine Sanierung statt einer Reinigung nötig?", a: "Wenn Bauteile dauerhaft geschädigt, verschlissen oder hygienisch nicht mehr instand zu setzen sind. Beschädigte Füllkörper, verschlissene Düsen oder defekte Tropfenabscheider lassen sich nicht durch Reinigung wiederherstellen." },
       { q: "Welche Bauteile werden typischerweise saniert?", a: "Typisch sind Füllkörper, Sprühdüsen, Tropfenabscheider, Wasserverteilung sowie korrodierte Wannen und Oberflächen. Wir tauschen oder ertüchtigen die betroffenen Komponenten." },
