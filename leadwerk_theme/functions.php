@@ -43,6 +43,18 @@ function leadwerk_theme_enqueue_assets() {
 	);
 	wp_add_inline_script(
 		'leadwerk-igienair',
+		'window.leadwerkSitePaths=' . wp_json_encode(
+			array(
+				'/'          => leadwerk_theme_page_url( 'igienair-home' ),
+				'/kontakt/'  => leadwerk_theme_page_url( 'igienair-kontakt' ),
+				'/danke/'    => leadwerk_theme_page_url( 'igienair-danke' ),
+			),
+			JSON_HEX_TAG | JSON_HEX_AMP
+		) . ';',
+		'before'
+	);
+	wp_add_inline_script(
+		'leadwerk-igienair',
 		'document.addEventListener("click",function(e){var b=e.target.closest("[data-leadwerk-consent-embed]");if(!b)return;var w=b.parentNode,i=document.createElement("iframe");i.src=b.dataset.src;i.loading="lazy";i.referrerPolicy="strict-origin-when-cross-origin";i.allowFullscreen=true;i.title=b.dataset.title||"Externer Inhalt";w.replaceChildren(i);});'
 	);
 }
@@ -188,7 +200,9 @@ function leadwerk_theme_render_chrome( $name ) {
 				}
 			}
 		}
-		$contact_values = array( 1 => array( $phone, 'tel:' . preg_replace( '/[^0-9+]/', '', $phone ) ), 2 => array( $fax, '' ), 3 => array( $email, 'mailto:' . $email ) );
+		// "(0)" nach der Laendervorwahl entfernen, sonst entsteht eine ungueltige tel:-Nummer wie +490...
+		$tel_href = 'tel:' . preg_replace( '/[^0-9+]/', '', preg_replace( '/\(0\)/', '', $phone ) );
+		$contact_values = array( 1 => array( $phone, $tel_href ), 2 => array( $fax, '' ), 3 => array( $email, 'mailto:' . $email ) );
 		foreach ( $contact_values as $index => $pair ) {
 			$item = $contact_items->item( $index );
 			$link = $item ? $xpath->query( './/a', $item )->item( 0 ) : null;
@@ -310,11 +324,6 @@ function leadwerk_theme_render_node( $node ) {
 	if ( ! class_exists( 'Leadwerk_Content_Schema' ) || ! in_array( $tag, Leadwerk_Content_Schema::allowed_tags(), true ) ) {
 		return '';
 	}
-	if ( 'iframe' === $tag ) {
-		$src = leadwerk_theme_resolve_attr( $node['attrs']['src'] ?? '', 'src' );
-		$title = (string) ( $node['attrs']['title'] ?? 'Google Maps' );
-		return '<div class="leadwerk-consent-embed"><button type="button" class="button button--solid" data-leadwerk-consent-embed data-src="' . esc_url( $src ) . '" data-title="' . esc_attr( $title ) . '">Externen Inhalt laden</button></div>';
-	}
 	$node_attributes = (array) ( $node['attrs'] ?? array() );
 	if ( 'video' === $tag && false !== strpos( (string) ( $node_attributes['class'] ?? '' ), 'hero__video' ) ) {
 		$node_attributes['preload'] = 'auto';
@@ -353,9 +362,18 @@ function leadwerk_theme_render_node( $node ) {
 		} elseif ( 'srcset' === $name ) {
 			$resolved = esc_attr( $resolved );
 		}
-		$is_empty_marker = '' === $resolved && ( 0 === strpos( $name, 'data-' ) || in_array( $name, array( 'open', 'required', 'checked', 'selected', 'disabled', 'controls', 'autoplay', 'muted', 'loop', 'playsinline', 'allowfullscreen', 'itemscope', 'novalidate' ), true ) );
+		$is_empty_marker = '' === $resolved && ( 0 === strpos( $name, 'data-' ) || in_array( $name, array( 'open', 'required', 'checked', 'selected', 'disabled', 'hidden', 'controls', 'autoplay', 'muted', 'loop', 'playsinline', 'allowfullscreen', 'itemscope', 'novalidate' ), true ) );
 		if ( '' !== $resolved || $is_empty_marker ) {
 			$attributes .= ' ' . esc_attr( $name ) . '="' . esc_attr( $resolved ) . '"';
+		}
+	}
+	if ( 'img' === $tag && false === strpos( $attributes, 'loading=' ) ) {
+		// Erstes Inhaltsbild (potenzielles LCP-Element) eager lassen, alle weiteren lazy laden.
+		static $leadwerk_img_index = 0;
+		$class_value = (string) leadwerk_theme_resolve_attr( $node_attributes['class'] ?? '', 'class' );
+		$leadwerk_img_index++;
+		if ( $leadwerk_img_index > 1 && false === strpos( $class_value, 'hero' ) ) {
+			$attributes .= ' loading="lazy" decoding="async"';
 		}
 	}
 	$void = in_array( $tag, array( 'br', 'hr', 'img', 'input', 'source', 'col', 'meta' ), true );
@@ -438,6 +456,16 @@ function leadwerk_theme_meta_tags() {
 }
 add_action( 'wp_head', 'leadwerk_theme_meta_tags', 2 );
 
+/**
+ * SVG-Favicon wie im statischen Original ausgeben. Moderne Browser bevorzugen
+ * das SVG (sizes="any"), die PNG-Site-Icons von WordPress bleiben als
+ * Fallback fuer aeltere Browser und Apple-Touch bestehen.
+ */
+function leadwerk_theme_svg_favicon() {
+	echo '<link rel="icon" href="' . esc_url( LEADWERK_THEME_URI . '/assets/images/logos/favicon.svg' ) . '" type="image/svg+xml" sizes="any">' . "\n";
+}
+add_action( 'wp_head', 'leadwerk_theme_svg_favicon', 1 );
+
 function leadwerk_theme_get_yoast_analysis_content( $post_id ) {
 	$content = leadwerk_theme_render_current_page_content( (int) $post_id );
 	$content = (string) preg_replace( '#<(?:script|style)[^>]*>.*?</(?:script|style)>#is', '', $content );
@@ -492,3 +520,60 @@ function leadwerk_theme_refresh_yoast_after_save( $post_id, $post ) {
 	}
 }
 add_action( 'save_post_page', 'leadwerk_theme_refresh_yoast_after_save', 99, 2 );
+
+function leadwerk_theme_local_business_jsonld() {
+	if ( ! is_front_page() && ! is_page( 'kontakt' ) ) {
+		return;
+	}
+	$phone = (string) leadwerk_theme_option( 'company_phone', '+49 (0) 7243 3699101' );
+	$schema = array(
+		'@context'  => 'https://schema.org',
+		'@type'     => 'LocalBusiness',
+		'@id'       => home_url( '/#localbusiness' ),
+		'name'      => 'IGIENAIR GmbH',
+		'url'       => home_url( '/' ),
+		'image'     => leadwerk_theme_option_image_url( 'company_logo', LEADWERK_THEME_URI . '/assets/images/logo.svg' ),
+		'telephone' => preg_replace( '/[^0-9+]/', '', preg_replace( '/\(0\)/', '', $phone ) ),
+		'email'     => (string) leadwerk_theme_option( 'company_email', 'kontakt@igienair.com' ),
+		'address'   => array(
+			'@type'           => 'PostalAddress',
+			'streetAddress'   => 'Am Hardtwald 6-8',
+			'postalCode'      => '76275',
+			'addressLocality' => 'Ettlingen',
+			'addressCountry'  => 'DE',
+		),
+	);
+	echo '<script type="application/ld+json">' . wp_json_encode( $schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE ) . '</script>' . "\n";
+}
+add_action( 'wp_head', 'leadwerk_theme_local_business_jsonld', 20 );
+
+function leadwerk_theme_page_jsonld() {
+	if ( ! is_singular( 'page' ) ) {
+		return;
+	}
+	$raw = get_post_meta( get_queried_object_id(), 'igienair_jsonld', true );
+	if ( ! $raw ) {
+		return;
+	}
+	$data = json_decode( (string) $raw, true );
+	if ( null === $data ) {
+		return;
+	}
+	echo '<script type="application/ld+json">' . wp_json_encode( $data, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE ) . '</script>' . "\n";
+}
+add_action( 'wp_head', 'leadwerk_theme_page_jsonld', 21 );
+
+function leadwerk_theme_redirect_stub_pages() {
+	if ( ! is_singular( 'page' ) ) {
+		return;
+	}
+	$post_id = get_queried_object_id();
+	$target = (string) get_post_meta( $post_id, 'igienair_redirect_target', true );
+	if ( '' === $target ) {
+		return;
+	}
+	$url = ( 0 === strpos( $target, 'http' ) ) ? $target : home_url( $target );
+	wp_safe_redirect( $url, 301 );
+	exit;
+}
+add_action( 'template_redirect', 'leadwerk_theme_redirect_stub_pages' );

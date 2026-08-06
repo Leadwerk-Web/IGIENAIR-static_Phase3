@@ -1,0 +1,1094 @@
+[
+ {
+  "id": 953,
+  "slug": "anlagen",
+  "seo": 66,
+  "readability": 60
+ },
+ {
+  "id": 954,
+  "slug": "branchen",
+  "seo": 72,
+  "readability": 90
+ },
+ {
+  "id": 957,
+  "slug": "datenschutz",
+  "seo": 72,
+  "readability": 60
+ },
+ {
+  "id": 958,
+  "slug": "downloads",
+  "seo": 54,
+  "readability": 90
+ },
+ {
+  "id": 959,
+  "slug": "energetische-inspektion-geg-2020",
+  "seo": 88,
+  "readability": 60
+ },
+ {
+  "id": 960,
+  "slug": "filterintegritaetstest",
+  "seo": 88,
+  "readability": 60
+ },
+ {
+  "id": 962,
+  "slug": "gefaehrdungsbeurteilung-vdi-2047",
+  "seo": 84,
+  "readability": 90
+ },
+ {
+  "id": 965,
+  "slug": "glossar",
+  "seo": 68,
+  "readability": 60
+ },
+ {
+  "id": 966,
+  "slug": "hygieneinspektion-vdi-6022",
+  "seo": 75,
+  "readability": 60
+ },
+ {
+  "id": 967,
+  "slug": "impressum",
+  "seo": 50,
+  "readability": 90
+ },
+ {
+  "id": 968,
+  "slug": "industrie",
+  "seo": 72,
+  "readability": 90
+ },
+ {
+  "id": 971,
+  "slug": "jobs",
+  "seo": 62,
+  "readability": 90
+ },
+ {
+  "id": 972,
+  "slug": "kanaluntersuchung",
+  "seo": 78,
+  "readability": 60
+ },
+ {
+  "id": 974,
+  "slug": "kunden",
+  "seo": 56,
+  "readability": 90
+ },
+ {
+  "id": 976,
+  "slug": "lecktest-schwebstofffilter",
+  "seo": 75,
+  "readability": 60
+ },
+ {
+  "id": 977,
+  "slug": "leistungen",
+  "seo": 74,
+  "readability": 90
+ },
+ {
+  "id": 978,
+  "slug": "normen",
+  "seo": 66,
+  "readability": 60
+ },
+ {
+  "id": 981,
+  "slug": "rlt-hygiene",
+  "seo": 78,
+  "readability": 60
+ },
+ {
+  "id": 982,
+  "slug": "kuechenabluftsysteme",
+  "seo": 74,
+  "readability": 90
+ },
+ {
+  "id": 983,
+  "slug": "kuehlregale",
+  "seo": 70,
+  "readability": 30
+ },
+ {
+  "id": 984,
+  "slug": "kuehlsysteme",
+  "seo": 74,
+  "readability": 60
+ },
+ {
+  "id": 986,
+  "slug": "kuehlturmreinigung",
+  "seo": 74,
+  "readability": 60
+ },
+ {
+  "id": 987,
+  "slug": "laborabzuege",
+  "seo": 72,
+  "readability": 90
+ },
+ {
+  "id": 988,
+  "slug": "lueftungsanlagenreinigung",
+  "seo": 72,
+  "readability": 30
+ },
+ {
+  "id": 989,
+  "slug": "lueftungsreinigung",
+  "seo": 82,
+  "readability": 60
+ },
+ {
+  "id": 990,
+  "slug": "luftkanalreinigung",
+  "seo": 72,
+  "readability": 30
+ },
+ {
+  "id": 991,
+  "slug": "op-raum-pruefung",
+  "seo": 80,
+  "readability": 90
+ },
+ {
+  "id": 992,
+  "slug": "prozessabluft-und-entrauchungsanlagen",
+  "seo": 82,
+  "readability": 60
+ },
+ {
+  "id": 993,
+  "slug": "raumluftdesinfektion",
+  "seo": 76,
+  "readability": 90
+ },
+ {
+  "id": 994,
+  "slug": "rechenzentrum",
+  "seo": 72,
+  "readability": 30
+ },
+ {
+  "id": 995,
+  "slug": "reinraumqualifizierung",
+  "seo": 82,
+  "readability": 60
+ },
+ {
+  "id": 996,
+  "slug": "splitklimageraete-und-umluftkuehlgeraete",
+  "seo": 70,
+  "readability": 90
+ },
+ {
+  "id": 997,
+  "slug": "textilschlaeuche",
+  "seo": 72,
+  "readability": 60
+ },
+ {
+  "id": 998,
+  "slug": "verdampfer-und-kondensatoren",
+  "seo": 37,
+  "readability": 60
+ },
+ {
+  "id": 999,
+  "slug": "bedeutung-hygieneinspektionen-unternehmen",
+  "seo": 74,
+  "readability": 90
+ },
+ {
+  "id": 1000,
+  "slug": "brandschutzreinigung-entfettung-grosskuechenabluftsystemen",
+  "seo": 66,
+  "readability": 30
+ },
+ {
+  "id": 1001,
+  "slug": "digestorium",
+  "seo": 76,
+  "readability": 90
+ },
+ {
+  "id": 1002,
+  "slug": "din-en-14175-norm",
+  "seo": 80,
+  "readability": 90
+ },
+ {
+  "id": 1003,
+  "slug": "din-en-15780-norm",
+  "seo": 82,
+  "readability": 90
+ },
+ {
+  "id": 1004,
+  "slug": "energetische-inspektion",
+  "seo": 82,
+  "readability": 90
+ },
+ {
+  "id": 1005,
+  "slug": "entrauchungsanlage",
+  "seo": 66,
+  "readability": 30
+ },
+ {
+  "id": 1006,
+  "slug": "fachbetrieb-nach-whg",
+  "seo": 67,
+  "readability": 90
+ },
+ {
+  "id": 1007,
+  "slug": "fgk-qm-01-zertifizierung",
+  "seo": 69,
+  "readability": 90
+ },
+ {
+  "id": 1008,
+  "slug": "filterintegritaetstest",
+  "seo": 78,
+  "readability": 90
+ },
+ {
+  "id": 1009,
+  "slug": "gebaeudeenergiegesetz-geg-2020",
+  "seo": 72,
+  "readability": 90
+ },
+ {
+  "id": 1010,
+  "slug": "gefaehrdungsbeurteilung-vdi-2047-2",
+  "seo": 78,
+  "readability": 90
+ },
+ {
+  "id": 1011,
+  "slug": "gefaehrdungsbeurteilung-von-rlt-anlagen",
+  "seo": 76,
+  "readability": 90
+ },
+ {
+  "id": 1012,
+  "slug": "hygieneinspektion-nach-vdi-6022",
+  "seo": 76,
+  "readability": 30
+ },
+ {
+  "id": 1013,
+  "slug": "hygienetechnische-reinigung",
+  "seo": 76,
+  "readability": 60
+ },
+ {
+  "id": 1014,
+  "slug": "inspektionspflicht-geg-2020",
+  "seo": 78,
+  "readability": 90
+ },
+ {
+  "id": 1015,
+  "slug": "iso-140012015-zertifizierung",
+  "seo": 80,
+  "readability": 90
+ },
+ {
+  "id": 1016,
+  "slug": "iso-14644-norm",
+  "seo": 78,
+  "readability": 60
+ },
+ {
+  "id": 1017,
+  "slug": "iso-90012015-zertifizierung",
+  "seo": 64,
+  "readability": 90
+ },
+ {
+  "id": 1018,
+  "slug": "kuehlregale",
+  "seo": 64,
+  "readability": 30
+ },
+ {
+  "id": 1019,
+  "slug": "lecktest-schwebstofffilter",
+  "seo": 78,
+  "readability": 30
+ },
+ {
+  "id": 1020,
+  "slug": "luftkanalreinigung",
+  "seo": 72,
+  "readability": 90
+ },
+ {
+  "id": 1021,
+  "slug": "op-raum",
+  "seo": 70,
+  "readability": 90
+ },
+ {
+  "id": 1022,
+  "slug": "prozessabluftsystem",
+  "seo": 72,
+  "readability": 60
+ },
+ {
+  "id": 1023,
+  "slug": "rechenzentrum",
+  "seo": 74,
+  "readability": 60
+ },
+ {
+  "id": 1024,
+  "slug": "reinigung-rechenzentrum",
+  "seo": 76,
+  "readability": 30
+ },
+ {
+  "id": 1025,
+  "slug": "reinraum",
+  "seo": 68,
+  "readability": 90
+ },
+ {
+  "id": 1026,
+  "slug": "rlt-anlagen",
+  "seo": 68,
+  "readability": 90
+ },
+ {
+  "id": 1027,
+  "slug": "splitklimageraet",
+  "seo": 78,
+  "readability": 60
+ },
+ {
+  "id": 1028,
+  "slug": "textilschlaeuche",
+  "seo": 76,
+  "readability": 60
+ },
+ {
+  "id": 1029,
+  "slug": "umluftkuehlgeraet",
+  "seo": 62,
+  "readability": 60
+ },
+ {
+  "id": 1030,
+  "slug": "vdi-2047-2",
+  "seo": 72,
+  "readability": 60
+ },
+ {
+  "id": 1031,
+  "slug": "vdi-2052-bgr-111",
+  "seo": 80,
+  "readability": 30
+ },
+ {
+  "id": 1032,
+  "slug": "vdi-6022-richtlinienreihe",
+  "seo": 82,
+  "readability": 60
+ },
+ {
+  "id": 1033,
+  "slug": "verdampfer-und-kondensatoren",
+  "seo": 72,
+  "readability": 90
+ },
+ {
+  "id": 1034,
+  "slug": "verdunstungskuehlanlagen",
+  "seo": 72,
+  "readability": 90
+ },
+ {
+  "id": 1035,
+  "slug": "vorschriften-laborabzuege",
+  "seo": 78,
+  "readability": 90
+ },
+ {
+  "id": 1036,
+  "slug": "whg-zertifizierung",
+  "seo": 66,
+  "readability": 90
+ },
+ {
+  "id": 1037,
+  "slug": "mitarbeiter-technische-reinigung-gesucht",
+  "seo": 78,
+  "readability": 90
+ },
+ {
+  "id": 1038,
+  "slug": "teamleiter-hygienereinigung-gesucht",
+  "seo": 72,
+  "readability": 90
+ },
+ {
+  "id": 1039,
+  "slug": "gastronomie",
+  "seo": 72,
+  "readability": 60
+ },
+ {
+  "id": 1040,
+  "slug": "gemeinden",
+  "seo": 70,
+  "readability": 60
+ },
+ {
+  "id": 1041,
+  "slug": "gesundheit",
+  "seo": 72,
+  "readability": 60
+ },
+ {
+  "id": 1042,
+  "slug": "lebensmittel",
+  "seo": 76,
+  "readability": 60
+ },
+ {
+  "id": 1043,
+  "slug": "pharma",
+  "seo": 72,
+  "readability": 60
+ },
+ {
+  "id": 1044,
+  "slug": "referenzen",
+  "seo": 74,
+  "readability": 60
+ },
+ {
+  "id": 1046,
+  "slug": "dehs-leckpruefung-op-raum",
+  "seo": 82,
+  "readability": 60
+ },
+ {
+  "id": 1047,
+  "slug": "inspektionundgutachten",
+  "seo": 78,
+  "readability": 90
+ },
+ {
+  "id": 1048,
+  "slug": "instandsetzung-sanierung",
+  "seo": 90,
+  "readability": 90
+ },
+ {
+  "id": 1049,
+  "slug": "kuehlturm-entkalkung-biofilm",
+  "seo": 76,
+  "readability": 90
+ },
+ {
+  "id": 1051,
+  "slug": "kuehlturm-sanierung-fuellkoerper-duesen",
+  "seo": 80,
+  "readability": 60
+ },
+ {
+  "id": 1052,
+  "slug": "lueftungsreinigung-krankenhaus-klinik",
+  "seo": 80,
+  "readability": 90
+ },
+ {
+  "id": 1054,
+  "slug": "luftkeimmessung-rlt-anlagen",
+  "seo": 80,
+  "readability": 60
+ },
+ {
+  "id": 1055,
+  "slug": "partikelmessung-reinraum-iso-14644",
+  "seo": 82,
+  "readability": 60
+ },
+ {
+  "id": 1056,
+  "slug": "reinigung-desinfektion",
+  "seo": 85,
+  "readability": 60
+ },
+ {
+  "id": 1057,
+  "slug": "rlt-reinigung-industrie",
+  "seo": 84,
+  "readability": 60
+ },
+ {
+  "id": 1058,
+  "slug": "rlt-sanierung-korrosion-2k-epoxy",
+  "seo": 84,
+  "readability": 60
+ },
+ {
+  "id": 1059,
+  "slug": "vdi-6022-pruefbericht-musterbericht",
+  "seo": 82,
+  "readability": 90
+ },
+ {
+  "id": 1061,
+  "slug": "verdunstungskuehlanlage-vdi-2047-42-bimschv",
+  "seo": 76,
+  "readability": 60
+ },
+ {
+  "id": 1062,
+  "slug": "din-en-14175",
+  "seo": 78,
+  "readability": 60
+ },
+ {
+  "id": 1063,
+  "slug": "din-en-15780",
+  "seo": 87,
+  "readability": 60
+ },
+ {
+  "id": 1064,
+  "slug": "vdi-2047",
+  "seo": 78,
+  "readability": 30
+ },
+ {
+  "id": 1065,
+  "slug": "vdi-2052-bgr-111",
+  "seo": 86,
+  "readability": 30
+ },
+ {
+  "id": 1066,
+  "slug": "vdi-6022",
+  "seo": 70,
+  "readability": 90
+ },
+ {
+  "id": 1067,
+  "slug": "baden-wuerttemberg",
+  "seo": 60,
+  "readability": 90
+ },
+ {
+  "id": 1068,
+  "slug": "bayern",
+  "seo": 58,
+  "readability": 90
+ },
+ {
+  "id": 1069,
+  "slug": "berlin",
+  "seo": 78,
+  "readability": 90
+ },
+ {
+  "id": 1070,
+  "slug": "hamburg",
+  "seo": 72,
+  "readability": 90
+ },
+ {
+  "id": 1071,
+  "slug": "hessen",
+  "seo": 58,
+  "readability": 90
+ },
+ {
+  "id": 1072,
+  "slug": "nrw",
+  "seo": 60,
+  "readability": 90
+ },
+ {
+  "id": 1073,
+  "slug": "region-bodensee",
+  "seo": 65,
+  "readability": 90
+ },
+ {
+  "id": 1074,
+  "slug": "rheinland-pfalz",
+  "seo": 60,
+  "readability": 90
+ },
+ {
+  "id": 1075,
+  "slug": "saarland",
+  "seo": 58,
+  "readability": 90
+ },
+ {
+  "id": 1076,
+  "slug": "freiburg",
+  "seo": 70,
+  "readability": 90
+ },
+ {
+  "id": 1077,
+  "slug": "heidelberg",
+  "seo": 76,
+  "readability": 90
+ },
+ {
+  "id": 1078,
+  "slug": "karlsruhe",
+  "seo": 78,
+  "readability": 90
+ },
+ {
+  "id": 1079,
+  "slug": "konstanz",
+  "seo": 72,
+  "readability": 90
+ },
+ {
+  "id": 1080,
+  "slug": "mannheim",
+  "seo": 76,
+  "readability": 90
+ },
+ {
+  "id": 1081,
+  "slug": "stuttgart",
+  "seo": 68,
+  "readability": 90
+ },
+ {
+  "id": 1082,
+  "slug": "ulm",
+  "seo": 72,
+  "readability": 90
+ },
+ {
+  "id": 1083,
+  "slug": "augsburg",
+  "seo": 74,
+  "readability": 90
+ },
+ {
+  "id": 1084,
+  "slug": "ingolstadt",
+  "seo": 72,
+  "readability": 90
+ },
+ {
+  "id": 1085,
+  "slug": "munchen",
+  "seo": 78,
+  "readability": 90
+ },
+ {
+  "id": 1086,
+  "slug": "nurnberg",
+  "seo": 84,
+  "readability": 90
+ },
+ {
+  "id": 1087,
+  "slug": "regensburg",
+  "seo": 74,
+  "readability": 90
+ },
+ {
+  "id": 1088,
+  "slug": "bernau",
+  "seo": 72,
+  "readability": 90
+ },
+ {
+  "id": 1089,
+  "slug": "brandenburg-havel",
+  "seo": 66,
+  "readability": 90
+ },
+ {
+  "id": 1090,
+  "slug": "brandenburg",
+  "seo": 72,
+  "readability": 90
+ },
+ {
+  "id": 1091,
+  "slug": "cottbus",
+  "seo": 72,
+  "readability": 90
+ },
+ {
+  "id": 1092,
+  "slug": "eberswalde",
+  "seo": 72,
+  "readability": 90
+ },
+ {
+  "id": 1093,
+  "slug": "falkensee",
+  "seo": 72,
+  "readability": 90
+ },
+ {
+  "id": 1094,
+  "slug": "frankfurt-oder",
+  "seo": 70,
+  "readability": 90
+ },
+ {
+  "id": 1095,
+  "slug": "oranienburg",
+  "seo": 72,
+  "readability": 90
+ },
+ {
+  "id": 1096,
+  "slug": "potsdam",
+  "seo": 74,
+  "readability": 90
+ },
+ {
+  "id": 1097,
+  "slug": "bremen",
+  "seo": 70,
+  "readability": 90
+ },
+ {
+  "id": 1098,
+  "slug": "buxtehude",
+  "seo": 72,
+  "readability": 90
+ },
+ {
+  "id": 1099,
+  "slug": "elmshorn",
+  "seo": 72,
+  "readability": 90
+ },
+ {
+  "id": 1100,
+  "slug": "flensburg",
+  "seo": 72,
+  "readability": 90
+ },
+ {
+  "id": 1101,
+  "slug": "kiel",
+  "seo": 70,
+  "readability": 90
+ },
+ {
+  "id": 1102,
+  "slug": "luebeck",
+  "seo": 70,
+  "readability": 90
+ },
+ {
+  "id": 1103,
+  "slug": "lueneburg",
+  "seo": 70,
+  "readability": 90
+ },
+ {
+  "id": 1104,
+  "slug": "munster",
+  "seo": 72,
+  "readability": 90
+ },
+ {
+  "id": 1105,
+  "slug": "neumuenster",
+  "seo": 72,
+  "readability": 90
+ },
+ {
+  "id": 1106,
+  "slug": "norderstedt",
+  "seo": 72,
+  "readability": 90
+ },
+ {
+  "id": 1107,
+  "slug": "stade",
+  "seo": 72,
+  "readability": 90
+ },
+ {
+  "id": 1108,
+  "slug": "darmstadt",
+  "seo": 74,
+  "readability": 90
+ },
+ {
+  "id": 1109,
+  "slug": "frankfurt",
+  "seo": 72,
+  "readability": 90
+ },
+ {
+  "id": 1110,
+  "slug": "giessen",
+  "seo": 74,
+  "readability": 90
+ },
+ {
+  "id": 1111,
+  "slug": "kassel",
+  "seo": 76,
+  "readability": 90
+ },
+ {
+  "id": 1112,
+  "slug": "wiesbaden",
+  "seo": 72,
+  "readability": 90
+ },
+ {
+  "id": 1113,
+  "slug": "bonn",
+  "seo": 74,
+  "readability": 90
+ },
+ {
+  "id": 1114,
+  "slug": "duesseldorf",
+  "seo": 72,
+  "readability": 90
+ },
+ {
+  "id": 1115,
+  "slug": "duisburg",
+  "seo": 72,
+  "readability": 90
+ },
+ {
+  "id": 1116,
+  "slug": "koeln",
+  "seo": 74,
+  "readability": 90
+ },
+ {
+  "id": 1117,
+  "slug": "wuppertal",
+  "seo": 76,
+  "readability": 90
+ },
+ {
+  "id": 1118,
+  "slug": "biberach-an-der-riss",
+  "seo": 70,
+  "readability": 90
+ },
+ {
+  "id": 1119,
+  "slug": "friedrichshafen",
+  "seo": 72,
+  "readability": 90
+ },
+ {
+  "id": 1120,
+  "slug": "memmingen",
+  "seo": 72,
+  "readability": 90
+ },
+ {
+  "id": 1121,
+  "slug": "ravensburg",
+  "seo": 72,
+  "readability": 90
+ },
+ {
+  "id": 1122,
+  "slug": "sigmaringen",
+  "seo": 72,
+  "readability": 90
+ },
+ {
+  "id": 1123,
+  "slug": "singen",
+  "seo": 72,
+  "readability": 90
+ },
+ {
+  "id": 1124,
+  "slug": "tuttlingen",
+  "seo": 72,
+  "readability": 90
+ },
+ {
+  "id": 1125,
+  "slug": "bitburg",
+  "seo": 74,
+  "readability": 90
+ },
+ {
+  "id": 1126,
+  "slug": "kaiserslautern",
+  "seo": 76,
+  "readability": 90
+ },
+ {
+  "id": 1127,
+  "slug": "koblenz",
+  "seo": 76,
+  "readability": 90
+ },
+ {
+  "id": 1128,
+  "slug": "ludwigshafen",
+  "seo": 74,
+  "readability": 90
+ },
+ {
+  "id": 1129,
+  "slug": "mainz",
+  "seo": 74,
+  "readability": 90
+ },
+ {
+  "id": 1130,
+  "slug": "trier",
+  "seo": 76,
+  "readability": 90
+ },
+ {
+  "id": 1131,
+  "slug": "wittlich",
+  "seo": 74,
+  "readability": 90
+ },
+ {
+  "id": 1132,
+  "slug": "homburg",
+  "seo": 67,
+  "readability": 90
+ },
+ {
+  "id": 1133,
+  "slug": "merzig",
+  "seo": 74,
+  "readability": 90
+ },
+ {
+  "id": 1134,
+  "slug": "saarbrucken",
+  "seo": 74,
+  "readability": 90
+ },
+ {
+  "id": 1152,
+  "slug": "home",
+  "seo": 78,
+  "readability": 90
+ },
+ {
+  "id": 1158,
+  "slug": "kontakt",
+  "seo": 68,
+  "readability": 60
+ },
+ {
+  "id": 1167,
+  "slug": "unternehmen",
+  "seo": 72,
+  "readability": 90
+ },
+ {
+  "id": 1224,
+  "slug": "angebot-anfordern",
+  "seo": 48,
+  "readability": 90
+ },
+ {
+  "id": 1249,
+  "slug": "agb",
+  "seo": 70,
+  "readability": 30
+ },
+ {
+  "id": 1250,
+  "slug": "nachhaltigkeit",
+  "seo": 76,
+  "readability": 90
+ },
+ {
+  "id": 1251,
+  "slug": "news",
+  "seo": 74,
+  "readability": 60
+ },
+ {
+  "id": 1252,
+  "slug": "qualitaet",
+  "seo": 74,
+  "readability": 60
+ },
+ {
+  "id": 1253,
+  "slug": "sicherheit",
+  "seo": 76,
+  "readability": 90
+ },
+ {
+  "id": 1254,
+  "slug": "umweltschutz",
+  "seo": 74,
+  "readability": 30
+ },
+ {
+  "id": 1261,
+  "slug": "zertifizierungen",
+  "seo": 54,
+  "readability": 90
+ },
+ {
+  "id": 1271,
+  "slug": "hygieneinspektion-vdi-6022-ablauf-maengel",
+  "seo": 78,
+  "readability": 90
+ },
+ {
+  "id": 1272,
+  "slug": "luftkanalreinigung-wann-notwendig-vorteile",
+  "seo": 76,
+  "readability": 90
+ },
+ {
+  "id": 1273,
+  "slug": "rlt-anlagen-reinigen-kosten-risiken",
+  "seo": 74,
+  "readability": 90
+ },
+ {
+  "id": 1274,
+  "slug": "vdi-2047-2-bimschv-verdunstungskuehlanlagen",
+  "seo": 76,
+  "readability": 90
+ },
+ {
+  "id": 1275,
+  "slug": "vdi-6022-betreiber-rlt-anlagen",
+  "seo": 78,
+  "readability": 90
+ }
+]

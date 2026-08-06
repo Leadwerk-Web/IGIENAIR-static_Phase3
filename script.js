@@ -53,6 +53,21 @@ function resolveSitePath(urlPath) {
   const hashIdx = pathAndHash.indexOf("#");
   const hash = hashIdx >= 0 ? pathAndHash.slice(hashIdx) : "";
   const pathname = hashIdx >= 0 ? pathAndHash.slice(0, hashIdx) : pathAndHash;
+  const route = pathname === "/"
+    ? "/"
+    : `/${pathname.replace(/^\/+|\/+$/g, "")}/`;
+  const wordpressTarget = window.leadwerkSitePaths?.[route];
+
+  if (wordpressTarget) {
+    try {
+      const targetUrl = new URL(wordpressTarget, window.location.href);
+      targetUrl.hash = hash;
+      targetUrl.search = query;
+      return targetUrl.href;
+    } catch {
+      return `${wordpressTarget}${query}${hash}`;
+    }
+  }
 
   let target;
   if (!pathname || pathname === "/") {
@@ -468,6 +483,8 @@ function initCertificateGalleries() {
     const initial = items.find((item) => item.classList.contains("is-active")) || items[0];
     activate(initial);
 
+    const mobileLayout = window.matchMedia("(max-width: 980px)");
+
     gallery.addEventListener("click", (event) => {
       const item = event.target.closest("[data-cert-item]");
       if (!item) {
@@ -475,6 +492,15 @@ function initCertificateGalleries() {
       }
 
       activate(item);
+
+      // Mobil steht die Auswahl ueber der Vorschau – nach dem Tippen dorthin scrollen.
+      if (mobileLayout.matches) {
+        const previewBox = gallery.querySelector(".cert-gallery__preview");
+        if (previewBox) {
+          const top = previewBox.getBoundingClientRect().top + window.scrollY - 96;
+          window.scrollTo({ top, behavior: "smooth" });
+        }
+      }
     });
   });
 }
@@ -1651,20 +1677,28 @@ function initAustriaMapLightbox() {
     }
 
     let lastFocus = null;
+    lightbox.hidden = true;
+    lightbox.setAttribute("aria-hidden", "true");
+    trigger.setAttribute("aria-expanded", "false");
 
-    const close = () => {
+    const close = (restoreFocus = true) => {
       lightbox.hidden = true;
+      lightbox.setAttribute("aria-hidden", "true");
+      trigger.setAttribute("aria-expanded", "false");
       document.body.classList.remove("is-austria-map-open");
       resumeSmoothScroll();
 
-      if (lastFocus && typeof lastFocus.focus === "function") {
+      if (restoreFocus && lastFocus && typeof lastFocus.focus === "function") {
         lastFocus.focus();
       }
     };
 
-    const open = () => {
+    const open = (event) => {
+      event?.preventDefault();
       lastFocus = document.activeElement;
       lightbox.hidden = false;
+      lightbox.setAttribute("aria-hidden", "false");
+      trigger.setAttribute("aria-expanded", "true");
       document.body.classList.add("is-austria-map-open");
       pauseSmoothScroll();
       lightbox.querySelector(".austria-map-lightbox__close")?.focus();
@@ -1673,7 +1707,16 @@ function initAustriaMapLightbox() {
     trigger.addEventListener("click", open);
 
     lightbox.querySelectorAll("[data-austria-map-close]").forEach((control) => {
-      control.addEventListener("click", close);
+      control.addEventListener("click", () => close());
+    });
+
+    lightbox.addEventListener("click", (event) => {
+      const locationTarget = event.target.closest(
+        ".de-map__city.is-location, a.de-map-card__location--link",
+      );
+      if (locationTarget) {
+        close(false);
+      }
     });
 
     lightbox.addEventListener("keydown", (event) => {

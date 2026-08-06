@@ -68,7 +68,7 @@ async function walkHtml(directory, relative = "") {
       );
     } else if (
       entry.name.toLowerCase().endsWith(".html") &&
-      !entry.name.startsWith("_acm")
+      !entry.name.startsWith("_")
     ) {
       files.push(normalized);
     }
@@ -150,7 +150,11 @@ await fs.rm(sourceDir, { recursive: true, force: true });
 await fs.mkdir(pagesDir, { recursive: true });
 await fs.mkdir(manifestDir, { recursive: true });
 
-const htmlFiles = (await walkHtml(rootDir)).sort();
+const htmlFiles = (await walkHtml(rootDir)).sort((left, right) => {
+  const leftDepth = pagePathFromFile(left).split("/").filter(Boolean).length;
+  const rightDepth = pagePathFromFile(right).split("/").filter(Boolean).length;
+  return leftDepth - rightDepth || left.localeCompare(right);
+});
 const pages = [];
 
 for (const sourceFile of htmlFiles) {

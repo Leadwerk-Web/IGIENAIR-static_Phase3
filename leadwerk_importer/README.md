@@ -24,7 +24,7 @@ or WP-CLI instead of the WordPress ZIP uploader.
 5. Configure the WPForms quote form under **Settings > IGIENAIR**.
 6. Verify the front page, menus, contact links, media, canonical URLs, and 404.
 
-The importer updates all 176 records by `leadwerk_source_key` and media checksum.
+The importer updates all 192 records by `leadwerk_source_key` and media checksum.
 Re-running it must not create duplicate pages or attachments. Missing source
 records are reported as orphans and are never deleted automatically.
 

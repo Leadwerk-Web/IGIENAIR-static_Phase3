@@ -66,8 +66,8 @@ class Leadwerk_Importer {
 		$errors = array();
 		$warnings = array();
 		$expected_pages = (int) ( $this->manifest['page_count'] ?? 0 );
-		if ( 'IGIENAIR' !== (string) ( $this->manifest['project'] ?? '' ) || 176 !== $expected_pages || $expected_pages !== count( (array) ( $this->manifest['pages'] ?? array() ) ) ) {
-			$errors[] = 'IGIENAIR manifesti gecersiz veya 176 sayfa icermiyor.';
+		if ( 'IGIENAIR' !== (string) ( $this->manifest['project'] ?? '' ) || 192 !== $expected_pages || $expected_pages !== count( (array) ( $this->manifest['pages'] ?? array() ) ) ) {
+			$errors[] = 'IGIENAIR manifesti gecersiz veya 192 sayfa icermiyor.';
 		}
 		if ( ! class_exists( 'DOMDocument' ) ) {
 			$errors[] = 'PHP DOM extension gerekli.';
@@ -531,7 +531,7 @@ class Leadwerk_Importer {
 			&& absint( $site_icon_metadata['width'] ?? 0 ) >= 512
 			&& absint( $site_icon_metadata['height'] ?? 0 ) >= 512;
 		if ( ! $site_icon_valid ) {
-			$site_icon_id = $this->media->import( 'Bildmaterial_final/logos/favicon-512.png' );
+			$site_icon_id = $this->media->import( 'Bildmaterial_final/logos/favicon-512.webp' );
 			if ( ! is_wp_error( $site_icon_id ) && $site_icon_id ) {
 				update_post_meta( (int) $site_icon_id, '_wp_attachment_image_alt', 'IGIENAIR' );
 				update_option( 'site_icon', (int) $site_icon_id );

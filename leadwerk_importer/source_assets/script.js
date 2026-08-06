@@ -1,3 +1,38 @@
+function getScriptBaseUrl() {
+  const script = document.querySelector('script[src*="script.js"]');
+  if (!script) {
+    return null;
+  }
+
+  try {
+    return new URL(".", script.src).href;
+  } catch {
+    return null;
+  }
+}
+
+/** Pfade wie assets/… vom Site-Root auflösen (unabhängig von der Seitentiefe). */
+function resolveAssetPath(relativePath) {
+  if (!relativePath || /^(https?:|data:|\/\/)/.test(relativePath)) {
+    return relativePath;
+  }
+
+  if (relativePath.startsWith("/")) {
+    return relativePath;
+  }
+
+  const base = getScriptBaseUrl();
+  if (!base) {
+    return relativePath;
+  }
+
+  try {
+    return new URL(relativePath, base).href;
+  } catch {
+    return relativePath;
+  }
+}
+
 function resolveSitePath(urlPath) {
   const script = document.querySelector('script[src*="script.js"]');
   let prefix = "";
@@ -18,6 +53,21 @@ function resolveSitePath(urlPath) {
   const hashIdx = pathAndHash.indexOf("#");
   const hash = hashIdx >= 0 ? pathAndHash.slice(hashIdx) : "";
   const pathname = hashIdx >= 0 ? pathAndHash.slice(0, hashIdx) : pathAndHash;
+  const route = pathname === "/"
+    ? "/"
+    : `/${pathname.replace(/^\/+|\/+$/g, "")}/`;
+  const wordpressTarget = window.leadwerkSitePaths?.[route];
+
+  if (wordpressTarget) {
+    try {
+      const targetUrl = new URL(wordpressTarget, window.location.href);
+      targetUrl.hash = hash;
+      targetUrl.search = query;
+      return targetUrl.href;
+    } catch {
+      return `${wordpressTarget}${query}${hash}`;
+    }
+  }
 
   let target;
   if (!pathname || pathname === "/") {
@@ -30,6 +80,65 @@ function resolveSitePath(urlPath) {
   }
 
   return `${prefix}${target}${hash}${query}`;
+}
+
+function normalizePagePath(input) {
+  if (!input) {
+    return null;
+  }
+
+  try {
+    let path = new URL(input, window.location.href).pathname;
+    path = decodeURIComponent(path);
+
+    if (path.length > 1 && path.endsWith("/")) {
+      path = path.slice(0, -1);
+    }
+
+    const lastSegment = path.split("/").pop() || "";
+    if (!lastSegment.includes(".")) {
+      path = `${path}/index.html`;
+    }
+
+    return path.toLowerCase();
+  } catch {
+    return null;
+  }
+}
+
+function initMegaMenuActiveState() {
+  const currentPath = normalizePagePath(window.location.href);
+  if (!currentPath) {
+    return;
+  }
+
+  const megaLinks = document.querySelectorAll(
+    '.nav-dropdown--mega .nav-link[href], .nav-dropdown--mega .nav-mega__all[href], .mobile-menu__group--mega .mobile-link[href]'
+  );
+
+  megaLinks.forEach((link) => {
+    const href = link.getAttribute("href");
+    if (!href || href.startsWith("#")) {
+      return;
+    }
+
+    const linkPath = normalizePagePath(href);
+    if (linkPath === currentPath) {
+      link.setAttribute("aria-current", "page");
+      return;
+    }
+
+    if (link.closest(".nav-dropdown--mega, .mobile-menu__group--mega")) {
+      link.removeAttribute("aria-current");
+    }
+  });
+
+  document.querySelectorAll(".nav-item--mega .nav-trigger[href]").forEach((trigger) => {
+    const triggerPath = normalizePagePath(trigger.getAttribute("href"));
+    if (triggerPath === currentPath) {
+      trigger.setAttribute("aria-current", "page");
+    }
+  });
 }
 
 const body = document.body;
@@ -46,6 +155,150 @@ const accordionGroups = document.querySelectorAll("[data-accordion]");
 const locationBrowsers = document.querySelectorAll("[data-location-browser]");
 const glossaries = document.querySelectorAll("[data-glossary]");
 
+let siteLenis = null;
+
+function prefersReducedMotion() {
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
+
+function getLenisScriptSrc() {
+  const script = document.querySelector('script[src*="script.js"], script[src*="site.js"]');
+
+  if (script?.src.includes("/assets/js/site.js") || script?.src.includes("leadwerk_theme")) {
+    try {
+      return new URL("lenis.min.js", script.src).href;
+    } catch {
+      return resolveAssetPath("assets/js/lenis.min.js");
+    }
+  }
+
+  return resolveAssetPath("assets/js/lenis.min.js");
+}
+
+function loadLenisScript() {
+  return new Promise((resolve, reject) => {
+    if (window.Lenis) {
+      resolve();
+      return;
+    }
+
+    const src = getLenisScriptSrc();
+    let script = document.querySelector("script[data-lenis-loader]");
+
+    if (!script) {
+      script = document.createElement("script");
+      script.src = src;
+      script.dataset.lenisLoader = "true";
+      script.onload = () => resolve();
+      script.onerror = () => reject(new Error("Lenis konnte nicht geladen werden."));
+      document.head.appendChild(script);
+      return;
+    }
+
+    if (window.Lenis) {
+      resolve();
+      return;
+    }
+
+    script.addEventListener("load", () => resolve(), { once: true });
+    script.addEventListener("error", () => reject(new Error("Lenis konnte nicht geladen werden.")), {
+      once: true,
+    });
+  });
+}
+
+function markLenisPreventTargets() {
+  document.querySelectorAll(
+    ".mobile-menu, .mobile-menu__panel, .austria-map-lightbox, .austria-map-lightbox__body, .accordion-item__panel, textarea, select",
+  ).forEach((element) => {
+    element.setAttribute("data-lenis-prevent", "");
+  });
+}
+
+function pauseSmoothScroll() {
+  siteLenis?.stop();
+}
+
+function resumeSmoothScroll() {
+  if (!body.classList.contains("menu-open") && !body.classList.contains("is-austria-map-open")) {
+    siteLenis?.start();
+  }
+}
+
+function scrollPageTo(top, { behavior = "smooth", immediate = false } = {}) {
+  const maxTop = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+  const targetTop = Math.min(Math.max(0, top), maxTop);
+  const useImmediate = immediate || behavior === "auto" || prefersReducedMotion();
+
+  if (siteLenis && !useImmediate) {
+    siteLenis.scrollTo(targetTop, { duration: 1.05 });
+    return;
+  }
+
+  window.scrollTo({ top: targetTop, behavior: useImmediate ? "auto" : behavior });
+}
+
+function scrollPageToElement(target, { offset = 0, behavior = "smooth", immediate = false } = {}) {
+  if (!target) {
+    return;
+  }
+
+  const useImmediate = immediate || behavior === "auto" || prefersReducedMotion();
+
+  if (siteLenis && !useImmediate) {
+    siteLenis.scrollTo(target, { offset: -offset, duration: 1.05 });
+    return;
+  }
+
+  const top = window.scrollY + target.getBoundingClientRect().top - offset;
+  window.scrollTo({ top: Math.max(0, top), behavior: useImmediate ? "auto" : behavior });
+}
+
+async function initSmoothScrollExperience() {
+  markLenisPreventTargets();
+
+  if (prefersReducedMotion()) {
+    window.addEventListener("scroll", syncHeaderState, { passive: true });
+    syncHeaderState();
+    return;
+  }
+
+  try {
+    await loadLenisScript();
+  } catch {
+    window.addEventListener("scroll", syncHeaderState, { passive: true });
+    syncHeaderState();
+    return;
+  }
+
+  if (!window.Lenis) {
+    window.addEventListener("scroll", syncHeaderState, { passive: true });
+    syncHeaderState();
+    return;
+  }
+
+  siteLenis = new window.Lenis({
+    lerp: 0.09,
+    smoothWheel: true,
+    syncTouch: true,
+    touchMultiplier: 1.1,
+    wheelMultiplier: 0.92,
+  });
+
+  siteLenis.on("scroll", () => {
+    syncHeaderState();
+    window.dispatchEvent(new Event("scroll"));
+  });
+
+  const raf = (time) => {
+    siteLenis.raf(time);
+    requestAnimationFrame(raf);
+  };
+
+  requestAnimationFrame(raf);
+  syncHeaderState();
+}
+
 function syncHeaderState() {
   body.classList.toggle("is-scrolled", window.scrollY > 24);
 }
@@ -54,6 +307,12 @@ function setMenuState(isOpen) {
   body.classList.toggle("menu-open", isOpen);
   menuToggle?.setAttribute("aria-expanded", String(isOpen));
   mobileMenu?.setAttribute("aria-hidden", String(!isOpen));
+
+  if (isOpen) {
+    pauseSmoothScroll();
+  } else {
+    resumeSmoothScroll();
+  }
 }
 
 function syncAddressFields() {
@@ -65,34 +324,56 @@ function syncAddressFields() {
   });
 }
 
-function initOfferForm() {
-  const form = document.querySelector(".quote-form--offer");
-  if (!form) return;
+function initQuoteForms() {
+  const dankeUrl = resolveSitePath("/danke/");
 
-  const servicesFieldset = form.querySelector("[data-offer-services]");
-  const serviceCheckboxes = form.querySelectorAll('input[name="offer-type[]"]');
-  const servicesError = form.querySelector("[data-offer-services-error]");
+  document.querySelectorAll(".quote-form--offer").forEach((form) => {
+    const servicesFieldset = form.querySelector("[data-offer-services]");
+    const serviceCheckboxes = form.querySelectorAll('input[name="offer-type[]"]');
+    const servicesError = form.querySelector("[data-offer-services-error]");
 
-  const hasServiceSelection = () => Array.from(serviceCheckboxes).some((box) => box.checked);
+    const hasServiceSelection = () =>
+      serviceCheckboxes.length === 0 ||
+      Array.from(serviceCheckboxes).some((box) => box.checked);
 
-  const syncServicesValidation = () => {
-    if (!servicesFieldset) return;
-    const isValid = hasServiceSelection();
-    servicesFieldset.classList.toggle("is-invalid", !isValid);
-    if (servicesError) {
-      servicesError.hidden = isValid;
-    }
-  };
+    const syncServicesValidation = () => {
+      if (!servicesFieldset) return;
+      const isValid = hasServiceSelection();
+      servicesFieldset.classList.toggle("is-invalid", !isValid);
+      if (servicesError) {
+        servicesError.hidden = isValid;
+      }
+    };
 
-  serviceCheckboxes.forEach((box) => {
-    box.addEventListener("change", syncServicesValidation);
+    serviceCheckboxes.forEach((box) => {
+      box.addEventListener("change", syncServicesValidation);
+    });
+
+    form.addEventListener("submit", (event) => {
+      if (!form.checkValidity()) return;
+
+      if (!hasServiceSelection()) {
+        event.preventDefault();
+        syncServicesValidation();
+        if (servicesFieldset) {
+          const rect = servicesFieldset.getBoundingClientRect();
+          const offset = (window.innerHeight - rect.height) / 2;
+          scrollPageToElement(servicesFieldset, { offset });
+        }
+        return;
+      }
+
+      event.preventDefault();
+      window.location.href = dankeUrl;
+    });
   });
 
-  form.addEventListener("submit", (event) => {
-    if (hasServiceSelection()) return;
-    event.preventDefault();
-    syncServicesValidation();
-    servicesFieldset?.scrollIntoView({ behavior: "smooth", block: "center" });
+  document.querySelectorAll(".quote-form:not(.quote-form--offer)").forEach((form) => {
+    form.addEventListener("submit", (event) => {
+      if (!form.checkValidity()) return;
+      event.preventDefault();
+      window.location.href = dankeUrl;
+    });
   });
 }
 
@@ -141,6 +422,7 @@ function observeMeters() {
 function initCertificateGalleries() {
   certificateGalleries.forEach((gallery) => {
     const preview = gallery.querySelector("[data-cert-preview]");
+    const pdfPreview = gallery.querySelector("[data-cert-pdf-preview]");
     const link = gallery.querySelector("[data-cert-link]");
     const items = Array.from(gallery.querySelectorAll("[data-cert-item]"));
 
@@ -149,7 +431,7 @@ function initCertificateGalleries() {
     }
 
     items.forEach((item) => {
-      const preloadSrc = item.dataset.certImg;
+      const preloadSrc = resolveAssetPath(item.dataset.certImg);
       if (preloadSrc) {
         const image = new Image();
         image.src = preloadSrc;
@@ -163,13 +445,31 @@ function initCertificateGalleries() {
         candidate.setAttribute("aria-pressed", String(isActive));
       });
 
-      const nextSrc = item.dataset.certImg || preview.getAttribute("src") || "";
-      const nextHref = item.dataset.certPdf || link.getAttribute("href") || "";
+      const usePdfPreview = item.dataset.certPdfPreview === "true";
+      const nextSrc = resolveAssetPath(item.dataset.certImg || preview.getAttribute("src") || "");
+      const nextHref = resolveAssetPath(item.dataset.certPdf || link.getAttribute("href") || "");
       const nextAlt = item.dataset.certAlt || item.textContent?.trim() || "";
 
+      link.href = nextHref;
+
+      if (usePdfPreview && pdfPreview) {
+        preview.hidden = true;
+        preview.removeAttribute("src");
+        pdfPreview.hidden = false;
+        pdfPreview.title = nextAlt;
+        pdfPreview.src = nextHref;
+        link.classList.add("cert-gallery__link--pdf");
+        return;
+      }
+
+      if (pdfPreview) {
+        pdfPreview.hidden = true;
+        pdfPreview.removeAttribute("src");
+      }
+      link.classList.remove("cert-gallery__link--pdf");
+      preview.hidden = false;
       preview.style.opacity = "0";
       preview.alt = nextAlt;
-      link.href = nextHref;
       preview.src = nextSrc;
       if (preview.complete) {
         preview.style.opacity = "1";
@@ -183,6 +483,8 @@ function initCertificateGalleries() {
     const initial = items.find((item) => item.classList.contains("is-active")) || items[0];
     activate(initial);
 
+    const mobileLayout = window.matchMedia("(max-width: 980px)");
+
     gallery.addEventListener("click", (event) => {
       const item = event.target.closest("[data-cert-item]");
       if (!item) {
@@ -190,6 +492,15 @@ function initCertificateGalleries() {
       }
 
       activate(item);
+
+      // Mobil steht die Auswahl ueber der Vorschau – nach dem Tippen dorthin scrollen.
+      if (mobileLayout.matches) {
+        const previewBox = gallery.querySelector(".cert-gallery__preview");
+        if (previewBox) {
+          const top = previewBox.getBoundingClientRect().top + window.scrollY - 96;
+          window.scrollTo({ top, behavior: "smooth" });
+        }
+      }
     });
   });
 }
@@ -347,8 +658,7 @@ function initGlossaries() {
       }
 
       const offset = updateGlossaryScrollOffset();
-      const top = window.scrollY + target.getBoundingClientRect().top - offset;
-      window.scrollTo({ top: Math.max(0, top), behavior });
+      scrollPageToElement(target, { offset, behavior, immediate: behavior === "auto" });
     };
 
     updateGlossaryScrollOffset();
@@ -480,6 +790,77 @@ function initGlossaries() {
   });
 }
 
+function initNews() {
+  const boards = document.querySelectorAll("[data-news]");
+  if (!boards.length) {
+    return;
+  }
+
+  const normalize = (value) =>
+    (value || "")
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .trim();
+
+  boards.forEach((board) => {
+    const form = board.querySelector("[data-news-form]");
+    const searchInput = board.querySelector("[data-news-search]");
+    const filterButtons = Array.from(board.querySelectorAll("[data-news-filter]"));
+    const cards = Array.from(board.querySelectorAll("[data-news-card]"));
+    const emptyState = board.querySelector("[data-news-empty]");
+
+    if (!cards.length) {
+      return;
+    }
+
+    cards.forEach((card) => {
+      card.dataset.searchNormalized = normalize(card.dataset.search || card.textContent || "");
+    });
+
+    let activeCategory = "all";
+
+    const applyFilter = () => {
+      const term = normalize(searchInput ? searchInput.value : "");
+      let visibleCount = 0;
+
+      cards.forEach((card) => {
+        const matchesCategory = activeCategory === "all" || card.dataset.category === activeCategory;
+        const matchesTerm = !term || (card.dataset.searchNormalized || "").includes(term);
+        const visible = matchesCategory && matchesTerm;
+        card.hidden = !visible;
+        if (visible) {
+          visibleCount += 1;
+        }
+      });
+
+      if (emptyState) {
+        emptyState.hidden = visibleCount > 0;
+      }
+    };
+
+    form?.addEventListener("submit", (event) => {
+      event.preventDefault();
+    });
+
+    searchInput?.addEventListener("input", applyFilter);
+
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        activeCategory = button.dataset.category || "all";
+        filterButtons.forEach((btn) => {
+          const isActive = btn === button;
+          btn.classList.toggle("is-active", isActive);
+          btn.setAttribute("aria-pressed", String(isActive));
+        });
+        applyFilter();
+      });
+    });
+
+    applyFilter();
+  });
+}
+
 function initAccordions() {
   accordionGroups.forEach((group) => {
     const items = Array.from(group.querySelectorAll("[data-accordion-item]"));
@@ -572,7 +953,13 @@ function initAnchors() {
 
       event.preventDefault();
       setMenuState(false);
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
+
+      if (target.classList.contains("locations-grid-card") || target.id === "locations") {
+        scrollToStandortTarget(target);
+        return;
+      }
+
+      scrollPageToElement(target, { offset: getStandortScrollOffset() });
     });
   });
 }
@@ -620,11 +1007,11 @@ function initScrollToTop() {
   button.addEventListener("click", () => {
     const topTarget = document.getElementById("top");
     if (topTarget) {
-      topTarget.scrollIntoView({ behavior: scrollBehavior, block: "start" });
+      scrollPageToElement(topTarget, { offset: 0, behavior: scrollBehavior, immediate: scrollBehavior === "auto" });
       return;
     }
 
-    window.scrollTo({ top: 0, behavior: scrollBehavior });
+    scrollPageTo(0, { behavior: scrollBehavior, immediate: scrollBehavior === "auto" });
   });
 
   window.addEventListener("scroll", syncVisibility, { passive: true });
@@ -657,7 +1044,7 @@ const presenceMapLocationStates = {
     locations: [
       {
         name: "Firmensitz/ Niederlassung Baden-Württemberg",
-        street: "Am Hardtwald 6–8",
+        street: "Robert-Bosch-Str. 10",
         city: "76275 Ettlingen",
         phone: "07243 3699101",
         email: "anfrage@igienair.com",
@@ -665,9 +1052,9 @@ const presenceMapLocationStates = {
       },
       {
         name: "Niederlassung Bodensee",
-        street: "Honbergstr. 23",
-        city: "78532 Tuttlingen",
-        phone: "07461 9134000",
+        street: "Frank-Ziwey-Ring 18 Unit 102",
+        city: "78333 Stockach",
+        phone: "07771 63640009",
         email: "anfrage@igienair.com",
         cardId: "standort-bodensee-tuttlingen",
       },
@@ -753,6 +1140,117 @@ const presenceMapLocationStates = {
   },
 };
 
+const presenceMapCityLocations = {
+  Karlsruhe: {
+    stateLabel: "Baden-Württemberg",
+    href: "/kontakt/#standort-baden-wuerttemberg",
+    location: {
+      name: "Firmensitz/ Niederlassung Baden-Württemberg",
+      street: "Robert-Bosch-Str. 10",
+      city: "76275 Ettlingen",
+      phone: "07243 3699101",
+      email: "anfrage@igienair.com",
+      cardId: "standort-baden-wuerttemberg",
+    },
+  },
+  Tuttlingen: {
+    stateLabel: "Bodensee",
+    href: "/kontakt/#standort-bodensee-tuttlingen",
+    location: {
+      name: "Niederlassung Bodensee",
+      street: "Frank-Ziwey-Ring 18 Unit 102",
+      city: "78333 Stockach",
+      phone: "07771 63640009",
+      email: "anfrage@igienair.com",
+      cardId: "standort-bodensee-tuttlingen",
+    },
+  },
+  Oberasbach: {
+    stateLabel: "Bayern",
+    href: "/kontakt/#standort-nordbayern-oberasbach",
+    location: {
+      name: "Niederlassung Nordbayern",
+      street: "Schloßgasse 5c",
+      city: "90522 Oberasbach",
+      phone: "0911 96649121",
+      email: "anfrage@igienair.com",
+      cardId: "standort-nordbayern-oberasbach",
+    },
+  },
+  Eching: {
+    stateLabel: "Bayern",
+    href: "/kontakt/#standort-suedbayern-eching",
+    location: {
+      name: "Niederlassung Südbayern",
+      street: "Erfurter Str. 4",
+      city: "85386 Eching",
+      phone: "089 95459149",
+      email: "anfrage@igienair.com",
+      cardId: "standort-suedbayern-eching",
+    },
+  },
+  Niederhausen: {
+    stateLabel: "Hessen",
+    href: "/kontakt/#standort-rhein-main-niedernhausen",
+    location: {
+      name: "Niederlassung Rhein-Main",
+      street: "Feldbergstr. 14",
+      city: "65527 Niedernhausen",
+      phone: "06127 7084101",
+      email: "anfrage@igienair.com",
+      cardId: "standort-rhein-main-niedernhausen",
+    },
+  },
+  Leichlingen: {
+    stateLabel: "Nordrhein-Westfalen",
+    href: "/kontakt/#standort-nordrhein-westfalen",
+    location: {
+      name: "Niederlassung Nordrhein-Westfalen",
+      street: "Am Beckers Busch 1",
+      city: "42799 Leichlingen",
+      phone: "02173 2653810",
+      email: "anfrage@igienair.com",
+      cardId: "standort-nordrhein-westfalen",
+    },
+  },
+  Winsen: {
+    stateLabel: "Niedersachsen",
+    href: "/kontakt/#standort-nord-winsen",
+    location: {
+      name: "Niederlassung Nord",
+      street: "Opelstr. 10",
+      city: "21423 Winsen (Luhe)",
+      phone: "04171 5468650",
+      email: "anfrage@igienair.com",
+      cardId: "standort-nord-winsen",
+    },
+  },
+  Berlin: {
+    stateLabel: "Berlin",
+    href: "/kontakt/#standort-berlin",
+    location: {
+      name: "Niederlassung Berlin",
+      street: "Paradiesstraße 210–218",
+      city: "12526 Berlin",
+      phone: "030 340 410120",
+      email: "anfrage@igienair.com",
+      cardId: "standort-berlin",
+    },
+  },
+  AtEching: {
+    stateLabel: "Österreich",
+    href: "/kontakt/#standort-oesterreich",
+    location: {
+      name: "Niederlassung Österreich",
+      street: "Fromillerstraße 29",
+      city: "9020 Klagenfurt am Wörthersee",
+      phone: "+43 664 218 44 66",
+      email: "anfrage@igienair.com",
+      cardId: "standort-oesterreich",
+    },
+  },
+};
+
 const presenceMapEscape = (value) =>
   String(value).replace(/[&<>"']/g, (char) => ({
     "&": "&amp;",
@@ -763,9 +1261,11 @@ const presenceMapEscape = (value) =>
   }[char]));
 
 const presenceMapBuildCard = (stateLabel, location, options = {}) => {
-  const tag = options.linkable && location.cardId ? "a" : "article";
-  const attrs = options.linkable && location.cardId
-    ? ` class="de-map-card__location de-map-card__location--link" href="#${location.cardId}"`
+  const isLink = Boolean(options.linkable && location.cardId);
+  const tag = isLink ? "a" : "article";
+  const href = isLink ? (options.href || `#${location.cardId}`) : null;
+  const attrs = isLink
+    ? ` class="de-map-card__location de-map-card__location--link" href="${presenceMapEscape(href)}"`
     : ' class="de-map-card__location"';
 
   return `
@@ -781,6 +1281,25 @@ const presenceMapBuildCard = (stateLabel, location, options = {}) => {
   </${tag}>
 `;
 };
+
+function getStandortScrollOffset() {
+  const header = document.querySelector(".site-header");
+  if (!header) {
+    return 96;
+  }
+
+  return Math.ceil(header.getBoundingClientRect().height + 16);
+}
+
+function scrollToStandortTarget(target, behavior = "smooth") {
+  if (!target) {
+    return;
+  }
+
+  const offset = getStandortScrollOffset();
+  document.documentElement.style.setProperty("--standort-scroll-offset", `${offset}px`);
+  scrollPageToElement(target, { offset, behavior, immediate: behavior === "auto" });
+}
 
 function presenceMapGetStandorteTitles() {
   const titles = {};
@@ -815,7 +1334,13 @@ function presenceMapClearStandorteHighlights(mapRoot) {
   });
 }
 
-function presenceMapFocusStandorteState(mapRoot, land, location) {
+function presenceMapFocusStandorteState(
+  mapRoot,
+  land,
+  location,
+  preferredCardId = null,
+  scrollBehavior = "smooth",
+) {
   const cardIds = location.cardIds || [];
   const cards = cardIds
     .map((id) => document.getElementById(id))
@@ -828,11 +1353,13 @@ function presenceMapFocusStandorteState(mapRoot, land, location) {
     card.classList.add("is-map-highlight");
   });
 
-  const scrollTarget = cards[0] || document.getElementById("locations");
-  scrollTarget?.scrollIntoView({ behavior: "smooth", block: "center" });
+  const preferredCard = preferredCardId ? document.getElementById(preferredCardId) : null;
+  const scrollTarget = preferredCard || cards[0] || document.getElementById("locations");
+  scrollToStandortTarget(scrollTarget, scrollBehavior);
 
-  if (cards[0]?.id) {
-    history.replaceState(null, "", `#${cards[0].id}`);
+  const hashTarget = preferredCard || cards[0];
+  if (hashTarget?.id) {
+    history.replaceState(null, "", `#${hashTarget.id}`);
   }
 }
 
@@ -843,24 +1370,48 @@ function presenceMapInitStandorteFromHash(mapRoot) {
   }
 
   const card = document.getElementById(hash);
-  const stateId = card?.dataset.locationState;
-  if (!stateId) {
+  if (!card) {
     return;
   }
 
-  const land = mapRoot.querySelector(`.de-map__land#${CSS.escape(stateId)}`);
-  const location = presenceMapLocationStates[stateId];
-  if (!land || !location) {
+  const stateId = card.dataset.locationState;
+  const land = stateId
+    ? mapRoot.querySelector(`.de-map__land#${CSS.escape(stateId)}`)
+    : null;
+  const location = stateId ? presenceMapLocationStates[stateId] : null;
+
+  window.requestAnimationFrame(() => {
+    if (land && location) {
+      presenceMapFocusStandorteState(mapRoot, land, location, hash, "auto");
+      return;
+    }
+
+    card.classList.add("is-map-highlight");
+    scrollToStandortTarget(card, "auto");
+  });
+}
+
+function initStandortDeepLinks() {
+  const hash = window.location.hash.replace(/^#/, "");
+  if (!hash.startsWith("standort-")) {
+    return;
+  }
+
+  const card = document.getElementById(hash);
+  if (!card) {
     return;
   }
 
   window.requestAnimationFrame(() => {
-    presenceMapFocusStandorteState(mapRoot, land, location);
+    if (!card.classList.contains("is-map-highlight")) {
+      card.classList.add("is-map-highlight");
+    }
+    scrollToStandortTarget(card, "auto");
   });
 }
 
 function initPresenceMap() {
-  const mapRoot = document.querySelector("[data-presence-map]");
+  document.querySelectorAll("[data-presence-map]").forEach((mapRoot) => {
   const stage = mapRoot?.querySelector(".de-map__stage");
   const tooltip = mapRoot?.querySelector("[data-presence-map-tooltip]");
 
@@ -868,7 +1419,7 @@ function initPresenceMap() {
     return;
   }
 
-  const lands = mapRoot.querySelectorAll(".de-map__land");
+  const lands = mapRoot.querySelectorAll(".de-map__land, .de-map__city");
   if (!lands.length) {
     return;
   }
@@ -907,10 +1458,16 @@ function initPresenceMap() {
   };
 
   const isStandorteMode = mapRoot.dataset.presenceMapMode === "standorte";
+  const isStaedteMode = mapRoot.dataset.presenceMapMode === "staedte";
   const standorteTitles = isStandorteMode ? presenceMapGetStandorteTitles() : null;
 
-  lands.forEach((land) => {
-    const location = presenceMapLocationStates[land.id];
+  const markers = isStaedteMode
+    ? mapRoot.querySelectorAll(".de-map__city")
+    : mapRoot.querySelectorAll(".de-map__land");
+
+  markers.forEach((land) => {
+    const cityEntry = isStaedteMode ? presenceMapCityLocations[land.id] : null;
+    const location = isStaedteMode ? cityEntry : presenceMapLocationStates[land.id];
 
     if (!location) {
       land.removeAttribute("tabindex");
@@ -918,19 +1475,26 @@ function initPresenceMap() {
       return;
     }
 
-    const stateLabel = land.dataset.label
-      || land.getAttribute("aria-label")
-      || (presenceMapStateLabels[land.id] ?? land.id);
+    const stateLabel = isStaedteMode
+      ? cityEntry.stateLabel
+      : land.dataset.label
+        || land.getAttribute("aria-label")
+        || (presenceMapStateLabels[land.id] ?? land.id);
 
-    const cards = (location.locations || [])
-      .map((entry) => presenceMapBuildCard(
-        stateLabel,
-        presenceMapWithStandorteTitle(entry, standorteTitles),
-        { linkable: isStandorteMode },
-      ))
-      .join("");
+    const cardsHtml = isStaedteMode
+      ? presenceMapBuildCard(stateLabel, cityEntry.location, {
+          linkable: true,
+          href: resolveSitePath(cityEntry.href),
+        })
+      : (location.locations || [])
+        .map((entry) => presenceMapBuildCard(
+          stateLabel,
+          presenceMapWithStandorteTitle(entry, standorteTitles),
+          { linkable: isStandorteMode },
+        ))
+        .join("");
 
-    const tooltipContent = `<div class="de-map-card__list">${cards}</div>`;
+    const tooltipContent = `<div class="de-map-card__list">${cardsHtml}</div>`;
 
     land.classList.add("is-location");
     land.setAttribute("tabindex", "0");
@@ -939,12 +1503,36 @@ function initPresenceMap() {
       "aria-label",
       isStandorteMode
         ? `${stateLabel}: Standorte anzeigen`
-        : `${stateLabel}: Standort öffnen`,
+        : isStaedteMode
+          ? `${land.dataset.label || stateLabel}: Kontaktdaten auf Standortseite öffnen`
+          : `${stateLabel}: Standort öffnen`,
     );
 
     const navigate = () => {
       if (isStandorteMode) {
         presenceMapFocusStandorteState(mapRoot, land, location);
+        return;
+      }
+
+      if (isStaedteMode) {
+        const cardId = cityEntry.location.cardId;
+        const card = cardId ? document.getElementById(cardId) : null;
+
+        if (card) {
+          document.querySelectorAll(".locations-grid-card.is-map-highlight").forEach((item) => {
+            item.classList.remove("is-map-highlight");
+          });
+          mapRoot.querySelectorAll(".de-map__city.is-selected").forEach((item) => {
+            item.classList.remove("is-selected");
+          });
+          land.classList.add("is-selected");
+          card.classList.add("is-map-highlight");
+          scrollToStandortTarget(card);
+          history.replaceState(null, "", `#${cardId}`);
+          return;
+        }
+
+        window.location.href = resolveSitePath(cityEntry.href);
         return;
       }
 
@@ -980,16 +1568,76 @@ function initPresenceMap() {
     });
 
     land.addEventListener("click", () => {
+      hideTooltip();
       navigate();
     });
 
     land.addEventListener("keydown", (event) => {
       if (event.key === "Enter" || event.key === " ") {
         event.preventDefault();
+        hideTooltip();
         navigate();
       }
     });
   });
+
+  if (isStaedteMode) {
+    tooltip.addEventListener("click", (event) => {
+      const link = event.target.closest("a.de-map-card__location--link");
+      if (!link) {
+        return;
+      }
+
+      event.preventDefault();
+      hideTooltip();
+
+      const href = link.getAttribute("href") || link.href;
+      const cardId = href.includes("#") ? href.split("#").pop() : null;
+      const card = cardId ? document.getElementById(cardId) : null;
+
+      if (card) {
+        const cityId = Object.entries(presenceMapCityLocations).find(
+          ([, entry]) => entry.location.cardId === cardId,
+        )?.[0];
+        const cityLand = cityId
+          ? mapRoot.querySelector(`.de-map__city#${CSS.escape(cityId)}`)
+          : null;
+
+        document.querySelectorAll(".locations-grid-card.is-map-highlight").forEach((item) => {
+          item.classList.remove("is-map-highlight");
+        });
+        mapRoot.querySelectorAll(".de-map__city.is-selected").forEach((item) => {
+          item.classList.remove("is-selected");
+        });
+        cityLand?.classList.add("is-selected");
+        card.classList.add("is-map-highlight");
+        scrollToStandortTarget(card);
+        history.replaceState(null, "", `#${cardId}`);
+        return;
+      }
+
+      window.location.href = href;
+    });
+
+    const hash = window.location.hash.replace(/^#/, "");
+    if (hash.startsWith("standort-")) {
+      const card = document.getElementById(hash);
+      const cityId = Object.entries(presenceMapCityLocations).find(
+        ([, entry]) => entry.location.cardId === hash,
+      )?.[0];
+      const cityLand = cityId
+        ? mapRoot.querySelector(`.de-map__city#${CSS.escape(cityId)}`)
+        : null;
+
+      if (card) {
+        window.requestAnimationFrame(() => {
+          cityLand?.classList.add("is-selected");
+          card.classList.add("is-map-highlight");
+          scrollToStandortTarget(card, "auto");
+        });
+      }
+    }
+  }
 
   if (isStandorteMode) {
     tooltip.addEventListener("click", (event) => {
@@ -1008,10 +1656,7 @@ function initPresenceMap() {
       const location = stateId ? presenceMapLocationStates[stateId] : null;
 
       if (card && land && location) {
-        presenceMapFocusStandorteState(mapRoot, land, location);
-        card.classList.add("is-map-highlight");
-        card.scrollIntoView({ behavior: "smooth", block: "center" });
-        history.replaceState(null, "", `#${cardId}`);
+        presenceMapFocusStandorteState(mapRoot, land, location, cardId);
       }
     });
 
@@ -1019,6 +1664,68 @@ function initPresenceMap() {
   }
 
   mapRoot.classList.add("is-loaded");
+  });
+}
+
+function initAustriaMapLightbox() {
+  document.querySelectorAll("[data-austria-map-open]").forEach((trigger) => {
+    const wrap = trigger.closest(".presence-map-wrap");
+    const lightbox = wrap?.querySelector("[data-austria-map-lightbox]");
+
+    if (!wrap || !lightbox) {
+      return;
+    }
+
+    let lastFocus = null;
+    lightbox.hidden = true;
+    lightbox.setAttribute("aria-hidden", "true");
+    trigger.setAttribute("aria-expanded", "false");
+
+    const close = (restoreFocus = true) => {
+      lightbox.hidden = true;
+      lightbox.setAttribute("aria-hidden", "true");
+      trigger.setAttribute("aria-expanded", "false");
+      document.body.classList.remove("is-austria-map-open");
+      resumeSmoothScroll();
+
+      if (restoreFocus && lastFocus && typeof lastFocus.focus === "function") {
+        lastFocus.focus();
+      }
+    };
+
+    const open = (event) => {
+      event?.preventDefault();
+      lastFocus = document.activeElement;
+      lightbox.hidden = false;
+      lightbox.setAttribute("aria-hidden", "false");
+      trigger.setAttribute("aria-expanded", "true");
+      document.body.classList.add("is-austria-map-open");
+      pauseSmoothScroll();
+      lightbox.querySelector(".austria-map-lightbox__close")?.focus();
+    };
+
+    trigger.addEventListener("click", open);
+
+    lightbox.querySelectorAll("[data-austria-map-close]").forEach((control) => {
+      control.addEventListener("click", () => close());
+    });
+
+    lightbox.addEventListener("click", (event) => {
+      const locationTarget = event.target.closest(
+        ".de-map__city.is-location, a.de-map-card__location--link",
+      );
+      if (locationTarget) {
+        close(false);
+      }
+    });
+
+    lightbox.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        close();
+      }
+    });
+  });
 }
 
 function initSectorsColumnBalance() {
@@ -1553,11 +2260,12 @@ function initServicesAccordion() {
   });
 }
 
-window.addEventListener("scroll", syncHeaderState, { passive: true });
 addressSelect?.addEventListener("change", syncAddressFields);
-initOfferForm();
+initQuoteForms();
 
 initMenu();
+initMegaMenuActiveState();
+initSmoothScrollExperience();
 initAnchors();
 initInertControls();
 initKeyboard();
@@ -1566,6 +2274,7 @@ initVideos();
 initCertificateGalleries();
 initLocationBrowsers();
 initGlossaries();
+initNews();
 initAccordions();
 observeMeters();
 initSectorAnimations();
@@ -1577,5 +2286,7 @@ initCleaningMediaHeights();
 initHygieneAirNavHeight();
 initServicesAccordion();
 initPresenceMap();
+initAustriaMapLightbox();
+initStandortDeepLinks();
 syncAddressFields();
 syncHeaderState();

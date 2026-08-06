@@ -15,7 +15,7 @@ class Leadwerk_Fields_Metabox {
 		'header_logo'          => array( 'label' => 'Header Logo (dunkel)', 'type' => 'image', 'help' => 'Wird auf hellem Header-Hintergrund verwendet.' ),
 		'header_logo_light'    => array( 'label' => 'Header Logo (hell)', 'type' => 'image', 'help' => 'Wird auf dunklem oder transparentem Header-Hintergrund verwendet.' ),
 		'footer_logo'          => array( 'label' => 'Footer Logo', 'type' => 'image' ),
-		'site_icon'            => array( 'label' => 'Website Icon', 'type' => 'image', 'help' => 'WordPress Website-Icon. Bitte ein quadratisches PNG mit mindestens 512 × 512 Pixeln verwenden.' ),
+		'site_icon'            => array( 'label' => 'Website Icon', 'type' => 'image', 'help' => 'WordPress Website-Icon. Quadratisches SVG empfohlen, alternativ PNG mit mindestens 512 × 512 Pixeln.' ),
 		'company_address'      => array( 'label' => 'Firmenadresse', 'type' => 'textarea' ),
 		'company_phone'        => array( 'label' => 'Telefon', 'type' => 'text' ),
 		'company_fax'          => array( 'label' => 'Fax', 'type' => 'text' ),

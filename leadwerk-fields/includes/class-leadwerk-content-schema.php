@@ -28,8 +28,9 @@ class Leadwerk_Content_Schema {
 			'input', 'label', 'li', 'main', 'nav', 'ol', 'option', 'p', 'picture',
 			'section', 'select', 'small', 'source', 'span', 'strong', 'summary',
 			'sup', 'svg', 'g', 'path', 'polygon', 'polyline', 'circle', 'rect',
-			'line', 'use', 'title', 'defs', 'clippath', 'table', 'tbody', 'td',
-			'textarea', 'tfoot', 'th', 'thead', 'time', 'tr', 'ul', 'video',
+			'line', 'use', 'title', 'defs', 'clippath', 'lineargradient', 'stop',
+			'filter', 'fedropshadow', 'table', 'tbody', 'td', 'textarea', 'tfoot',
+			'th', 'thead', 'time', 'tr', 'ul', 'video',
 		);
 	}
 
@@ -50,7 +51,9 @@ class Leadwerk_Content_Schema {
 			'stroke', 'cx', 'cy', 'r', 'rx', 'ry', 'x', 'y', 'x1', 'x2', 'y1',
 			'y2', 'points', 'transform', 'stroke-width', 'stroke-linecap',
 			'stroke-linejoin', 'focusable', 'itemscope', 'itemprop', 'itemtype', 'content',
-			'novalidate', 'min', 'max', 'step', 'preload', 'rows', 'cols',
+			'gradientunits', 'offset', 'stop-color', 'dx', 'dy', 'stddeviation',
+			'flood-color', 'flood-opacity', 'novalidate', 'min', 'max', 'step',
+			'preload', 'rows', 'cols', 'hidden',
 		);
 	}
 

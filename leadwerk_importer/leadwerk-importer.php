@@ -67,7 +67,7 @@ function leadwerk_importer_admin_page() {
 	?>
 	<div class="wrap leadwerk-importer">
 		<h1>IGIENAIR WordPress Import</h1>
-		<p>176 kanonik HTML sayfasi, yapilandirilmis bolumler, medya ve Almanca ceviri kayitlari.</p>
+		<p>192 kanonik HTML sayfasi, yapilandirilmis bolumler, medya ve Almanca ceviri kayitlari.</p>
 		<div class="notice notice-warning inline"><p><strong>Importtan once:</strong> Veritabani ve <code>wp-content/uploads</code> yedegi alin.</p></div>
 		<h2>Preflight</h2>
 		<ul>

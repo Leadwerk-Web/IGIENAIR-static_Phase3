@@ -8,13 +8,16 @@ const pluginDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..
 const rootDir = path.resolve(pluginDir, "..");
 const manifestFile = path.join(pluginDir, "manifest/mapping.json");
 const sourceDir = path.join(pluginDir, "source_assets");
-const expectedPageCount = 176;
+const expectedPageCount = 192;
 const errors = [];
 
 const manifest = JSON.parse(await fs.readFile(manifestFile, "utf8"));
 const pages = Array.isArray(manifest.pages) ? manifest.pages : [];
 const keys = new Set();
 const files = new Set();
+const pagePositions = new Map(
+  pages.map((page, index) => [page.source_key, index]),
+);
 
 if (pages.length !== expectedPageCount) {
   errors.push(`Expected ${expectedPageCount} pages, found ${pages.length}.`);
@@ -33,6 +36,11 @@ for (const page of pages) {
 
   if (page.parent_source_key && !pages.some((item) => item.source_key === page.parent_source_key)) {
     errors.push(`${page.source_key} has missing parent ${page.parent_source_key}.`);
+  } else if (
+    page.parent_source_key
+    && pagePositions.get(page.parent_source_key) > pagePositions.get(page.source_key)
+  ) {
+    errors.push(`${page.source_key} is ordered before parent ${page.parent_source_key}.`);
   }
 
   const htmlFile = path.join(sourceDir, "pages", page.source_file || "");

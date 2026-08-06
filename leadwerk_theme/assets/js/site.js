@@ -53,6 +53,21 @@ function resolveSitePath(urlPath) {
   const hashIdx = pathAndHash.indexOf("#");
   const hash = hashIdx >= 0 ? pathAndHash.slice(hashIdx) : "";
   const pathname = hashIdx >= 0 ? pathAndHash.slice(0, hashIdx) : pathAndHash;
+  const route = pathname === "/"
+    ? "/"
+    : `/${pathname.replace(/^\/+|\/+$/g, "")}/`;
+  const wordpressTarget = window.leadwerkSitePaths?.[route];
+
+  if (wordpressTarget) {
+    try {
+      const targetUrl = new URL(wordpressTarget, window.location.href);
+      targetUrl.hash = hash;
+      targetUrl.search = query;
+      return targetUrl.href;
+    } catch {
+      return `${wordpressTarget}${query}${hash}`;
+    }
+  }
 
   let target;
   if (!pathname || pathname === "/") {
@@ -65,6 +80,65 @@ function resolveSitePath(urlPath) {
   }
 
   return `${prefix}${target}${hash}${query}`;
+}
+
+function normalizePagePath(input) {
+  if (!input) {
+    return null;
+  }
+
+  try {
+    let path = new URL(input, window.location.href).pathname;
+    path = decodeURIComponent(path);
+
+    if (path.length > 1 && path.endsWith("/")) {
+      path = path.slice(0, -1);
+    }
+
+    const lastSegment = path.split("/").pop() || "";
+    if (!lastSegment.includes(".")) {
+      path = `${path}/index.html`;
+    }
+
+    return path.toLowerCase();
+  } catch {
+    return null;
+  }
+}
+
+function initMegaMenuActiveState() {
+  const currentPath = normalizePagePath(window.location.href);
+  if (!currentPath) {
+    return;
+  }
+
+  const megaLinks = document.querySelectorAll(
+    '.nav-dropdown--mega .nav-link[href], .nav-dropdown--mega .nav-mega__all[href], .mobile-menu__group--mega .mobile-link[href]'
+  );
+
+  megaLinks.forEach((link) => {
+    const href = link.getAttribute("href");
+    if (!href || href.startsWith("#")) {
+      return;
+    }
+
+    const linkPath = normalizePagePath(href);
+    if (linkPath === currentPath) {
+      link.setAttribute("aria-current", "page");
+      return;
+    }
+
+    if (link.closest(".nav-dropdown--mega, .mobile-menu__group--mega")) {
+      link.removeAttribute("aria-current");
+    }
+  });
+
+  document.querySelectorAll(".nav-item--mega .nav-trigger[href]").forEach((trigger) => {
+    const triggerPath = normalizePagePath(trigger.getAttribute("href"));
+    if (triggerPath === currentPath) {
+      trigger.setAttribute("aria-current", "page");
+    }
+  });
 }
 
 const body = document.body;
@@ -348,6 +422,7 @@ function observeMeters() {
 function initCertificateGalleries() {
   certificateGalleries.forEach((gallery) => {
     const preview = gallery.querySelector("[data-cert-preview]");
+    const pdfPreview = gallery.querySelector("[data-cert-pdf-preview]");
     const link = gallery.querySelector("[data-cert-link]");
     const items = Array.from(gallery.querySelectorAll("[data-cert-item]"));
 
@@ -370,13 +445,31 @@ function initCertificateGalleries() {
         candidate.setAttribute("aria-pressed", String(isActive));
       });
 
+      const usePdfPreview = item.dataset.certPdfPreview === "true";
       const nextSrc = resolveAssetPath(item.dataset.certImg || preview.getAttribute("src") || "");
       const nextHref = resolveAssetPath(item.dataset.certPdf || link.getAttribute("href") || "");
       const nextAlt = item.dataset.certAlt || item.textContent?.trim() || "";
 
+      link.href = nextHref;
+
+      if (usePdfPreview && pdfPreview) {
+        preview.hidden = true;
+        preview.removeAttribute("src");
+        pdfPreview.hidden = false;
+        pdfPreview.title = nextAlt;
+        pdfPreview.src = nextHref;
+        link.classList.add("cert-gallery__link--pdf");
+        return;
+      }
+
+      if (pdfPreview) {
+        pdfPreview.hidden = true;
+        pdfPreview.removeAttribute("src");
+      }
+      link.classList.remove("cert-gallery__link--pdf");
+      preview.hidden = false;
       preview.style.opacity = "0";
       preview.alt = nextAlt;
-      link.href = nextHref;
       preview.src = nextSrc;
       if (preview.complete) {
         preview.style.opacity = "1";
@@ -390,6 +483,8 @@ function initCertificateGalleries() {
     const initial = items.find((item) => item.classList.contains("is-active")) || items[0];
     activate(initial);
 
+    const mobileLayout = window.matchMedia("(max-width: 980px)");
+
     gallery.addEventListener("click", (event) => {
       const item = event.target.closest("[data-cert-item]");
       if (!item) {
@@ -397,6 +492,15 @@ function initCertificateGalleries() {
       }
 
       activate(item);
+
+      // Mobil steht die Auswahl ueber der Vorschau – nach dem Tippen dorthin scrollen.
+      if (mobileLayout.matches) {
+        const previewBox = gallery.querySelector(".cert-gallery__preview");
+        if (previewBox) {
+          const top = previewBox.getBoundingClientRect().top + window.scrollY - 96;
+          window.scrollTo({ top, behavior: "smooth" });
+        }
+      }
     });
   });
 }
@@ -1573,20 +1677,28 @@ function initAustriaMapLightbox() {
     }
 
     let lastFocus = null;
+    lightbox.hidden = true;
+    lightbox.setAttribute("aria-hidden", "true");
+    trigger.setAttribute("aria-expanded", "false");
 
-    const close = () => {
+    const close = (restoreFocus = true) => {
       lightbox.hidden = true;
+      lightbox.setAttribute("aria-hidden", "true");
+      trigger.setAttribute("aria-expanded", "false");
       document.body.classList.remove("is-austria-map-open");
       resumeSmoothScroll();
 
-      if (lastFocus && typeof lastFocus.focus === "function") {
+      if (restoreFocus && lastFocus && typeof lastFocus.focus === "function") {
         lastFocus.focus();
       }
     };
 
-    const open = () => {
+    const open = (event) => {
+      event?.preventDefault();
       lastFocus = document.activeElement;
       lightbox.hidden = false;
+      lightbox.setAttribute("aria-hidden", "false");
+      trigger.setAttribute("aria-expanded", "true");
       document.body.classList.add("is-austria-map-open");
       pauseSmoothScroll();
       lightbox.querySelector(".austria-map-lightbox__close")?.focus();
@@ -1595,7 +1707,16 @@ function initAustriaMapLightbox() {
     trigger.addEventListener("click", open);
 
     lightbox.querySelectorAll("[data-austria-map-close]").forEach((control) => {
-      control.addEventListener("click", close);
+      control.addEventListener("click", () => close());
+    });
+
+    lightbox.addEventListener("click", (event) => {
+      const locationTarget = event.target.closest(
+        ".de-map__city.is-location, a.de-map-card__location--link",
+      );
+      if (locationTarget) {
+        close(false);
+      }
     });
 
     lightbox.addEventListener("keydown", (event) => {
@@ -2143,6 +2264,7 @@ addressSelect?.addEventListener("change", syncAddressFields);
 initQuoteForms();
 
 initMenu();
+initMegaMenuActiveState();
 initSmoothScrollExperience();
 initAnchors();
 initInertControls();

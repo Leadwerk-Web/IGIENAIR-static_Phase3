@@ -1,0 +1,3002 @@
+[
+ {
+  "row": 1,
+  "A": "Nr.",
+  "B": "Bereich",
+  "C": "Unterbereich",
+  "D": "Prüfpunkt",
+  "E": "Bearbeiter",
+  "F": "Status",
+  "G": "Kommentar"
+ },
+ {
+  "row": 2,
+  "A": "1",
+  "B": "1. Domain und Hosting",
+  "C": "",
+  "D": "SSL-Zertifikat aktiv und gültig?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 3,
+  "A": "2",
+  "B": "1. Domain und Hosting",
+  "C": "",
+  "D": "Website lädt vollständig über https://?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 4,
+  "A": "3",
+  "B": "1. Domain und Hosting",
+  "C": "",
+  "D": "Automatische Weiterleitung von http:// auf https:// aktiv?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 5,
+  "A": "4",
+  "B": "1. Domain und Hosting",
+  "C": "",
+  "D": "Domain zeigt auf den richtigen Server?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 6,
+  "A": "5",
+  "B": "1. Domain und Hosting",
+  "C": "",
+  "D": "www / non-www korrekt weitergeleitet?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 7,
+  "A": "6",
+  "B": "1. Domain und Hosting",
+  "C": "",
+  "D": "PHP-Version aktuell und kompatibel?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 8,
+  "A": "7",
+  "B": "1. Domain und Hosting",
+  "C": "",
+  "D": "Server-Caching korrekt konfiguriert?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 9,
+  "A": "8",
+  "B": "1. Domain und Hosting",
+  "C": "",
+  "D": "Fehlerseiten wie 404-Seite vorhanden und korrekt gestaltet?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 10,
+  "A": "9",
+  "B": "1. Domain und Hosting",
+  "C": "",
+  "D": "Staging- oder Testumgebung nicht öffentlich indexierbar?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 11,
+  "A": "10",
+  "B": "1. Domain und Hosting",
+  "C": "",
+  "D": "Keine Testdomains, temporären URLs oder Platzhalter-Links mehr vorhanden?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 12,
+  "A": "11",
+  "B": "2. WordPress-Grundkonfiguration",
+  "C": "",
+  "D": "WordPress Core aktuell?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 13,
+  "A": "12",
+  "B": "2. WordPress-Grundkonfiguration",
+  "C": "",
+  "D": "WordPress-Version aktuell?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 14,
+  "A": "13",
+  "B": "2. WordPress-Grundkonfiguration",
+  "C": "",
+  "D": "Alle Plugins aktuell?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 15,
+  "A": "14",
+  "B": "2. WordPress-Grundkonfiguration",
+  "C": "",
+  "D": "Alle Themes aktuell?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 16,
+  "A": "15",
+  "B": "2. WordPress-Grundkonfiguration",
+  "C": "",
+  "D": "Website-Titel und Untertitel korrekt gesetzt?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 17,
+  "A": "16",
+  "B": "2. WordPress-Grundkonfiguration",
+  "C": "",
+  "D": "Zeitzone korrekt eingestellt?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 18,
+  "A": "17",
+  "B": "2. WordPress-Grundkonfiguration",
+  "C": "",
+  "D": "Sprache korrekt eingestellt?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 19,
+  "A": "18",
+  "B": "2. WordPress-Grundkonfiguration",
+  "C": "",
+  "D": "Permalinks richtig eingestellt?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 20,
+  "A": "19",
+  "B": "2. WordPress-Grundkonfiguration",
+  "C": "",
+  "D": "Standard-Beiträge, Beispielseiten und Demo-Inhalte entfernt?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 21,
+  "A": "20",
+  "B": "2. WordPress-Grundkonfiguration",
+  "C": "",
+  "D": "Admin-Benutzer sicher benannt, kein Benutzername wie admin?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 22,
+  "A": "21",
+  "B": "2. WordPress-Grundkonfiguration",
+  "C": "",
+  "D": "Nicht benötigte Benutzerkonten entfernt?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 23,
+  "A": "22",
+  "B": "2. WordPress-Grundkonfiguration",
+  "C": "",
+  "D": "Rollen und Berechtigungen korrekt vergeben?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 24,
+  "A": "23",
+  "B": "2. WordPress-Grundkonfiguration",
+  "C": "",
+  "D": "E-Mail-Adresse der Website korrekt hinterlegt?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 25,
+  "A": "24",
+  "B": "2. WordPress-Grundkonfiguration",
+  "C": "",
+  "D": "Manuelles Backup vor Go-Live erstellt?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 26,
+  "A": "25",
+  "B": "3. Inhalte",
+  "C": "",
+  "D": "Alle Seiten sichtbar und veröffentlicht?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 27,
+  "A": "26",
+  "B": "3. Inhalte",
+  "C": "",
+  "D": "Alle Beiträge sichtbar und veröffentlicht?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 28,
+  "A": "27",
+  "B": "3. Inhalte",
+  "C": "",
+  "D": "Keine Entwürfe oder Testseiten versehentlich öffentlich?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 29,
+  "A": "28",
+  "B": "3. Inhalte",
+  "C": "",
+  "D": "Inhalte auf Rechtschreibung und Grammatik geprüft?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 30,
+  "A": "29",
+  "B": "3. Inhalte",
+  "C": "",
+  "D": "Inhalte fachlich und inhaltlich freigegeben?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 31,
+  "A": "30",
+  "B": "3. Inhalte",
+  "C": "",
+  "D": "Texte vollständig, keine Platzhalter wie Lorem ipsum?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 32,
+  "A": "31",
+  "B": "3. Inhalte",
+  "C": "",
+  "D": "Überschriftenstruktur logisch aufgebaut?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 33,
+  "A": "32",
+  "B": "3. Inhalte",
+  "C": "",
+  "D": "Bilder, Videos und Downloads laden korrekt?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 34,
+  "A": "33",
+  "B": "3. Inhalte",
+  "C": "",
+  "D": "Alt-Texte für Bilder gepflegt?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 35,
+  "A": "34",
+  "B": "3. Inhalte",
+  "C": "",
+  "D": "PDF- und Download-Links geprüft?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 36,
+  "A": "35",
+  "B": "3. Inhalte",
+  "C": "",
+  "D": "Interne Verlinkungen korrekt gesetzt?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 37,
+  "A": "36",
+  "B": "3. Inhalte",
+  "C": "",
+  "D": "Externe Links geprüft?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 38,
+  "A": "37",
+  "B": "3. Inhalte",
+  "C": "",
+  "D": "Keine defekten Links vorhanden?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 39,
+  "A": "38",
+  "B": "3. Inhalte",
+  "C": "",
+  "D": "Kontaktinformationen konsistent auf allen Seiten?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 40,
+  "A": "39",
+  "B": "3. Inhalte",
+  "C": "",
+  "D": "Telefonnummern klickbar auf mobilen Geräten?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 41,
+  "A": "40",
+  "B": "3. Inhalte",
+  "C": "",
+  "D": "E-Mail-Adressen korrekt verlinkt?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 42,
+  "A": "41",
+  "B": "3. Inhalte",
+  "C": "",
+  "D": "Adressen und Öffnungszeiten aktuell?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 43,
+  "A": "42",
+  "B": "3. Inhalte",
+  "C": "",
+  "D": "Impressum und Datenschutzseiten sind erreichbar und mit den richtigen Inhalten befüllt.",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 44,
+  "A": "43",
+  "B": "4. Design und Layout",
+  "C": "",
+  "D": "Responsives Design auf Desktop, Tablet und Smartphone geprüft?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 45,
+  "A": "44",
+  "B": "4. Design und Layout",
+  "C": "",
+  "D": "Darstellung in gängigen Browsern geprüft?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 46,
+  "A": "45",
+  "B": "4. Design und Layout",
+  "C": "",
+  "D": "Darstellung in Chrome geprüft?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 47,
+  "A": "46",
+  "B": "4. Design und Layout",
+  "C": "",
+  "D": "Darstellung in Safari geprüft?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 48,
+  "A": "47",
+  "B": "4. Design und Layout",
+  "C": "",
+  "D": "Darstellung in Firefox geprüft?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 49,
+  "A": "48",
+  "B": "4. Design und Layout",
+  "C": "",
+  "D": "Darstellung in Edge geprüft?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 50,
+  "A": "49",
+  "B": "4. Design und Layout",
+  "C": "",
+  "D": "Menüs und Navigation funktionieren?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 51,
+  "A": "50",
+  "B": "4. Design und Layout",
+  "C": "",
+  "D": "Mobile Navigation / Burger-Menü funktioniert?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 52,
+  "A": "51",
+  "B": "4. Design und Layout",
+  "C": "",
+  "D": "Footer vollständig und korrekt?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 53,
+  "A": "52",
+  "B": "4. Design und Layout",
+  "C": "",
+  "D": "Header korrekt?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 54,
+  "A": "53",
+  "B": "4. Design und Layout",
+  "C": "",
+  "D": "Buttons und Call-to-Actions funktionieren?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 55,
+  "A": "54",
+  "B": "4. Design und Layout",
+  "C": "",
+  "D": "Keine Layout-Brüche?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 56,
+  "A": "55",
+  "B": "4. Design und Layout",
+  "C": "",
+  "D": "Keine überlappenden Elemente?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 57,
+  "A": "56",
+  "B": "4. Design und Layout",
+  "C": "",
+  "D": "Benutzerdefinierte Schriftarten werden korrekt geladen?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 58,
+  "A": "57",
+  "B": "4. Design und Layout",
+  "C": "",
+  "D": "Hover-Zustände geprüft?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 59,
+  "A": "58",
+  "B": "4. Design und Layout",
+  "C": "",
+  "D": "Akkordeons, Slider, Tabs und Pop-ups getestet?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 60,
+  "A": "59",
+  "B": "4. Design und Layout",
+  "C": "",
+  "D": "Favicon eingebunden?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 61,
+  "A": "60",
+  "B": "4. Design und Layout",
+  "C": "",
+  "D": "Logo korrekt eingebunden?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 62,
+  "A": "61",
+  "B": "5. Formulare und Kontaktfunktionen",
+  "C": "",
+  "D": "Alle Formulare getestet?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 63,
+  "A": "62",
+  "B": "5. Formulare und Kontaktfunktionen",
+  "C": "",
+  "D": "Kontaktformular funktioniert?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 64,
+  "A": "63",
+  "B": "5. Formulare und Kontaktfunktionen",
+  "C": "",
+  "D": "Pflichtfelder korrekt definiert?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 65,
+  "A": "64",
+  "B": "5. Formulare und Kontaktfunktionen",
+  "C": "",
+  "D": "Fehlermeldungen verständlich?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 66,
+  "A": "65",
+  "B": "5. Formulare und Kontaktfunktionen",
+  "C": "",
+  "D": "Erfolgsmeldung korrekt?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 67,
+  "A": "66",
+  "B": "5. Formulare und Kontaktfunktionen",
+  "C": "",
+  "D": "Weiterleitungsfunktion nach Absenden aktiv?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 68,
+  "A": "67",
+  "B": "5. Formulare und Kontaktfunktionen",
+  "C": "",
+  "D": "Weiterleitung auf eine Dankeseite eingerichtet?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 69,
+  "A": "68",
+  "B": "5. Formulare und Kontaktfunktionen",
+  "C": "",
+  "D": "Dankeseite ist angelegt?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 70,
+  "A": "69",
+  "B": "5. Formulare und Kontaktfunktionen",
+  "C": "",
+  "D": "Dankeseite ist erreichbar?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 71,
+  "A": "70",
+  "B": "5. Formulare und Kontaktfunktionen",
+  "C": "",
+  "D": "Dankeseite ist nicht unnötig in der Navigation sichtbar?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 72,
+  "A": "71",
+  "B": "5. Formulare und Kontaktfunktionen",
+  "C": "",
+  "D": "Dankeseite bei Bedarf auf noindex gesetzt?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 73,
+  "A": "72",
+  "B": "5. Formulare und Kontaktfunktionen",
+  "C": "",
+  "D": "Formular-Sender korrekt eingestellt?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 74,
+  "A": "73",
+  "B": "5. Formulare und Kontaktfunktionen",
+  "C": "",
+  "D": "Formular-Empfänger ist auf eine Kunden-E-Mail-Adresse eingestellt?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 75,
+  "A": "74",
+  "B": "5. Formulare und Kontaktfunktionen",
+  "C": "",
+  "D": "CC/BCC-Empfänger korrekt?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 76,
+  "A": "75",
+  "B": "5. Formulare und Kontaktfunktionen",
+  "C": "",
+  "D": "Absenderadresse technisch sauber eingerichtet?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 77,
+  "A": "76",
+  "B": "5. Formulare und Kontaktfunktionen",
+  "C": "",
+  "D": "Okay Dutton All After Lisans I Don't Know what it Get it for light yellow wing Capo After We Go online yiyip formalar",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 78,
+  "A": "77",
+  "B": "5. Formulare und Kontaktfunktionen",
+  "C": "",
+  "D": "Checkbox für Datenschutz, falls erforderlich, vorhanden?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 79,
+  "A": "78",
+  "B": "5. Formulare und Kontaktfunktionen",
+  "C": "",
+  "D": "Spam-Schutz aktiv?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 80,
+  "A": "79",
+  "B": "5. Formulare und Kontaktfunktionen",
+  "C": "",
+  "D": "Honeypot aktiv?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 81,
+  "A": "80",
+  "B": "5. Formulare und Kontaktfunktionen",
+  "C": "",
+  "D": "reCAPTCHA aktiv?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 82,
+  "A": "81",
+  "B": "5. Formulare und Kontaktfunktionen",
+  "C": "",
+  "D": "Datei-Uploads, falls vorhanden, getestet?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 83,
+  "A": "82",
+  "B": "5. Formulare und Kontaktfunktionen",
+  "C": "",
+  "D": "Formulare im Inkognito-Modus getestet?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 84,
+  "A": "83",
+  "B": "5. Formulare und Kontaktfunktionen",
+  "C": "",
+  "D": "Formulare auf mobilen Geräten getestet?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 85,
+  "A": "84",
+  "B": "5. Formulare und Kontaktfunktionen",
+  "C": "WPForms",
+  "D": "WPForms korrekt eingebunden?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 86,
+  "A": "85",
+  "B": "5. Formulare und Kontaktfunktionen",
+  "C": "WPForms",
+  "D": "WPForms in der kostenpflichtigen Version aktiv, falls benötigt?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 87,
+  "A": "86",
+  "B": "5. Formulare und Kontaktfunktionen",
+  "C": "WPForms",
+  "D": "Lizenzschlüssel aktiv?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 88,
+  "A": "87",
+  "B": "5. Formulare und Kontaktfunktionen",
+  "C": "WPForms",
+  "D": "Datenbankeinträge / Entries sichtbar?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 89,
+  "A": "88",
+  "B": "5. Formulare und Kontaktfunktionen",
+  "C": "WPForms",
+  "D": "Formularübermittlungen werden gespeichert?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 90,
+  "A": "89",
+  "B": "5. Formulare und Kontaktfunktionen",
+  "C": "WPForms",
+  "D": "Testeinträge im Backend sichtbar?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 91,
+  "A": "90",
+  "B": "5. Formulare und Kontaktfunktionen",
+  "C": "WPForms",
+  "D": "Weiterleitung zur Dankeseite korrekt konfiguriert?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 92,
+  "A": "91",
+  "B": "5. Formulare und Kontaktfunktionen",
+  "C": "WPForms",
+  "D": "Tracking-Events beim Absenden korrekt ausgelöst?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 93,
+  "A": "92",
+  "B": "5. Formulare und Kontaktfunktionen",
+  "C": "WPForms",
+  "D": "Fehlermeldungen und Validierung geprüft?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 94,
+  "A": "93",
+  "B": "6. Tracking, Analytics und Ads",
+  "C": "Google Analytics 4",
+  "D": "Google Analytics 4 korrekt eingebunden?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 95,
+  "A": "94",
+  "B": "6. Tracking, Analytics und Ads",
+  "C": "Google Analytics 4",
+  "D": "GA4 Property-ID korrekt?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 96,
+  "A": "95",
+  "B": "6. Tracking, Analytics und Ads",
+  "C": "Google Analytics 4",
+  "D": "GA4 misst Seitenaufrufe?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 97,
+  "A": "96",
+  "B": "6. Tracking, Analytics und Ads",
+  "C": "Google Analytics 4",
+  "D": "GA4 misst Events korrekt?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 98,
+  "A": "97",
+  "B": "6. Tracking, Analytics und Ads",
+  "C": "Google Analytics 4",
+  "D": "DebugView getestet?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 99,
+  "A": "98",
+  "B": "6. Tracking, Analytics und Ads",
+  "C": "Google Analytics 4",
+  "D": "Realtime-Report zeigt Testbesuche?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 100,
+  "A": "99",
+  "B": "6. Tracking, Analytics und Ads",
+  "C": "Google Analytics 4",
+  "D": "GA4 lädt erst nach Zustimmung, sofern rechtlich erforderlich?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 101,
+  "A": "100",
+  "B": "6. Tracking, Analytics und Ads",
+  "C": "Google Analytics 4",
+  "D": "Keine doppelte GA4-Einbindung vorhanden?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 102,
+  "A": "101",
+  "B": "6. Tracking, Analytics und Ads",
+  "C": "Google Tag Manager",
+  "D": "GTM-Container korrekt eingebunden?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 103,
+  "A": "102",
+  "B": "6. Tracking, Analytics und Ads",
+  "C": "Google Tag Manager",
+  "D": "GTM-Code im head und body korrekt platziert?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 104,
+  "A": "103",
+  "B": "6. Tracking, Analytics und Ads",
+  "C": "Google Tag Manager",
+  "D": "GTM Preview Mode getestet?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 105,
+  "A": "104",
+  "B": "6. Tracking, Analytics und Ads",
+  "C": "Google Tag Manager",
+  "D": "Tags feuern korrekt?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 106,
+  "A": "105",
+  "B": "6. Tracking, Analytics und Ads",
+  "C": "Google Tag Manager",
+  "D": "Trigger korrekt eingestellt?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 107,
+  "A": "106",
+  "B": "6. Tracking, Analytics und Ads",
+  "C": "Google Tag Manager",
+  "D": "Variablen korrekt konfiguriert?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 108,
+  "A": "107",
+  "B": "6. Tracking, Analytics und Ads",
+  "C": "Google Tag Manager",
+  "D": "Keine doppelten Tags vorhanden?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 109,
+  "A": "108",
+  "B": "6. Tracking, Analytics und Ads",
+  "C": "Google Tag Manager",
+  "D": "Live-Version veröffentlicht?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 110,
+  "A": "109",
+  "B": "6. Tracking, Analytics und Ads",
+  "C": "Google Tag Manager",
+  "D": "Alte oder ungenutzte Tags entfernt?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 111,
+  "A": "110",
+  "B": "6. Tracking, Analytics und Ads",
+  "C": "Google Ads",
+  "D": "Google Ads Conversion Tracking vorhanden, falls eingesetzt?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 112,
+  "A": "111",
+  "B": "6. Tracking, Analytics und Ads",
+  "C": "Google Ads",
+  "D": "Conversion-ID korrekt?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 113,
+  "A": "112",
+  "B": "6. Tracking, Analytics und Ads",
+  "C": "Google Ads",
+  "D": "Conversion-Label korrekt?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 114,
+  "A": "113",
+  "B": "6. Tracking, Analytics und Ads",
+  "C": "Google Ads",
+  "D": "Conversion für Formular abgesendet eingerichtet?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 115,
+  "A": "114",
+  "B": "6. Tracking, Analytics und Ads",
+  "C": "Google Ads",
+  "D": "Conversion für Anruf-Klick eingerichtet?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 116,
+  "A": "115",
+  "B": "6. Tracking, Analytics und Ads",
+  "C": "Google Ads",
+  "D": "Conversion für E-Mail-Klick eingerichtet?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 117,
+  "A": "116",
+  "B": "6. Tracking, Analytics und Ads",
+  "C": "Google Ads",
+  "D": "Conversion für Kauf eingerichtet?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 118,
+  "A": "117",
+  "B": "6. Tracking, Analytics und Ads",
+  "C": "Google Ads",
+  "D": "Conversion für Terminbuchung eingerichtet?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 119,
+  "A": "118",
+  "B": "6. Tracking, Analytics und Ads",
+  "C": "Google Ads",
+  "D": "Conversion für Download eingerichtet?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 120,
+  "A": "119",
+  "B": "6. Tracking, Analytics und Ads",
+  "C": "Google Ads",
+  "D": "Conversion wird nur nach erfolgreicher Aktion ausgelöst?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 121,
+  "A": "120",
+  "B": "6. Tracking, Analytics und Ads",
+  "C": "Google Ads",
+  "D": "Dankeseite als Conversion-Ziel korrekt eingerichtet?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 122,
+  "A": "121",
+  "B": "6. Tracking, Analytics und Ads",
+  "C": "Google Ads",
+  "D": "Test-Conversion durchgeführt?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 123,
+  "A": "122",
+  "B": "6. Tracking, Analytics und Ads",
+  "C": "Google Ads",
+  "D": "Conversion in Google Ads nachvollziehbar?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 124,
+  "A": "123",
+  "B": "6. Tracking, Analytics und Ads",
+  "C": "Google Ads",
+  "D": "Keine doppelte Conversion-Messung?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 125,
+  "A": "124",
+  "B": "6. Tracking, Analytics und Ads",
+  "C": "Meta / Facebook Tracking",
+  "D": "Meta Pixel korrekt eingebunden, falls eingesetzt?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 126,
+  "A": "125",
+  "B": "6. Tracking, Analytics und Ads",
+  "C": "Meta / Facebook Tracking",
+  "D": "Pixel-ID korrekt?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 127,
+  "A": "126",
+  "B": "6. Tracking, Analytics und Ads",
+  "C": "Meta / Facebook Tracking",
+  "D": "PageView Event korrekt eingerichtet?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 128,
+  "A": "127",
+  "B": "6. Tracking, Analytics und Ads",
+  "C": "Meta / Facebook Tracking",
+  "D": "Lead Event korrekt eingerichtet?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 129,
+  "A": "128",
+  "B": "6. Tracking, Analytics und Ads",
+  "C": "Meta / Facebook Tracking",
+  "D": "Contact Event korrekt eingerichtet?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 130,
+  "A": "129",
+  "B": "6. Tracking, Analytics und Ads",
+  "C": "Meta / Facebook Tracking",
+  "D": "CompleteRegistration Event korrekt eingerichtet?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 131,
+  "A": "130",
+  "B": "6. Tracking, Analytics und Ads",
+  "C": "Meta / Facebook Tracking",
+  "D": "Purchase Event korrekt eingerichtet, falls relevant?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 132,
+  "A": "131",
+  "B": "6. Tracking, Analytics und Ads",
+  "C": "Meta / Facebook Tracking",
+  "D": "Events Manager zeigt Testevents?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 133,
+  "A": "132",
+  "B": "6. Tracking, Analytics und Ads",
+  "C": "Meta / Facebook Tracking",
+  "D": "Events feuern gemäß Consent-Einstellung?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 134,
+  "A": "133",
+  "B": "6. Tracking, Analytics und Ads",
+  "C": "Meta / Facebook Tracking",
+  "D": "Keine doppelte Pixel-Einbindung?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 135,
+  "A": "134",
+  "B": "6. Tracking, Analytics und Ads",
+  "C": "Tracking-Plugin / HCFM",
+  "D": "Alle Tracking Tools mit WordPress Plugin HCFM hinterlegt/gepflegt?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 136,
+  "A": "135",
+  "B": "6. Tracking, Analytics und Ads",
+  "C": "Tracking-Plugin / HCFM",
+  "D": "Google Analytics 4 über HCFM korrekt hinterlegt, falls darüber eingebunden?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 137,
+  "A": "136",
+  "B": "6. Tracking, Analytics und Ads",
+  "C": "Tracking-Plugin / HCFM",
+  "D": "Google Ads Tracking über HCFM korrekt hinterlegt, falls darüber eingebunden?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 138,
+  "A": "137",
+  "B": "6. Tracking, Analytics und Ads",
+  "C": "Tracking-Plugin / HCFM",
+  "D": "Meta Pixel über HCFM korrekt hinterlegt, falls darüber eingebunden?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 139,
+  "A": "138",
+  "B": "6. Tracking, Analytics und Ads",
+  "C": "Tracking-Plugin / HCFM",
+  "D": "Zusätzliche Tracking-Codes sauber im Header hinterlegt?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 140,
+  "A": "139",
+  "B": "6. Tracking, Analytics und Ads",
+  "C": "Tracking-Plugin / HCFM",
+  "D": "Zusätzliche Tracking-Codes sauber im Body hinterlegt?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 141,
+  "A": "140",
+  "B": "6. Tracking, Analytics und Ads",
+  "C": "Tracking-Plugin / HCFM",
+  "D": "Zusätzliche Tracking-Codes sauber im Footer hinterlegt?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 142,
+  "A": "141",
+  "B": "6. Tracking, Analytics und Ads",
+  "C": "Tracking-Plugin / HCFM",
+  "D": "Keine Tracking-Codes doppelt über HCFM, Theme, Plugin oder GTM eingebunden?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 143,
+  "A": "142",
+  "B": "7. Consent-Banner und Datenschutz-Tracking",
+  "C": "",
+  "D": "Consent-Banner korrekt eingebunden?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 144,
+  "A": "143",
+  "B": "7. Consent-Banner und Datenschutz-Tracking",
+  "C": "",
+  "D": "Banner erscheint beim ersten Besuch?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 145,
+  "A": "144",
+  "B": "7. Consent-Banner und Datenschutz-Tracking",
+  "C": "",
+  "D": "Banner funktioniert im Inkognito-Modus?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 146,
+  "A": "145",
+  "B": "7. Consent-Banner und Datenschutz-Tracking",
+  "C": "",
+  "D": "Ablehnen, Akzeptieren und individuelle Einstellungen funktionieren?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 147,
+  "A": "146",
+  "B": "7. Consent-Banner und Datenschutz-Tracking",
+  "C": "",
+  "D": "Google Analytics lädt erst nach Zustimmung, sofern rechtlich erforderlich?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 148,
+  "A": "147",
+  "B": "7. Consent-Banner und Datenschutz-Tracking",
+  "C": "",
+  "D": "Google Ads Tags laden erst nach Zustimmung, sofern rechtlich erforderlich?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 149,
+  "A": "148",
+  "B": "7. Consent-Banner und Datenschutz-Tracking",
+  "C": "",
+  "D": "Meta Pixel lädt erst nach Zustimmung, sofern rechtlich erforderlich?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 150,
+  "A": "149",
+  "B": "7. Consent-Banner und Datenschutz-Tracking",
+  "C": "",
+  "D": "Externe Medien wie YouTube, Google Maps oder Vimeo blockiert bis Zustimmung?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 151,
+  "A": "150",
+  "B": "7. Consent-Banner und Datenschutz-Tracking",
+  "C": "",
+  "D": "Impressum und Datenschutz im Footer verlinkt?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 152,
+  "A": "151",
+  "B": "7. Consent-Banner und Datenschutz-Tracking",
+  "C": "",
+  "D": "Consent-Banner auf mobilen Geräten korrekt bedienbar?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 153,
+  "A": "152",
+  "B": "7. Consent-Banner und Datenschutz-Tracking",
+  "C": "",
+  "D": "Keine Layout-Probleme durch Banner?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 154,
+  "A": "153",
+  "B": "8. SEO",
+  "C": "Technisches SEO",
+  "D": "SEO-Plugin konfiguriert?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 155,
+  "A": "154",
+  "B": "8. SEO",
+  "C": "Technisches SEO",
+  "D": "Einstellung in WordPress auf der Produktionsseite erlaubt das Lesen durch Suchmaschinen?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 156,
+  "A": "155",
+  "B": "8. SEO",
+  "C": "Technisches SEO",
+  "D": "Indexierung in WordPress aktiviert?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 157,
+  "A": "156",
+  "B": "8. SEO",
+  "C": "Technisches SEO",
+  "D": "Keine globale noindex-Einstellung aktiv?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 158,
+  "A": "157",
+  "B": "8. SEO",
+  "C": "Technisches SEO",
+  "D": "Robots.txt richtig konfiguriert?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 159,
+  "A": "158",
+  "B": "8. SEO",
+  "C": "Technisches SEO",
+  "D": "XML-Sitemap vorhanden?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 160,
+  "A": "159",
+  "B": "8. SEO",
+  "C": "Technisches SEO",
+  "D": "Sitemap bei Google Search Console eingereicht?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 161,
+  "A": "160",
+  "B": "8. SEO",
+  "C": "Technisches SEO",
+  "D": "Google Search Console eingerichtet?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 162,
+  "A": "161",
+  "B": "8. SEO",
+  "C": "Technisches SEO",
+  "D": "Sitemap enthält nur relevante URLs?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 163,
+  "A": "162",
+  "B": "8. SEO",
+  "C": "Technisches SEO",
+  "D": "Weiterleitungen korrekt eingerichtet?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 164,
+  "A": "163",
+  "B": "8. SEO",
+  "C": "Technisches SEO",
+  "D": "Keine unnötigen 301-/302-Ketten?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 165,
+  "A": "164",
+  "B": "8. SEO",
+  "C": "Technisches SEO",
+  "D": "404-Fehler geprüft?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 166,
+  "A": "165",
+  "B": "8. SEO",
+  "C": "Technisches SEO",
+  "D": "Sprachversionen / hreflang korrekt, falls mehrsprachig?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 167,
+  "A": "166",
+  "B": "8. SEO",
+  "C": "Technisches SEO",
+  "D": "URL-Struktur sauber?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 168,
+  "A": "167",
+  "B": "8. SEO",
+  "C": "Technisches SEO",
+  "D": "Permalinks suchmaschinenfreundlich?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 169,
+  "A": "168",
+  "B": "8. SEO",
+  "C": "Technisches SEO",
+  "D": "Breadcrumbs vorhanden, falls sinnvoll?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 170,
+  "A": "169",
+  "B": "8. SEO",
+  "C": "Technisches SEO",
+  "D": "Breadcrumb-Schema korrekt?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 171,
+  "A": "170",
+  "B": "8. SEO",
+  "C": "Meta-Daten",
+  "D": "Meta-Titel für alle wichtigen Seiten gesetzt?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 172,
+  "A": "171",
+  "B": "8. SEO",
+  "C": "Meta-Daten",
+  "D": "Meta-Descriptions für alle wichtigen Seiten gesetzt?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 173,
+  "A": "172",
+  "B": "8. SEO",
+  "C": "Meta-Daten",
+  "D": "Meta-Titel nicht zu lang?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 174,
+  "A": "173",
+  "B": "8. SEO",
+  "C": "Meta-Daten",
+  "D": "Meta-Descriptions nicht zu lang?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 175,
+  "A": "174",
+  "B": "8. SEO",
+  "C": "Meta-Daten",
+  "D": "Titel und Descriptions eindeutig pro Seite?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 176,
+  "A": "175",
+  "B": "8. SEO",
+  "C": "Meta-Daten",
+  "D": "Fokus-Keywords sinnvoll verwendet?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 177,
+  "A": "176",
+  "B": "8. SEO",
+  "C": "Meta-Daten",
+  "D": "Open Graph Titel und Beschreibungen gesetzt?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 178,
+  "A": "177",
+  "B": "8. SEO",
+  "C": "Meta-Daten",
+  "D": "Social Sharing Bild gesetzt?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 179,
+  "A": "178",
+  "B": "8. SEO",
+  "C": "Inhalte und OnPage-SEO",
+  "D": "Pro Seite genau eine sinnvolle H1?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 180,
+  "A": "179",
+  "B": "8. SEO",
+  "C": "Inhalte und OnPage-SEO",
+  "D": "H2-/H3-Struktur logisch?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 181,
+  "A": "180",
+  "B": "8. SEO",
+  "C": "Inhalte und OnPage-SEO",
+  "D": "Keywords natürlich integriert?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 182,
+  "A": "181",
+  "B": "8. SEO",
+  "C": "Inhalte und OnPage-SEO",
+  "D": "Interne Links sinnvoll gesetzt?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 183,
+  "A": "182",
+  "B": "8. SEO",
+  "C": "Inhalte und OnPage-SEO",
+  "D": "Wichtige Seiten von der Navigation erreichbar?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 184,
+  "A": "183",
+  "B": "8. SEO",
+  "C": "Inhalte und OnPage-SEO",
+  "D": "Bild-Alt-Texte gesetzt?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 185,
+  "A": "184",
+  "B": "8. SEO",
+  "C": "Inhalte und OnPage-SEO",
+  "D": "Dateinamen von Bildern SEO-freundlich?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 186,
+  "A": "185",
+  "B": "8. SEO",
+  "C": "Inhalte und OnPage-SEO",
+  "D": "Lokale SEO-Daten korrekt, falls relevant?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 187,
+  "A": "186",
+  "B": "8. SEO",
+  "C": "Inhalte und OnPage-SEO",
+  "D": "Adresse korrekt?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 188,
+  "A": "187",
+  "B": "8. SEO",
+  "C": "Inhalte und OnPage-SEO",
+  "D": "Telefonnummer korrekt?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 189,
+  "A": "188",
+  "B": "8. SEO",
+  "C": "Inhalte und OnPage-SEO",
+  "D": "Öffnungszeiten korrekt?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 190,
+  "A": "189",
+  "B": "8. SEO",
+  "C": "Inhalte und OnPage-SEO",
+  "D": "Standortseiten korrekt?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 191,
+  "A": "190",
+  "B": "8. SEO",
+  "C": "Inhalte und OnPage-SEO",
+  "D": "NAP-Daten konsistent: Name, Address, Phone?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 192,
+  "A": "191",
+  "B": "8. SEO",
+  "C": "Rich Snippets / strukturierte Daten",
+  "D": "Strukturierte Daten eingebunden?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 193,
+  "A": "192",
+  "B": "8. SEO",
+  "C": "Rich Snippets / strukturierte Daten",
+  "D": "Rich Snippets mit Google Rich Results Test geprüft?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 194,
+  "A": "193",
+  "B": "8. SEO",
+  "C": "Rich Snippets / strukturierte Daten",
+  "D": "Aggregate Rating korrekt eingebunden, falls vorhanden?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 195,
+  "A": "194",
+  "B": "8. SEO",
+  "C": "Rich Snippets / strukturierte Daten",
+  "D": "Bewertungen / Rezensionen korrekt ausgezeichnet?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 196,
+  "A": "195",
+  "B": "8. SEO",
+  "C": "Rich Snippets / strukturierte Daten",
+  "D": "Review-Markup nur dort eingesetzt, wo es zulässig und inhaltlich sichtbar ist?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 197,
+  "A": "196",
+  "B": "8. SEO",
+  "C": "Rich Snippets / strukturierte Daten",
+  "D": "LocalBusiness-Schema geprüft?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 198,
+  "A": "197",
+  "B": "8. SEO",
+  "C": "Rich Snippets / strukturierte Daten",
+  "D": "Organization-Schema geprüft?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 199,
+  "A": "198",
+  "B": "8. SEO",
+  "C": "Rich Snippets / strukturierte Daten",
+  "D": "FAQ-Schema geprüft, falls vorhanden?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 200,
+  "A": "199",
+  "B": "8. SEO",
+  "C": "Rich Snippets / strukturierte Daten",
+  "D": "Breadcrumb-Schema geprüft?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 201,
+  "A": "200",
+  "B": "8. SEO",
+  "C": "Rich Snippets / strukturierte Daten",
+  "D": "Product-, Service- oder Event-Schema geprüft, falls relevant?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 202,
+  "A": "201",
+  "B": "8. SEO",
+  "C": "Rich Snippets / strukturierte Daten",
+  "D": "Keine fehlerhaften oder irreführenden strukturierten Daten?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 203,
+  "A": "202",
+  "B": "8. SEO",
+  "C": "Rich Snippets / strukturierte Daten",
+  "D": "Strukturierte Daten auf allen relevanten Seiten vorhanden?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 204,
+  "A": "203",
+  "B": "8. SEO",
+  "C": "Rich Snippets / strukturierte Daten",
+  "D": "Keine Duplicate-Schema-Konflikte durch mehrere Plugins?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 205,
+  "A": "204",
+  "B": "9. Sicherheit",
+  "C": "",
+  "D": "In WPMUDEV als Wartungskunde durch eigene Checkliste eingerichtet?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 206,
+  "A": "205",
+  "B": "10. Performance",
+  "C": "",
+  "D": "Bilder optimiert?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 207,
+  "A": "206",
+  "B": "10. Performance",
+  "C": "",
+  "D": "Moderne Bildformate verwendet, z.B. WebP?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 208,
+  "A": "207",
+  "B": "10. Performance",
+  "C": "",
+  "D": "Lazy Loading aktiv?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 209,
+  "A": "208",
+  "B": "10. Performance",
+  "C": "",
+  "D": "Videos performant eingebunden?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 210,
+  "A": "209",
+  "B": "10. Performance",
+  "C": "",
+  "D": "Fonts lokal oder performant geladen?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 211,
+  "A": "210",
+  "B": "10. Performance",
+  "C": "",
+  "D": "Keine unnötigen Plugins aktiv?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 212,
+  "A": "211",
+  "B": "10. Performance",
+  "C": "",
+  "D": "Seitenladegeschwindigkeit geprüft mit PageSpeed Insights?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 213,
+  "A": "212",
+  "B": "10. Performance",
+  "C": "",
+  "D": "Mobile Performance geprüft?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 214,
+  "A": "213",
+  "B": "11. Rechtliche Konformität & Freigabe",
+  "C": "",
+  "D": "Impressum aktuell?",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 215,
+  "A": "214",
+  "B": "11. Rechtliche Konformität & Freigabe",
+  "C": "",
+  "D": "Datenschutzerklärung aktuell?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 216,
+  "A": "215",
+  "B": "11. Rechtliche Konformität & Freigabe",
+  "C": "",
+  "D": "Impressum und Datenschutzseiten sind erreichbar und mit den richtigen Inhalten befüllt.",
+  "E": "Atlas Mars",
+  "F": "Erledigt",
+  "G": ""
+ },
+ {
+  "row": 217,
+  "A": "216",
+  "B": "11. Rechtliche Konformität & Freigabe",
+  "C": "",
+  "D": "Go-Live-Checkliste abgeschlossen?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 218,
+  "A": "217",
+  "B": "11. Rechtliche Konformität & Freigabe",
+  "C": "",
+  "D": "Kunde hat finale Freigabe erteilt?",
+  "E": "Atlas Mars",
+  "F": "Offen",
+  "G": ""
+ },
+ {
+  "row": 219,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 220,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 221,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 222,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 223,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 224,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 225,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 226,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 227,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 228,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 229,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 230,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 231,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 232,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 233,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 234,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 235,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 236,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 237,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 238,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 239,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 240,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 241,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 242,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 243,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 244,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 245,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 246,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 247,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 248,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 249,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 250,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 251,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 252,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 253,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 254,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 255,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 256,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 257,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 258,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 259,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 260,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 261,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 262,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 263,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 264,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 265,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 266,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 267,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 268,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 269,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 270,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 271,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 272,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 273,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 274,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 275,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 276,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 277,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 278,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 279,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 280,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 281,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 282,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 283,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 284,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 285,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 286,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 287,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 288,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 289,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 290,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 291,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 292,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 293,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 294,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 295,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 296,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 297,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 298,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 299,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ },
+ {
+  "row": 300,
+  "A": "",
+  "B": "",
+  "C": "",
+  "D": "",
+  "E": "",
+  "F": "",
+  "G": ""
+ }
+]
