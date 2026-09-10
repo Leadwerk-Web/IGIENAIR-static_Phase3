@@ -1,0 +1,7 @@
+.igienair-video { width: min(100%, 48rem); margin: 2rem auto; }
+.igienair-video__preview { display: grid; gap: .75rem; color: inherit; text-decoration: none; }
+.igienair-video__preview img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 1rem; }
+.igienair-video__preview span { font-weight: 700; text-decoration: underline; }
+.igienair-video__preview:focus-visible { outline: 3px solid currentColor; outline-offset: 5px; }
+.igienair-video__frame { display: block; width: 100%; aspect-ratio: 16 / 9; border: 0; border-radius: 1rem; }
+.igienair-video figcaption { margin-top: .75rem; font-size: .875rem; }
