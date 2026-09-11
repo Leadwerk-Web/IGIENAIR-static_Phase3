@@ -1075,9 +1075,23 @@ body.is-scrolled .button--header {
   max-width: 980px;
   font-size: var(--home-hero-h1-size);
   font-weight: 600;
-  line-height: 0.94;
+  line-height: 1.02;
   letter-spacing: -0.03em;
   text-wrap: balance;
+}
+
+.hero__subline {
+  max-width: 760px;
+  margin: 18px auto 0;
+  color: var(--color-white);
+  font-size: clamp(16px, 1.55vw, 22px);
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+  text-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.78),
+    0 0 12px rgba(0, 0, 0, 0.4);
 }
 
 .hero-breadcrumb {
@@ -6835,6 +6849,12 @@ main > .job-detail-hero + section {
     font-size: clamp(38px, 7.8vw, 88px);
   }
 
+  .hero__subline {
+    margin-top: 14px;
+    font-size: clamp(15px, 2.4vw, 18px);
+    padding: 0 8px;
+  }
+
   .hero-stats {
     align-items: center;
     flex-wrap: wrap;
@@ -7319,6 +7339,12 @@ main > .job-detail-hero + section {
     padding-top: clamp(112px, 13svh, 136px);
     padding-bottom: 16px;
     min-height: 0;
+  }
+
+  .hero__subline {
+    margin-top: 12px;
+    font-size: 15px;
+    line-height: 1.4;
   }
 
   .hero__bottom {
