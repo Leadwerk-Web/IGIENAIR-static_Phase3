@@ -453,18 +453,42 @@ function leadwerk_theme_meta_tags() {
 	if ( $robots ) {
 		echo '<meta name="robots" content="' . esc_attr( $robots ) . '">' . "\n";
 	}
+	$og_image_id = absint( get_post_meta( $id, 'leadwerk_og_image_id', true ) );
+	if ( $og_image_id ) {
+		$og_image = wp_get_attachment_image_src( $og_image_id, 'full' );
+		if ( is_array( $og_image ) && ! empty( $og_image[0] ) ) {
+			echo '<meta property="og:title" content="' . esc_attr( wp_get_document_title() ) . '">' . "\n";
+			if ( $description ) {
+				echo '<meta property="og:description" content="' . esc_attr( $description ) . '">' . "\n";
+			}
+			echo '<meta property="og:url" content="' . esc_url( $canonical ? $canonical : get_permalink( $id ) ) . '">' . "\n";
+			echo '<meta property="og:image" content="' . esc_url( $og_image[0] ) . '">' . "\n";
+			echo '<meta property="og:image:width" content="' . (int) $og_image[1] . '">' . "\n";
+			echo '<meta property="og:image:height" content="' . (int) $og_image[2] . '">' . "\n";
+			echo '<meta name="twitter:card" content="summary_large_image">' . "\n";
+			echo '<meta name="twitter:image" content="' . esc_url( $og_image[0] ) . '">' . "\n";
+		}
+	}
 }
 add_action( 'wp_head', 'leadwerk_theme_meta_tags', 2 );
 
 /**
- * SVG-Favicon wie im statischen Original ausgeben. Moderne Browser bevorzugen
- * das SVG (sizes="any"), die PNG-Site-Icons von WordPress bleiben als
- * Fallback fuer aeltere Browser und Apple-Touch bestehen.
+ * Vollstaendiges Favicon-Set aus dem Theme ausgeben: ICO fuer alte Clients und
+ * Google, SVG fuer moderne Browser, 96px-PNG fuer die Google-Suche, Apple-Touch-Icon
+ * und Web-Manifest mit 192/512px. Die WordPress-Site-Icon-Ausgabe wird abgeloest,
+ * damit kein SVG mehr als Site-Icon ausgeliefert wird (Google zeigt sonst kein Icon).
  */
 function leadwerk_theme_svg_favicon() {
-	echo '<link rel="icon" href="' . esc_url( LEADWERK_THEME_URI . '/assets/images/logos/favicon.svg' ) . '" type="image/svg+xml" sizes="any">' . "\n";
+	$logos = LEADWERK_THEME_URI . '/assets/images/logos/';
+	echo '<link rel="icon" href="' . esc_url( $logos . 'favicon.ico' ) . '" sizes="32x32">' . "\n";
+	echo '<link rel="icon" href="' . esc_url( $logos . 'favicon.svg' ) . '" type="image/svg+xml">' . "\n";
+	echo '<link rel="icon" href="' . esc_url( $logos . 'favicon-96.png' ) . '" type="image/png" sizes="96x96">' . "\n";
+	echo '<link rel="icon" href="' . esc_url( $logos . 'favicon-192.png' ) . '" type="image/png" sizes="192x192">' . "\n";
+	echo '<link rel="apple-touch-icon" href="' . esc_url( $logos . 'apple-touch-icon.png' ) . '">' . "\n";
+	echo '<link rel="manifest" href="' . esc_url( $logos . 'site.webmanifest' ) . '">' . "\n";
 }
 add_action( 'wp_head', 'leadwerk_theme_svg_favicon', 1 );
+remove_action( 'wp_head', 'wp_site_icon', 99 );
 
 function leadwerk_theme_get_yoast_analysis_content( $post_id ) {
 	$content = leadwerk_theme_render_current_page_content( (int) $post_id );

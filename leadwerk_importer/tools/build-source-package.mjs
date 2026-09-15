@@ -25,6 +25,11 @@ const excludedRoots = new Set([
   "leadwerk-wpml-clone",
   "leadwerk_importer",
   "leadwerk_theme",
+  "leadwerk_theme 2",
+  "_golive_audit",
+  "dist",
+  "docs",
+  "404.html",
 ]);
 
 const sha256 = (value) =>
@@ -196,6 +201,20 @@ for (const sourceFile of htmlFiles) {
     html,
     /<meta[^>]+name=["']robots["'][^>]+content=["']([^"']*)/i,
   );
+  // Open-Graph-Bild: im statischen HTML absolut (Pages-Vorschau), im Paket relativ zum Repository
+  const ogImageRaw = getMatch(
+    html,
+    /<meta[^>]+property=["']og:image["'][^>]+content=["']([^"']*)/i,
+  );
+  const ogImage = ogImageRaw
+    .replace(/^https?:\/\/[^/]+\/IGIENAIR-static_Phase3\//i, "")
+    .replace(/^\.?\//, "");
+  const ogImagePath =
+    ogImage && /^Bildmaterial_final\//.test(ogImage) ? ogImage : "";
+  const ogImageAlt = getMatch(
+    html,
+    /<meta[^>]+property=["']og:image:alt["'][^>]+content=["']([^"']*)/i,
+  );
 
   if (!mainHtml) {
     throw new Error(`Missing <main> element: ${sourceFile}`);
@@ -225,10 +244,17 @@ for (const sourceFile of htmlFiles) {
     canonical,
     robots,
     body_class: bodyClass,
+    og_image: ogImagePath,
+    og_image_alt: ogImageAlt,
     checksum: sha256(html),
     main_checksum: sha256(mainHtml),
     normalized_main: normalizedMain,
-    dependencies: getDependencies(html, sourceFile),
+    dependencies: [
+      ...new Set([
+        ...getDependencies(html, sourceFile),
+        ...(ogImagePath ? [ogImagePath] : []),
+      ]),
+    ].sort(),
     is_front_page: sourceFile === "index.html",
     status: "publish",
     language: "de",

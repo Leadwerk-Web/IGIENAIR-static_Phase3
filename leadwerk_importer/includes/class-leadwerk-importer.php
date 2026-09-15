@@ -267,6 +267,26 @@ class Leadwerk_Importer {
 		update_post_meta( $post_id, '_yoast_wpseo_title', sanitize_text_field( $config['document_title'] ?? $config['title'] ) );
 		update_post_meta( $post_id, '_yoast_wpseo_metadesc', sanitize_text_field( $config['meta_description'] ) );
 		update_post_meta( $post_id, '_yoast_wpseo_canonical', esc_url_raw( $config['canonical'] ) );
+		$og_image_id = 0;
+		if ( ! empty( $config['og_image'] ) ) {
+			$og_import = $this->media->import( $this->normalize_path( (string) $config['og_image'] ) );
+			if ( ! is_wp_error( $og_import ) && $og_import ) {
+				$og_image_id = (int) $og_import;
+				if ( ! empty( $config['og_image_alt'] ) ) {
+					update_post_meta( $og_image_id, '_wp_attachment_image_alt', sanitize_text_field( $config['og_image_alt'] ) );
+				}
+			}
+		}
+		if ( $og_image_id ) {
+			$og_image_url = (string) wp_get_attachment_url( $og_image_id );
+			update_post_meta( $post_id, 'leadwerk_og_image_id', $og_image_id );
+			update_post_meta( $post_id, '_yoast_wpseo_opengraph-image', esc_url_raw( $og_image_url ) );
+			update_post_meta( $post_id, '_yoast_wpseo_opengraph-image-id', $og_image_id );
+			update_post_meta( $post_id, '_yoast_wpseo_twitter-image', esc_url_raw( $og_image_url ) );
+			update_post_meta( $post_id, '_yoast_wpseo_twitter-image-id', $og_image_id );
+		} else {
+			delete_post_meta( $post_id, 'leadwerk_og_image_id' );
+		}
 		if ( false !== stripos( (string) $config['robots'], 'noindex' ) ) {
 			update_post_meta( $post_id, '_yoast_wpseo_meta-robots-noindex', '1' );
 		} else {
@@ -526,12 +546,12 @@ class Leadwerk_Importer {
 		$site_icon_metadata = $site_icon_id ? wp_get_attachment_metadata( $site_icon_id ) : array();
 		$site_icon_valid = $site_icon_id
 			&& get_post( $site_icon_id )
-			&& in_array( (string) get_post_mime_type( $site_icon_id ), array( 'image/png', 'image/jpeg', 'image/webp' ), true )
+			&& in_array( (string) get_post_mime_type( $site_icon_id ), array( 'image/png', 'image/jpeg' ), true )
 			&& is_array( $site_icon_metadata )
 			&& absint( $site_icon_metadata['width'] ?? 0 ) >= 512
 			&& absint( $site_icon_metadata['height'] ?? 0 ) >= 512;
 		if ( ! $site_icon_valid ) {
-			$site_icon_id = $this->media->import( 'Bildmaterial_final/logos/favicon-512.webp' );
+			$site_icon_id = $this->media->import( 'Bildmaterial_final/logos/favicon-512.png' );
 			if ( ! is_wp_error( $site_icon_id ) && $site_icon_id ) {
 				update_post_meta( (int) $site_icon_id, '_wp_attachment_image_alt', 'IGIENAIR' );
 				update_option( 'site_icon', (int) $site_icon_id );
