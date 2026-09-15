@@ -14837,7 +14837,7 @@ a.sector-card{color:inherit;text-decoration:none}
 
 .page-filtertest .filtertest-why__pills .cleaning-pill-list {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
   gap: 18px;
   width: 100%;
   min-width: 0;
@@ -16600,7 +16600,7 @@ a.sector-card{color:inherit;text-decoration:none}
   }
 
   .glossary-group__cards {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
@@ -21440,4 +21440,46 @@ body[class*="page-"] .job-detail-hero h1 {
     padding: 8px 12px;
     font-size: 13px;
   }
+}
+
+/* Nachtrag Responsive 15.09.2026 */
+.usp-strip__list li {
+  min-width: 0;
+}
+
+.usp-strip__list strong,
+.usp-strip__list span {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 420px) {
+  .usp-strip__list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.glossary-card,
+.glossary-card__link {
+  min-width: 0;
+}
+
+@media (max-width: 767px) {
+  .glossary-group {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.page-filtertest .filtertest-why__pills.cleaning-services__pills {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.cleaning-pill {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+/* Reinraum: eigenes Kopfbild (Filterlecktest), die Anlagen-Sammelregel darf es nicht ueberschreiben */
+.page-anlagen.page-cleanroom .company-hero {
+  --hero-bg-image: url("./Bildmaterial_final/anlagen/reinraumqualifizierung/reinraum-filterlecktest-decke.webp");
+  --hero-bg-position: center 40%;
 }
