@@ -192,6 +192,11 @@ iframe {
   max-width: 100%;
 }
 
+img,
+video {
+  height: auto;
+}
+
 button,
 input,
 select,
@@ -924,7 +929,9 @@ body.menu-open .mobile-menu-toggle__bar:nth-child(3) {
 .header-badge-link {
   display: inline-flex;
   flex-shrink: 0;
+  align-self: center;
   line-height: 0;
+  max-height: 64px;
   border-radius: 4px;
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
@@ -937,6 +944,10 @@ body.menu-open .mobile-menu-toggle__bar:nth-child(3) {
 
 .header-badge {
   width: clamp(42px, 4vw, 64px);
+  height: auto;
+  max-height: 64px;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
 }
 
 body.is-scrolled .site-header {
