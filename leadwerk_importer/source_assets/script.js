@@ -33,17 +33,88 @@ function resolveAssetPath(relativePath) {
   }
 }
 
+function toSiteRoute(pathname) {
+  if (!pathname || pathname === "/") {
+    return "/";
+  }
+
+  const withoutIndex = pathname.replace(/\/index\.html$/i, "/");
+  const clean = withoutIndex.replace(/^\/+|\/+$/g, "");
+  return clean ? `/${clean}/` : "/";
+}
+
+function applySitePathParts(base, hash, query) {
+  try {
+    const targetUrl = new URL(base, window.location.href);
+    targetUrl.hash = hash;
+    targetUrl.search = query;
+    return targetUrl.href;
+  } catch {
+    return `${base}${query}${hash}`;
+  }
+}
+
+function permalinkFromDocument(route) {
+  const keyed = {
+    "/": "igienair-home",
+    "/kontakt/": "igienair-kontakt",
+    "/danke/": "igienair-danke",
+  };
+  const sourceKey = keyed[route];
+  if (sourceKey) {
+    const refLink = document.querySelector(`a[data-lw-page-ref="${sourceKey}"]`);
+    if (refLink?.getAttribute("href")) {
+      try {
+        const url = new URL(refLink.href, window.location.href);
+        url.hash = "";
+        url.search = "";
+        return url.href;
+      } catch {
+        return refLink.getAttribute("href");
+      }
+    }
+  }
+
+  const anchors = document.querySelectorAll("a[href]");
+  for (const anchor of anchors) {
+    const href = anchor.getAttribute("href");
+    if (!href || href.startsWith("#") || /^(mailto|tel|javascript):/i.test(href)) {
+      continue;
+    }
+
+    try {
+      const url = new URL(anchor.href, window.location.href);
+      if (url.origin !== window.location.origin) {
+        continue;
+      }
+      if (toSiteRoute(url.pathname) !== route) {
+        continue;
+      }
+      url.hash = "";
+      url.search = "";
+      return url.href;
+    } catch {
+      // Ignore malformed hrefs.
+    }
+  }
+
+  return null;
+}
+
+function isWordPressRuntime(script) {
+  const src = (script && (script.src || script.getAttribute("src"))) || "";
+  return Boolean(window.leadwerkSitePaths) || /\/wp-content\//i.test(src);
+}
+
 function resolveSitePath(urlPath) {
   const script = document.querySelector('script[src*="script.js"]');
   let prefix = "";
 
   if (script) {
     const src = script.getAttribute("src") || "";
-    if (!src.startsWith("/")) {
+    if (!src.startsWith("/") && !/^(https?:)?\/\//i.test(src)) {
       const ups = (src.match(/\.\.\//g) || []).length;
       prefix = ups ? "../".repeat(ups) : "";
-    } else {
-      return urlPath;
     }
   }
 
@@ -53,19 +124,21 @@ function resolveSitePath(urlPath) {
   const hashIdx = pathAndHash.indexOf("#");
   const hash = hashIdx >= 0 ? pathAndHash.slice(hashIdx) : "";
   const pathname = hashIdx >= 0 ? pathAndHash.slice(0, hashIdx) : pathAndHash;
-  const route = pathname === "/"
-    ? "/"
-    : `/${pathname.replace(/^\/+|\/+$/g, "")}/`;
-  const wordpressTarget = window.leadwerkSitePaths?.[route];
+  const route = toSiteRoute(pathname);
+  const wordpressTarget = window.leadwerkSitePaths?.[route] || permalinkFromDocument(route);
 
   if (wordpressTarget) {
-    try {
-      const targetUrl = new URL(wordpressTarget, window.location.href);
-      targetUrl.hash = hash;
-      targetUrl.search = query;
-      return targetUrl.href;
-    } catch {
-      return `${wordpressTarget}${query}${hash}`;
+    return applySitePathParts(wordpressTarget, hash, query);
+  }
+
+  if (isWordPressRuntime(script)) {
+    return applySitePathParts(new URL(route, window.location.origin).href, hash, query);
+  }
+
+  if (script) {
+    const src = script.getAttribute("src") || "";
+    if (src.startsWith("/")) {
+      return urlPath;
     }
   }
 
