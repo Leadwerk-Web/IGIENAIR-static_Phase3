@@ -235,6 +235,11 @@ function prefersReducedMotion() {
 }
 
 function getLenisScriptSrc() {
+  const existing = document.querySelector('script[src*="lenis.min.js"]');
+  if (existing?.src) {
+    return existing.src;
+  }
+
   const script = document.querySelector('script[src*="script.js"], script[src*="site.js"]');
 
   if (script?.src.includes("/assets/js/site.js") || script?.src.includes("leadwerk_theme")) {
