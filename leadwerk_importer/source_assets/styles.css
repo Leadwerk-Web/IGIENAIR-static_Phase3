@@ -21494,3 +21494,43 @@ body[class*="page-"] .job-detail-hero h1 {
   --hero-bg-image: url("./Bildmaterial_final/anlagen/reinraumqualifizierung/reinraum-filterlecktest-decke.webp");
   --hero-bg-position: center 40%;
 }
+
+/* Startseiten-Hero, Wunsch des Kunden vom 11.09.2026: Ueberschrift auf Desktop und Mobil tiefer
+   setzen und auf eine leicht transparente Flaeche legen, damit das Video frei bleibt. */
+.hero .hero__content {
+  align-content: end !important;
+  padding-bottom: clamp(20px, 5vh, 56px) !important;
+}
+
+.hero .hero__panel {
+  display: grid;
+  justify-items: center;
+  max-width: min(100%, 860px);
+  padding: 16px 32px 20px;
+  border-radius: 16px;
+  background: rgba(9, 40, 89, 0.42);
+  border: 1px solid rgba(141, 199, 255, 0.22);
+  box-shadow: 0 10px 28px rgba(7, 32, 66, 0.22);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
+.hero .hero__panel h1 {
+  margin: 0;
+}
+
+@media (max-width: 767px) {
+  .hero {
+    min-height: 100svh !important;
+  }
+
+  .hero .hero__content {
+    flex: 1 1 auto !important;
+    padding-bottom: clamp(14px, 3svh, 28px) !important;
+  }
+
+  .hero .hero__panel {
+    padding: 12px 18px 14px;
+    border-radius: 12px;
+  }
+}
